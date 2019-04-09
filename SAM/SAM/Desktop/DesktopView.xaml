@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="SAM.Desktop.DesktopView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:SAM.Desktop"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:taskbar="using:SAM.Taskbar"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid Background="Red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <taskbar:TaskbarView
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            ViewModel="{x:Bind Path=ViewModel.TaskbarViewModel, Mode=OneWay}" />
+    </Grid>
+</Page>

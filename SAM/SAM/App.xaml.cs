@@ -3,6 +3,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using SAM.OuterNav;
+using SAM.Desktop;
+using SAM.Taskbar;
 
 namespace SAM
 {
@@ -82,7 +84,9 @@ namespace SAM
             // TODO
             lock (_initLock)
             { 
-                _outerNavViewModel = new OuterNavViewModel();
+                _taskbarViewModel = new TaskbarViewModel();
+                _desktopViewModel = new DesktopViewModel(_taskbarViewModel);
+                _outerNavViewModel = new OuterNavViewModel(_desktopViewModel);
             }
         }
 
@@ -91,5 +95,7 @@ namespace SAM
         private AppState _state = AppState.FirstLaunch;
 
         private OuterNavViewModel _outerNavViewModel;
+        private DesktopViewModel _desktopViewModel;
+        private TaskbarViewModel _taskbarViewModel;
     }
 }

@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SAM.OuterNav
+namespace SAM.Taskbar
 {
-    public class OuterNavViewModel : INotifyPropertyChanged
+    public class TaskbarViewModel : INotifyPropertyChanged
     {
-        public OuterNavViewModel()
-        {
-        }
-
         #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;

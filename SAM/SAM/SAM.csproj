@@ -120,12 +120,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\DesktopView.xaml.cs">
+      <DependentUpon>DesktopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\DesktopViewModel.cs" />
     <Compile Include="ObservableList.cs" />
-    <Compile Include="OuterNavPage\OuterNavPage.xaml.cs">
+    <Compile Include="OuterNav\OuterNavPage.xaml.cs">
       <DependentUpon>OuterNavPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OuterNavPage\OuterNavViewModel.cs" />
+    <Compile Include="OuterNav\OuterNavViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Taskbar\TaskbarView.xaml.cs">
+      <DependentUpon>TaskbarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Taskbar\TaskbarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -148,7 +156,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="OuterNavPage\OuterNavPage.xaml">
+    <Page Include="Desktop\DesktopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OuterNav\OuterNavPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Taskbar\TaskbarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
