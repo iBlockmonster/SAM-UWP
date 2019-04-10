@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using SAM.OuterNav;
 using SAM.Desktop;
 using SAM.Taskbar;
+using SAM.Menu;
 
 namespace SAM
 {
@@ -83,9 +84,10 @@ namespace SAM
             await Task.Delay(100);
             // TODO
             lock (_initLock)
-            { 
+            {
+                _menuViewModel = new MenuViewModel();
                 _taskbarViewModel = new TaskbarViewModel();
-                _desktopViewModel = new DesktopViewModel(_taskbarViewModel);
+                _desktopViewModel = new DesktopViewModel(_taskbarViewModel, _menuViewModel);
                 _outerNavViewModel = new OuterNavViewModel(_desktopViewModel);
             }
         }
@@ -97,5 +99,6 @@ namespace SAM
         private OuterNavViewModel _outerNavViewModel;
         private DesktopViewModel _desktopViewModel;
         private TaskbarViewModel _taskbarViewModel;
+        private MenuViewModel _menuViewModel;
     }
 }
