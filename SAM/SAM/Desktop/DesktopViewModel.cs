@@ -51,9 +51,13 @@ namespace SAM.Desktop
                 {
                     _showMenu = value;
                     RaisePropertyChangedFromSource();
+
+                    ShowMenuChanged?.Invoke(_showMenu);
                 }
             }
         }
+
+        public event Action<bool> ShowMenuChanged;
 
         #region INotifyPropertyChanged
 

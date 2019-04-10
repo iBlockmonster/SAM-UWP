@@ -20,10 +20,11 @@
             HorizontalAlignment="Stretch"
             ViewModel="{x:Bind Path=ViewModel.TaskbarViewModel, Mode=OneWay}" />
         <menu:MenuView
+            x:Name="Menu"
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             ViewModel="{x:Bind Path=ViewModel.MenuViewModel, Mode=OneWay}"
-            Visibility="{x:Bind Path=ViewModel.ShowMenu, Mode=OneWay}" />
+            Visibility="Collapsed" />
     </Grid>
 </Page>
