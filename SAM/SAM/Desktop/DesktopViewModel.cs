@@ -1,4 +1,5 @@
-﻿using SAM.Taskbar;
+﻿using SAM.Menu;
+using SAM.Taskbar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,15 +12,47 @@ namespace SAM.Desktop
 {
     public class DesktopViewModel : INotifyPropertyChanged
     {
-        public DesktopViewModel(TaskbarViewModel taskbar)
+        public DesktopViewModel(TaskbarViewModel taskbar, MenuViewModel menu)
         {
+            if (taskbar == null)
+            {
+                throw new ArgumentNullException("taskbar");
+            }
             _taskbarViewModel = taskbar;
+            _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
+
+            _menuViewModel = menu;
         }
 
-        private TaskbarViewModel _taskbarViewModel;
+        private readonly TaskbarViewModel _taskbarViewModel;
         public TaskbarViewModel TaskbarViewModel
         {
             get { return _taskbarViewModel; }
+        }
+
+        private void _taskbarViewModel_MenuRequested()
+        {
+            ShowMenu = !_showMenu;
+        }
+
+        private readonly MenuViewModel _menuViewModel;
+        public MenuViewModel MenuViewModel
+        {
+            get { return _menuViewModel; }
+        }
+
+        private bool _showMenu = false;
+        public bool ShowMenu
+        {
+            get { return _showMenu; }
+            set
+            {
+                if (_showMenu != value)
+                {
+                    _showMenu = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
         }
 
         #region INotifyPropertyChanged

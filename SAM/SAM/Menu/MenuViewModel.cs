@@ -5,19 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
 
-namespace SAM.Taskbar
+namespace SAM.Menu
 {
-    public class TaskbarViewModel : INotifyPropertyChanged
+    public class MenuViewModel : INotifyPropertyChanged
     {
-        public void OnClick(object sender, RoutedEventArgs e)
-        {
-            MenuRequested?.Invoke();
-        }
-
-        public event Action MenuRequested;
-
         #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;

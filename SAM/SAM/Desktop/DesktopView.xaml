@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Desktop"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:menu="using:SAM.Menu"
     xmlns:taskbar="using:SAM.Taskbar"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
@@ -18,5 +19,11 @@
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             ViewModel="{x:Bind Path=ViewModel.TaskbarViewModel, Mode=OneWay}" />
+        <menu:MenuView
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            ViewModel="{x:Bind Path=ViewModel.MenuViewModel, Mode=OneWay}"
+            Visibility="{x:Bind Path=ViewModel.ShowMenu, Mode=OneWay}" />
     </Grid>
 </Page>

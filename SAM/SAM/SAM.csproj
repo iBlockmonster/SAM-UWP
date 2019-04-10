@@ -124,6 +124,10 @@
       <DependentUpon>DesktopView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Desktop\DesktopViewModel.cs" />
+    <Compile Include="Menu\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="ObservableList.cs" />
     <Compile Include="OuterNav\OuterNavPage.xaml.cs">
       <DependentUpon>OuterNavPage.xaml</DependentUpon>
@@ -157,6 +161,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Desktop\DesktopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
