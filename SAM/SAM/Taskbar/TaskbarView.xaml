@@ -9,5 +9,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Height="48" Background="Green" />
+    <Grid Height="48" Background="Green">
+        <Button Click="{x:Bind Path=ViewModel.OnClick, Mode=OneWay}" Content="Test" />
+    </Grid>
 </UserControl>
