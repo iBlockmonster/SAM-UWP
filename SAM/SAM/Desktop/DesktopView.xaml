@@ -2,6 +2,7 @@
     x:Class="SAM.Desktop.DesktopView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Custom="using:SAM.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Desktop"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -21,13 +22,13 @@
         <taskbar:TaskbarView
             Grid.Row="1"
             HorizontalAlignment="Stretch"
-            ViewModel="{x:Bind Path=ViewModel.TaskbarViewModel, Mode=OneWay}" />
+            ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.TaskbarViewModel}" />
         <menu:MenuView
             x:Name="Menu"
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            ViewModel="{x:Bind Path=ViewModel.MenuViewModel, Mode=OneWay}"
+            ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.MenuViewModel}"
             Visibility="Collapsed" />
     </Grid>
 </Page>

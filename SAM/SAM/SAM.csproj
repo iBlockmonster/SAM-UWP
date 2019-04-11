@@ -120,6 +120,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HeaderUserControl.xaml.cs">
+      <DependentUpon>HeaderUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\DesktopView.xaml.cs">
       <DependentUpon>DesktopView.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,9 @@
       <DependentUpon>TaskbarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Taskbar\TaskbarViewModel.cs" />
+    <Compile Include="UserControls\HotelServicesUserControl.xaml.cs">
+      <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -147,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\MirrorCacheImages\1200px-Las_Vegas_Paris_By_Night.jpg" />
+    <Content Include="Assets\MirrorCacheImages\card13.png" />
     <Content Include="Assets\MirrorCacheImages\CustomizeSettings.png" />
     <Content Include="Assets\MirrorCacheImages\default-news-image.jpg" />
     <Content Include="Assets\MirrorCacheImages\DineOutOptions.png" />
@@ -184,6 +191,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\HeaderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Desktop\DesktopView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Taskbar\TaskbarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HotelServicesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
