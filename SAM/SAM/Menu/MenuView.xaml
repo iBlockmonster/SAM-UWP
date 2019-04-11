@@ -12,5 +12,7 @@
     <Grid
         Width="600"
         Height="400"
-        Background="Blue" />
+        Background="#FF2222DB" >
+        <Rectangle Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+    </Grid>
 </UserControl>

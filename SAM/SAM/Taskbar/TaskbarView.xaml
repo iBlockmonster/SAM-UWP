@@ -9,7 +9,11 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Height="48" Background="Green">
-        <Button Click="{x:Bind Path=ViewModel.OnClick, Mode=OneWay}" Content="Test" />
+    <Grid Height="48" Background="{ThemeResource SystemControlAcrylicElementBrush}">
+        <Button
+            HorizontalAlignment="Center"
+            Click="{x:Bind Path=ViewModel.OnClick, Mode=OneWay}"
+            Content="MC"
+            Style="{StaticResource ButtonRevealStyle}" />
     </Grid>
 </UserControl>
