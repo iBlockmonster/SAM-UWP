@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="LayoutRoot">
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/MirrorCacheImages/1200px-Las_Vegas_Paris_By_Night.jpg" />
         </Grid.Background>
