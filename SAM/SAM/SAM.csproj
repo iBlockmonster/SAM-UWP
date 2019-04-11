@@ -160,6 +160,7 @@
     <Content Include="Assets\MirrorCacheImages\ExploreLocalArea.png" />
     <Content Include="Assets\MirrorCacheImages\GetStartedLocking.png" />
     <Content Include="Assets\MirrorCacheImages\HotelAmenities.png" />
+    <Content Include="Assets\MirrorCacheImages\marriott logo.png" />
     <Content Include="Assets\MirrorCacheImages\OrderCoffee.png" />
     <Content Include="Assets\MirrorCacheImages\ParisNight.png" />
     <Content Include="Assets\MirrorCacheImages\PlayMusic.png" />

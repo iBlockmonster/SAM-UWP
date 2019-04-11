@@ -11,7 +11,7 @@
 
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="200" />
+            <RowDefinition Height="Auto" MinHeight="0" />
             <RowDefinition Height="Auto" MinHeight="0" />
             <RowDefinition Height="Auto" MinHeight="0" />
             <RowDefinition Height="Auto" MinHeight="0" />
@@ -20,6 +20,7 @@
         <Grid
             x:Name="TopNavGrid"
             Grid.RowSpan="1"
+            Margin="0,20,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -30,22 +31,40 @@
             <Grid
                 x:Name="TimeGrid"
                 Grid.ColumnSpan="1"
+                Margin="0,0,40,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <Rectangle Margin="0,0,40,0" Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+                <Rectangle
+                    Width="150"
+                    Height="120"
+                    Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Text="5:15 PM"
+                    TextWrapping="Wrap" />
             </Grid>
             <Grid
                 x:Name="LogoGrid"
                 Grid.Column="1"
                 Grid.ColumnSpan="1"
-                Margin="0,0,0,0"
+                Margin="0,0,40,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
                 <Rectangle
-                    Margin="0,0,40,0"
+                    Width="340"
+                    Height="120"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+                <Image
+                    Width="115"
+                    Height="115"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="/Assets/MirrorCacheImages/marriott logo.png"
+                    Stretch="UniformToFill" />
             </Grid>
             <Grid
                 x:Name="WeatherGrid"
@@ -55,9 +74,17 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
                 <Rectangle
+                    Width="150"
+                    Height="120"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Text="75"
+                    TextWrapping="Wrap" />
             </Grid>
 
         </Grid>
@@ -78,11 +105,11 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
             <Image
-                Margin="0,0,0,0"
+                Margin="-16,0,-16,-8"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Source="/Assets/MirrorCacheImages/step-1.png"
-                Stretch="Fill" />
+                Stretch="Uniform" />
         </Grid>
         <Grid
             x:Name="ServicesGrid"
