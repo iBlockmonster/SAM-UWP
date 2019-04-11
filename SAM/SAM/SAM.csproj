@@ -120,6 +120,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Header\HeaderView.xaml.cs">
+      <DependentUpon>HeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Header\HeaderViewModel.cs" />
+    <Compile Include="HotelServices\HotelServicesView.xaml.cs">
+      <DependentUpon>HotelServicesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HotelServices\HotelServicesViewModel.cs" />
+    <Compile Include="Shadow\Shadow.xaml.cs" />
     <Compile Include="UserControls\HeaderUserControl.xaml.cs">
       <DependentUpon>HeaderUserControl.xaml</DependentUpon>
     </Compile>
@@ -191,6 +200,18 @@
     <Page Include="Common\CommonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Header\HeaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HotelServices\HotelServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shadow\Shadow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\HeaderUserControl.xaml">
       <SubType>Designer</SubType>

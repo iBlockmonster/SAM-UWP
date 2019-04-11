@@ -6,23 +6,23 @@ namespace SAM.OuterNav
 {
     public class OuterNavViewModel : INotifyPropertyChanged
     {
-        public OuterNavViewModel(object currentContent)
+        public OuterNavViewModel(object startingContent)
         {
-            _currentContentViewModel = currentContent;
+            contentViewModel = startingContent;
         }
 
-        private object _currentContentViewModel;
-        public object CurrentContentViewModel
+        private object contentViewModel;
+        public object ContentViewModel
         {
-            get { return _currentContentViewModel; }
+            get { return contentViewModel; }
             set
             {
-                if(_currentContentViewModel != value)
+                if (contentViewModel != value)
                 {
-                    _currentContentViewModel = value;
+                    contentViewModel = value;
                     RaisePropertyChangedFromSource();
 
-                    ContentViewModelChanged?.Invoke(_currentContentViewModel);
+                    ContentViewModelChanged?.Invoke(contentViewModel);
                 }
             }
         }

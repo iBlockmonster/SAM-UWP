@@ -17,7 +17,7 @@ namespace SAM.OuterNav
 
             this.InitializeComponent();
 
-            NavigateToViewModel(_viewModel.CurrentContentViewModel);
+            NavigateToViewModel(_viewModel.ContentViewModel);
         }
 
         private void _viewModel_ContentViewModelChanged(object contentViewModel)

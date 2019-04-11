@@ -1,11 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using SAM.Desktop;
+using SAM.Menu;
+using SAM.OuterNav;
+using SAM.Taskbar;
+using SAM.Header;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
-using SAM.OuterNav;
-using SAM.Desktop;
-using SAM.Taskbar;
-using SAM.Menu;
+using SAM.HotelServices;
 
 namespace SAM
 {
@@ -85,9 +87,11 @@ namespace SAM
             // TODO
             lock (_initLock)
             {
+                _hotelServicesViewModel = new HotelServicesViewModel();
+                _headerViewModel = new HeaderViewModel();
                 _menuViewModel = new MenuViewModel();
                 _taskbarViewModel = new TaskbarViewModel();
-                _desktopViewModel = new DesktopViewModel(_taskbarViewModel, _menuViewModel);
+                _desktopViewModel = new DesktopViewModel(_headerViewModel, _taskbarViewModel, _menuViewModel, _hotelServicesViewModel);
                 _outerNavViewModel = new OuterNavViewModel(_desktopViewModel);
             }
         }
@@ -100,5 +104,7 @@ namespace SAM
         private DesktopViewModel _desktopViewModel;
         private TaskbarViewModel _taskbarViewModel;
         private MenuViewModel _menuViewModel;
+        private HeaderViewModel _headerViewModel;
+        private HotelServicesViewModel _hotelServicesViewModel;
     }
 }

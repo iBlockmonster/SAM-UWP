@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAM.HotelServices;
+using System;
 using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -40,10 +41,16 @@ namespace SAM.Desktop
             if(oldValue != null)
             {
                 newValue.ShowMenuChanged -= ViewModel_ShowMenuChanged;
+                newValue.ContentViewModelChanged -= ViewModel_ContentViewModelChanged;
+
+                NavigateToViewModel(null);
             }
             if(newValue != null)
             {
                 newValue.ShowMenuChanged += ViewModel_ShowMenuChanged;
+                newValue.ContentViewModelChanged += ViewModel_ContentViewModelChanged;
+
+                NavigateToViewModel(ViewModel.ContentViewModel);
             }
         }
 
@@ -57,6 +64,11 @@ namespace SAM.Desktop
             {
                 AnimateMenuHide();
             }
+        }
+
+        private void ViewModel_ContentViewModelChanged(object contentViewModel)
+        {
+            NavigateToViewModel(contentViewModel);
         }
 
         private void AnimateMenuShow()
@@ -131,6 +143,25 @@ namespace SAM.Desktop
             base.OnNavigatedTo(e);
 
             ViewModel = e.Parameter as DesktopViewModel;
+        }
+
+        private void NavigateToViewModel(object contentViewModel)
+        {
+            Type pageType = null;
+
+            switch (contentViewModel)
+            {
+                case HotelServicesViewModel hotelServicesViewModel:
+                    pageType = typeof(HotelServicesView);
+                    break;
+            }
+
+            if (pageType == null)
+            {
+                return;
+            }
+
+            ContentFrame.Navigate(pageType, contentViewModel);
         }
     }
 }
