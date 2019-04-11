@@ -26,7 +26,7 @@
             x:Name="Menu"
             Grid.Row="0"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Bottom"
             ViewModel="{x:Bind Path=ViewModel.MenuViewModel, Mode=OneWay}"
             Visibility="Collapsed" />
     </Grid>

@@ -9,10 +9,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid
-        Width="600"
-        Height="400"
-        Background="#FF2222DB" >
+    <Grid Width="600" Height="400" BorderBrush="#FFE1E2EE" BorderThickness="1,1,1,0.3" CornerRadius="2,2,2,2">
         <Rectangle Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
     </Grid>
 </UserControl>
