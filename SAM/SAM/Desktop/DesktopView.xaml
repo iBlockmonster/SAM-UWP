@@ -16,25 +16,17 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/MirrorCacheImages/1200px-Las_Vegas_Paris_By_Night.jpg" />
         </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-        <header:HeaderView Grid.Row="0" HorizontalAlignment="Stretch" />
         <Frame
             x:Name="ContentFrame"
-            Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" />
         <taskbar:TaskbarView
-            Grid.Row="2"
             HorizontalAlignment="Stretch"
-            FontFamily="Segoe UI"
+            VerticalAlignment="Bottom"
             ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.TaskbarViewModel}" />
+        <header:HeaderView HorizontalAlignment="Stretch" VerticalAlignment="Top" />
         <menu:MenuView
             x:Name="Menu"
-            Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.MenuViewModel}"

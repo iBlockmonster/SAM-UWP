@@ -129,9 +129,6 @@
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
     <Compile Include="Shadow\Shadow.xaml.cs" />
-    <Compile Include="UserControls\HeaderUserControl.xaml.cs">
-      <DependentUpon>HeaderUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Desktop\DesktopView.xaml.cs">
       <DependentUpon>DesktopView.xaml</DependentUpon>
     </Compile>
@@ -215,10 +212,6 @@
     <Page Include="Shadow\Shadow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\HeaderUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Desktop\DesktopView.xaml">
       <SubType>Designer</SubType>

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.HotelServices"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadow="using:SAM.Shadow"
     mc:Ignorable="d">
 
     <ScrollViewer
@@ -12,9 +13,29 @@
         HorizontalScrollMode="Disabled"
         VerticalScrollBarVisibility="Auto"
         VerticalScrollMode="auto">
-        <Grid
-            Height="2000"
-            HorizontalAlignment="Stretch"
-            Background="#80006699" />
+        <StackPanel Margin="0,195,0,40">
+            <Grid
+                Width="720"
+                Height="400"
+                Margin="0,0,0,40"
+                HorizontalAlignment="Center">
+                <shadow:Shadow
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Elevation="8" />
+                <Grid Background="White" CornerRadius="4" />
+            </Grid>
+            <Grid
+                Width="720"
+                Height="400"
+                Margin="0,0,0,40"
+                HorizontalAlignment="Center">
+                <shadow:Shadow
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Elevation="8" />
+                <Grid Background="White" CornerRadius="4" />
+            </Grid>
+        </StackPanel>
     </ScrollViewer>
 </Page>

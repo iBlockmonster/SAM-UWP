@@ -23,6 +23,7 @@
             Click="{x:Bind Path=ViewModel.OnClick, Mode=OneWay}"
             Content="MC"
             CornerRadius="30"
+            FontFamily="Segoe UI"
             Style="{StaticResource ButtonRevealStyle}" />
     </Grid>
 </UserControl>
