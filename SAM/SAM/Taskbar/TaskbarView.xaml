@@ -13,11 +13,16 @@
         Height="48"
         Background="{ThemeResource SystemControlAcrylicElementBrush}"
         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-        BorderThickness="2,2,2,0">
+        BorderThickness="2,2,2,0"
+        CornerRadius="6,6,6,0">
         <Button
+            Width="40"
+            Height="40"
             HorizontalAlignment="Center"
+            VerticalAlignment="Center"
             Click="{x:Bind Path=ViewModel.OnClick, Mode=OneWay}"
             Content="MC"
+            CornerRadius="30"
             Style="{StaticResource ButtonRevealStyle}" />
     </Grid>
 </UserControl>

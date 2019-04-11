@@ -96,7 +96,7 @@
                 Margin="0,0,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Source="/Assets/MirrorCacheImages/WelcomeCard.png" />
+                Source="/Assets/MirrorCacheImages/1200px-Las_Vegas_Paris_By_Night.jpg" />
         </Grid>
         <Grid
             x:Name="StepsGrid"
@@ -107,7 +107,7 @@
             <Image
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Source="/Assets/MirrorCacheImages/step-1.png"
+                Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
                 Stretch="Uniform" />
         </Grid>
         <Grid
