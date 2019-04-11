@@ -22,6 +22,7 @@
         <taskbar:TaskbarView
             Grid.Row="1"
             HorizontalAlignment="Stretch"
+            FontFamily="Segoe UI"
             ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.TaskbarViewModel}" />
         <menu:MenuView
             x:Name="Menu"
