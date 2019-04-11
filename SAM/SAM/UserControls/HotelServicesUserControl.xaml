@@ -107,7 +107,7 @@
             <Image
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Source="/Assets/MirrorCacheImages/step-1.png"
+                Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
                 Stretch="Uniform" />
         </Grid>
         <Grid
