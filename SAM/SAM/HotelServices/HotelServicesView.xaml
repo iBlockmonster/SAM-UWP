@@ -13,7 +13,7 @@
         HorizontalScrollMode="Disabled"
         VerticalScrollBarVisibility="Auto"
         VerticalScrollMode="auto">
-        <StackPanel Margin="0,195,0,40">
+        <StackPanel Margin="0,195,0,80">
             <Grid
                 Width="720"
                 Height="400"
@@ -35,6 +35,44 @@
                     VerticalAlignment="Stretch"
                     Elevation="8" />
                 <Grid Background="White" CornerRadius="4" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right">
+                    <Grid
+                        Width="340"
+                        Height="400"
+                        Margin="0,0,0,40"
+                        Background="White"
+                        CornerRadius="4" />
+                    <Grid
+                        Width="340"
+                        Height="245"
+                        Background="White"
+                        CornerRadius="4" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="left">
+                    <Grid
+                        Width="340"
+                        Height="245"
+                        Margin="0,0,0,40"
+                        Background="White"
+                        CornerRadius="4" />
+                    <Grid
+                        Width="340"
+                        Height="400"
+                        Background="White"
+                        CornerRadius="4" />
+                </StackPanel>
             </Grid>
         </StackPanel>
     </ScrollViewer>

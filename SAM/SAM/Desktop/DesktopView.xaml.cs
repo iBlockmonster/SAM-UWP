@@ -38,14 +38,14 @@ namespace SAM.Desktop
 
         private void OnDesktopViewModelChanged(DesktopViewModel oldValue, DesktopViewModel newValue)
         {
-            if(oldValue != null)
+            if (oldValue != null)
             {
                 newValue.ShowMenuChanged -= ViewModel_ShowMenuChanged;
                 newValue.ContentViewModelChanged -= ViewModel_ContentViewModelChanged;
 
                 NavigateToViewModel(null);
             }
-            if(newValue != null)
+            if (newValue != null)
             {
                 newValue.ShowMenuChanged += ViewModel_ShowMenuChanged;
                 newValue.ContentViewModelChanged += ViewModel_ContentViewModelChanged;
@@ -56,7 +56,7 @@ namespace SAM.Desktop
 
         private void ViewModel_ShowMenuChanged(bool showMenu)
         {
-            if(showMenu)
+            if (showMenu)
             {
                 AnimateMenuShow();
             }
@@ -71,6 +71,46 @@ namespace SAM.Desktop
             NavigateToViewModel(contentViewModel);
         }
 
+        public DesktopViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as DesktopViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
+
+        #region Navigation
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ViewModel = e.Parameter as DesktopViewModel;
+        }
+
+        private void NavigateToViewModel(object contentViewModel)
+        {
+            Type pageType = null;
+
+            switch (contentViewModel)
+            {
+                case HotelServicesViewModel hotelServicesViewModel:
+                    pageType = typeof(HotelServicesView);
+                    break;
+            }
+
+            if (pageType == null)
+            {
+                return;
+            }
+
+            ContentFrame.Navigate(pageType, contentViewModel);
+        }
+
+        #endregion
+
+        #region Menu Animation
+
         private void AnimateMenuShow()
         {
             var compositor = Window.Current.Compositor;
@@ -79,6 +119,8 @@ namespace SAM.Desktop
             var duration = TimeSpan.FromMilliseconds(300);
 
             var menuVisual = ElementCompositionPreview.GetElementVisual(Menu);
+
+            menuVisual.CenterPoint = new Vector3(300f, 400f,0);
 
             var menuVisualOpacityAnim = compositor.CreateScalarKeyFrameAnimation();
             menuVisualOpacityAnim.Target = "Opacity";
@@ -94,10 +136,13 @@ namespace SAM.Desktop
             menuVisual.StartAnimation(menuVisualScaleAnim.Target, menuVisualScaleAnim);
 
             Menu.Visibility = Visibility.Visible;
+            SoftDismissCatcher.Visibility = Visibility.Visible;
         }
 
         private void AnimateMenuHide()
         {
+            SoftDismissCatcher.Visibility = Visibility.Collapsed;
+
             var compositor = Window.Current.Compositor;
 
             var easingFunction = compositor.CreateCubicBezierEasingFunction(new Vector2(0.7f, 0.0f), new Vector2(1.0f, 0.5f));
@@ -130,38 +175,15 @@ namespace SAM.Desktop
             Menu.Visibility = Visibility.Collapsed;
         }
 
-        public DesktopViewModel ViewModel
-        {
-            get { return GetValue(ViewModelProperty) as DesktopViewModel; }
-            set { SetValue(ViewModelProperty, value); }
-        }
-
         #endregion
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void SoftDismissCatcher_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            base.OnNavigatedTo(e);
-
-            ViewModel = e.Parameter as DesktopViewModel;
-        }
-
-        private void NavigateToViewModel(object contentViewModel)
-        {
-            Type pageType = null;
-
-            switch (contentViewModel)
+            var vm = ViewModel;
+            if (vm != null)
             {
-                case HotelServicesViewModel hotelServicesViewModel:
-                    pageType = typeof(HotelServicesView);
-                    break;
+                vm.ShowMenu = false;
             }
-
-            if (pageType == null)
-            {
-                return;
-            }
-
-            ContentFrame.Navigate(pageType, contentViewModel);
         }
     }
 }

@@ -20,6 +20,13 @@
             x:Name="ContentFrame"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" />
+        <Grid
+            x:Name="SoftDismissCatcher"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            Tapped="SoftDismissCatcher_Tapped"
+            Visibility="Collapsed" />
         <taskbar:TaskbarView
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
@@ -27,6 +34,7 @@
         <header:HeaderView HorizontalAlignment="Stretch" VerticalAlignment="Top" />
         <menu:MenuView
             x:Name="Menu"
+            Margin="0,0,0,80"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.MenuViewModel}"
