@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="2000"
+    d:DesignHeight="1940"
     d:DesignWidth="720"
     mc:Ignorable="d">
 
@@ -101,11 +101,10 @@
         <Grid
             x:Name="StepsGrid"
             Grid.Row="2"
-            Margin="0,40,0,0"
+            Margin="0,40,0,40"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
             <Image
-                Margin="-16,0,-16,-8"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Source="/Assets/MirrorCacheImages/step-1.png"
