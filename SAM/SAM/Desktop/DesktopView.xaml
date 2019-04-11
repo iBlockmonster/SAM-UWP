@@ -11,6 +11,9 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/MirrorCacheImages/1200px-Las_Vegas_Paris_By_Night.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />

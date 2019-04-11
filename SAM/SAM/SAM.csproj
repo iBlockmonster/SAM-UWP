@@ -146,6 +146,22 @@
     <None Include="SAM_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\MirrorCacheImages\1200px-Las_Vegas_Paris_By_Night.jpg" />
+    <Content Include="Assets\MirrorCacheImages\CustomizeSettings.png" />
+    <Content Include="Assets\MirrorCacheImages\default-news-image.jpg" />
+    <Content Include="Assets\MirrorCacheImages\DineOutOptions.png" />
+    <Content Include="Assets\MirrorCacheImages\ExploreLocalArea.png" />
+    <Content Include="Assets\MirrorCacheImages\GetStartedLocking.png" />
+    <Content Include="Assets\MirrorCacheImages\HotelAmenities.png" />
+    <Content Include="Assets\MirrorCacheImages\OrderCoffee.png" />
+    <Content Include="Assets\MirrorCacheImages\ParisNight.png" />
+    <Content Include="Assets\MirrorCacheImages\PlayMusic.png" />
+    <Content Include="Assets\MirrorCacheImages\Spa.png" />
+    <Content Include="Assets\MirrorCacheImages\step-1.png" />
+    <Content Include="Assets\MirrorCacheImages\step-2.png" />
+    <Content Include="Assets\MirrorCacheImages\step-3.png" />
+    <Content Include="Assets\MirrorCacheImages\step-4.png" />
+    <Content Include="Assets\MirrorCacheImages\WelcomeCard.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
