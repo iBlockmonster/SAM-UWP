@@ -8,8 +8,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Green" />
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        HorizontalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Auto"
+        VerticalScrollMode="auto">
+        <StackPanel MaxWidth="720">
+            <Image
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Source="/Assets/OrderFoodImages/OrderTitle.png" Stretch="Uniform" />
+            <Image Margin="0,0,0,0" Source="/Assets/OrderFoodImages/OrderItems.png" />
+            <Image
+                Margin="0,0,0,0"
+                Source="/Assets/OrderFoodImages/MyOrder.png" />
+        </StackPanel>
+    </ScrollViewer>
+
 </Page>

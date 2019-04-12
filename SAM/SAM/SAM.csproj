@@ -183,7 +183,9 @@
     <Content Include="Assets\MirrorCacheImages\step-2.png" />
     <Content Include="Assets\MirrorCacheImages\step-3.png" />
     <Content Include="Assets\MirrorCacheImages\step-4.png" />
+    <Content Include="Assets\MirrorCacheImages\temp.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCard.png" />
+    <Content Include="Assets\MirrorCacheImages\WelcomeCardCut.png" />
     <Content Include="Assets\OrderFoodImages\MyOrder.png" />
     <Content Include="Assets\OrderFoodImages\OrderItems.png" />
     <Content Include="Assets\OrderFoodImages\OrderTitle.png" />

@@ -10,7 +10,10 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Height="115" Margin="40,40,40,0" MaxWidth="720">
+    <Grid
+        Height="115"
+        MaxWidth="720"
+        Margin="40,40,40,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
@@ -31,7 +34,14 @@
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
             BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
             BorderThickness="2,2,2,2"
-            CornerRadius="4" />
+            CornerRadius="4">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="5:15 PM"
+                TextWrapping="Wrap" />
+        </Grid>
         <shadow:Shadow
             Grid.Column="1"
             Margin="40,0,40,0"
@@ -49,12 +59,19 @@
             BorderThickness="2,2,2,2"
             CornerRadius="4">
             <Button
-                Margin="8"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="{x:Bind Path=ViewModel.OnHomeClick, Mode=OneWay}"
-                Content="Test HotelServices"
-                RequestedTheme="Light" />
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="{x:Bind Mode=OneWay, Path=ViewModel.OnHomeClick}"
+                RequestedTheme="Light"
+                Style="{StaticResource ButtonRevealStyle}">
+                <Button.Background>
+                    <ImageBrush />
+                </Button.Background>
+                <Image
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/Assets/MirrorCacheImages/marriott logo.png" />
+            </Button>
         </Grid>
         <shadow:Shadow
             Grid.Column="2"
@@ -71,6 +88,14 @@
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
             BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
             BorderThickness="2,2,2,2"
-            CornerRadius="4" />
+            CornerRadius="4">
+            <TextBlock
+                Margin="0,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="75"
+                TextWrapping="Wrap" />
+        </Grid>
     </Grid>
 </UserControl>

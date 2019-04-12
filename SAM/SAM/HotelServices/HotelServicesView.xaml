@@ -27,7 +27,35 @@
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
-                    CornerRadius="4" />
+                    CornerRadius="4">
+                    <Image
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Source="/Assets/MirrorCacheImages/WelcomeCardCut.png"
+                        Stretch="Fill" />
+                </Grid>
+            </Grid>
+            <Grid
+                Width="720"
+                Height="400"
+                Margin="0,0,0,40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch">
+                <shadow:Shadow
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Elevation="8" />
+                <Grid
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+                    BorderThickness="2,2,2,2"
+                    CornerRadius="4">
+                    <Image
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
+                        Stretch="Uniform" />
+                </Grid>
             </Grid>
             <Grid
                 Width="720"
@@ -52,22 +80,6 @@
                         RequestedTheme="Light" />
                 </Grid>
             </Grid>
-            <Grid
-                Width="720"
-                Height="400"
-                Margin="0,0,0,40"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Stretch">
-                <shadow:Shadow
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Elevation="8" />
-                <Grid
-                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                    BorderThickness="2,2,2,2"
-                    CornerRadius="4"/>
-            </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -84,21 +96,20 @@
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
-                        CornerRadius="4" >
-                        <Button
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
-                        Content="Test LockConfig"
-                        RequestedTheme="Light" />
-                    </Grid>
+                        CornerRadius="4" />
                     <Grid
                         Width="340"
                         Height="245"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
-                        CornerRadius="4" />
+                        CornerRadius="4">
+                        <Image
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Source="/Assets/MirrorCacheImages/Spa.png"
+                            Stretch="Uniform" />
+                    </Grid>
                 </StackPanel>
                 <StackPanel
                     Grid.Column="1"
@@ -111,14 +122,31 @@
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
-                        CornerRadius="4" />
+                        CornerRadius="4">
+                        <Image
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Source="/Assets/MirrorCacheImages/PlayMusic.png" />
+                    </Grid>
                     <Grid
                         Width="340"
                         Height="400"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
-                        CornerRadius="4" />
+                        CornerRadius="4">
+                        <Button
+                            Margin="0,0,2,2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
+                            RequestedTheme="Light">
+                            <Image
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Source="/Assets/MirrorCacheImages/OrderCoffee.png" />
+                        </Button>
+                    </Grid>
                 </StackPanel>
             </Grid>
         </StackPanel>
