@@ -34,7 +34,15 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Elevation="8" />
-                <Grid Background="White" CornerRadius="4" />
+                <Grid Background="White" CornerRadius="4">
+                    <Button
+                        Margin="8"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="{x:Bind Path=ViewModel.OnLockConfigClick, Mode=OneWay}"
+                        Content="Test LockConfig"
+                        RequestedTheme="Light" />
+                </Grid>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>

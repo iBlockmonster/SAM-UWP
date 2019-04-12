@@ -31,7 +31,10 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
             ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.TaskbarViewModel}" />
-        <header:HeaderView HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+        <header:HeaderView
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            ViewModel="{x:Bind Path=ViewModel.HeaderViewModel, Mode=OneWay}" />
         <menu:MenuView
             x:Name="Menu"
             Margin="0,0,0,80"

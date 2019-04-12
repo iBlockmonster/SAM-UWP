@@ -120,6 +120,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DependencyContainer\DependencyContainer.cs" />
+    <Compile Include="DependencyContainer\IDependencyContainer.cs" />
     <Compile Include="Header\HeaderView.xaml.cs">
       <DependentUpon>HeaderView.xaml</DependentUpon>
     </Compile>
@@ -128,6 +130,11 @@
       <DependentUpon>HotelServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
+    <Compile Include="LockConfig\LockConfigView.xaml.cs">
+      <DependentUpon>LockConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LockConfig\LockConfigViewModel.cs" />
+    <Compile Include="Model\ContentNavModel.cs" />
     <Compile Include="Shadow\Shadow.xaml.cs" />
     <Compile Include="Desktop\DesktopView.xaml.cs">
       <DependentUpon>DesktopView.xaml</DependentUpon>
@@ -150,6 +157,7 @@
     <Compile Include="UserControls\HotelServicesUserControl.xaml.cs">
       <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -206,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HotelServices\HotelServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LockConfig\LockConfigView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,25 +1,18 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using SAM.DependencyContainer;
+using SAM.Model;
+using System;
+using Windows.UI.Xaml;
 
 namespace SAM.Header
 {
-    public class HeaderViewModel : INotifyPropertyChanged
+    public class HeaderViewModel : ViewModelBase
     {
-        #region INotifyPropertyChanged
+        public HeaderViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
+        { }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string name)
+        public void OnHomeClick(object sender, RoutedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            _dependencyContainer.GetDependency<ContentNavModel>("ContentNavModel").RequestContentNavigation(ContentNavMode.HotelServices);
         }
-
-        private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

@@ -1,29 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SAM.DependencyContainer;
+using SAM.Model;
+using Windows.UI.Xaml;
 
 namespace SAM.HotelServices
 {
-    public class HotelServicesViewModel : INotifyPropertyChanged
+    public class HotelServicesViewModel : ViewModelBase
     {
-        #region INotifyPropertyChanged
+        public HotelServicesViewModel(IDependencyContainer depdendencyContainer) : base(depdendencyContainer)
+        { }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string name)
+        public void OnLockConfigClick(object sender, RoutedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            _dependencyContainer.GetDependency<ContentNavModel>("ContentNavModel").RequestContentNavigation(ContentNavMode.LockConfig);
         }
-
-        private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

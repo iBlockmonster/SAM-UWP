@@ -43,7 +43,15 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="White"
-            CornerRadius="4" />
+            CornerRadius="4">
+            <Button
+                Margin="8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="{x:Bind Path=ViewModel.OnHomeClick, Mode=OneWay}"
+                Content="Test HotelServices"
+                RequestedTheme="Light" />
+        </Grid>
         <shadow:Shadow
             Grid.Column="2"
             Width="150"

@@ -1,37 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SAM.DependencyContainer;
+using System;
 using Windows.UI.Xaml;
 
 namespace SAM.Taskbar
 {
-    public class TaskbarViewModel : INotifyPropertyChanged
+    public class TaskbarViewModel : ViewModelBase
     {
+        public TaskbarViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
+        { }
+
         public void OnClick(object sender, RoutedEventArgs e)
         {
             MenuRequested?.Invoke();
         }
 
         public event Action MenuRequested;
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

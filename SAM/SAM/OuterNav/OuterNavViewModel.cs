@@ -1,48 +1,31 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using SAM.DependencyContainer;
+using System;
 
 namespace SAM.OuterNav
 {
-    public class OuterNavViewModel : INotifyPropertyChanged
+    public class OuterNavViewModel : ViewModelBase
     {
-        public OuterNavViewModel(object startingContent)
+        public OuterNavViewModel(IDependencyContainer dependencyContainer, object startingContent) : base(dependencyContainer)
         {
-            contentViewModel = startingContent;
+            _contentViewModel = startingContent;
         }
 
-        private object contentViewModel;
+        private object _contentViewModel;
         public object ContentViewModel
         {
-            get { return contentViewModel; }
+            get { return _contentViewModel; }
             set
             {
-                if (contentViewModel != value)
+                if (_contentViewModel != value)
                 {
-                    contentViewModel = value;
+                    _contentViewModel = value;
                     RaisePropertyChangedFromSource();
 
-                    ContentViewModelChanged?.Invoke(contentViewModel);
+                    ContentViewModelChanged?.Invoke(_contentViewModel);
                 }
             }
         }
 
         public event Action<object> ContentViewModelChanged;
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

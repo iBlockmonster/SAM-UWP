@@ -4,34 +4,39 @@ using SAM.Header;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using SAM.Model;
+using SAM.DependencyContainer;
 
 namespace SAM.Desktop
 {
-    public class DesktopViewModel : INotifyPropertyChanged
+    public class DesktopViewModel : ViewModelBase
     {
-        public DesktopViewModel(HeaderViewModel header, TaskbarViewModel taskbar, MenuViewModel menu, object startingContentViewModel)
+        public DesktopViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         {
-            if (header == null)
-            {
-                throw new ArgumentNullException("header");
-            }
-            if (taskbar == null)
-            {
-                throw new ArgumentNullException("taskbar");
-            }
-            if (menu == null)
-            {
-                throw new ArgumentNullException("menu");
-            }
-            _headerViewModel = header;
+            _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>("ContentNavModel");
+            _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
 
-            _taskbarViewModel = taskbar;
+            _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>("HeaderViewModel");
+
+            _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>("TaskbarViewModel");
             _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
 
-            _menuViewModel = menu;
-
-            _contentViewModel = startingContentViewModel;
+            _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>("MenuViewModel");
         }
+
+        private readonly ContentNavModel _contentNavModel;
+
+        private void _contentNavModel_ContentChanged(ContentNavMode obj)
+        {
+            ContentViewModelChanged?.Invoke(_contentNavModel.CurrentViewModel);
+        }
+
+        public object ContentViewModel
+        {
+            get { return _contentNavModel.CurrentViewModel; }
+        }
+
+        public event Action<object> ContentViewModelChanged;
 
         private readonly HeaderViewModel _headerViewModel;
         public HeaderViewModel HeaderViewModel
@@ -73,39 +78,5 @@ namespace SAM.Desktop
         }
 
         public event Action<bool> ShowMenuChanged;
-
-        private object _contentViewModel;
-        public object ContentViewModel
-        {
-            get { return _contentViewModel; }
-            set
-            {
-                if (_contentViewModel != value)
-                {
-                    _contentViewModel = value;
-                    RaisePropertyChangedFromSource();
-
-                    ContentViewModelChanged?.Invoke(_contentViewModel);
-                }
-            }
-        }
-
-        public event Action<object> ContentViewModelChanged;
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

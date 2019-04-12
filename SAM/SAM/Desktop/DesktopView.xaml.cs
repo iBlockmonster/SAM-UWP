@@ -1,4 +1,5 @@
 ﻿using SAM.HotelServices;
+using SAM.LockConfig;
 using System;
 using System.Numerics;
 using Windows.UI.Xaml;
@@ -96,6 +97,9 @@ namespace SAM.Desktop
             {
                 case HotelServicesViewModel hotelServicesViewModel:
                     pageType = typeof(HotelServicesView);
+                    break;
+                case LockConfigViewModel lockConfigViewModel:
+                    pageType = typeof(LockConfigView);
                     break;
             }
 

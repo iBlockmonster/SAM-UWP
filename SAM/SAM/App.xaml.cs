@@ -8,6 +8,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using SAM.HotelServices;
+using SAM.Model;
+using SAM.DependencyContainer;
+using SAM.LockConfig;
 
 namespace SAM
 {
@@ -46,7 +49,7 @@ namespace SAM
 
             await SetupDependencies();
 
-            Window.Current.Content = new OuterNavPage(_outerNavViewModel);
+            Window.Current.Content = new OuterNavPage(_dependencyContainer.GetDependency<OuterNavViewModel>("OuterNavViewModel"));
 
             lock (_initLock)
             {
@@ -87,12 +90,16 @@ namespace SAM
             // TODO
             lock (_initLock)
             {
-                _hotelServicesViewModel = new HotelServicesViewModel();
-                _headerViewModel = new HeaderViewModel();
-                _menuViewModel = new MenuViewModel();
-                _taskbarViewModel = new TaskbarViewModel();
-                _desktopViewModel = new DesktopViewModel(_headerViewModel, _taskbarViewModel, _menuViewModel, _hotelServicesViewModel);
-                _outerNavViewModel = new OuterNavViewModel(_desktopViewModel);
+                _dependencyContainer = new DependencyContainer.DependencyContainer();
+                _dependencyContainer.AddDependency("ContentNavModel", new ContentNavModel(_dependencyContainer, ContentNavMode.HotelServices));
+
+                _dependencyContainer.AddDependency("HotelServicesViewModel", new HotelServicesViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("LockConfigViewModel", new LockConfigViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("HeaderViewModel", new HeaderViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("MenuViewModel", new MenuViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("TaskbarViewModel", new TaskbarViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("DesktopViewModel", new DesktopViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency("OuterNavViewModel", new OuterNavViewModel(_dependencyContainer, _dependencyContainer.GetDependency<DesktopViewModel>("DesktopViewModel")));
             }
         }
 
@@ -100,11 +107,6 @@ namespace SAM
         private enum AppState { FirstLaunch, Initializing, Running }
         private AppState _state = AppState.FirstLaunch;
 
-        private OuterNavViewModel _outerNavViewModel;
-        private DesktopViewModel _desktopViewModel;
-        private TaskbarViewModel _taskbarViewModel;
-        private MenuViewModel _menuViewModel;
-        private HeaderViewModel _headerViewModel;
-        private HotelServicesViewModel _hotelServicesViewModel;
+        private IDependencyContainer _dependencyContainer;
     }
 }
