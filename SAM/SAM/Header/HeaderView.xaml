@@ -10,7 +10,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Height="115" Margin="40,40,40,0">
+    <Grid Height="115" Margin="40,40,40,0" MaxWidth="720">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
@@ -28,7 +28,9 @@
             Width="150"
             HorizontalAlignment="Left"
             VerticalAlignment="Stretch"
-            Background="White"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
             CornerRadius="4" />
         <shadow:Shadow
             Grid.Column="1"
@@ -42,7 +44,9 @@
             Margin="40,0,40,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            Background="White"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
             CornerRadius="4">
             <Button
                 Margin="8"
@@ -64,7 +68,9 @@
             Width="150"
             HorizontalAlignment="Right"
             VerticalAlignment="Stretch"
-            Background="White"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
             CornerRadius="4" />
     </Grid>
 </UserControl>
