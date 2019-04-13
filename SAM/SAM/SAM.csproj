@@ -135,6 +135,9 @@
     </Compile>
     <Compile Include="LockConfig\LockConfigViewModel.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
+    <Compile Include="RoomService\RoomService.xaml.cs">
+      <DependentUpon>RoomService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shadow\Shadow.xaml.cs" />
     <Compile Include="Desktop\DesktopView.xaml.cs">
       <DependentUpon>DesktopView.xaml</DependentUpon>
@@ -150,6 +153,9 @@
     </Compile>
     <Compile Include="OuterNav\OuterNavViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spa\Spa.xaml.cs">
+      <DependentUpon>Spa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Taskbar\TaskbarView.xaml.cs">
       <DependentUpon>TaskbarView.xaml</DependentUpon>
     </Compile>
@@ -223,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RoomService\RoomService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shadow\Shadow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -236,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OuterNav\OuterNavPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spa\Spa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

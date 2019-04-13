@@ -15,6 +15,7 @@
         VerticalScrollMode="auto">
         <StackPanel Margin="0,195,0,80">
             <Grid
+                x:Name="WelcomeGrid"
                 Width="720"
                 Height="400"
                 Margin="0,0,0,40"
@@ -36,6 +37,7 @@
                 </Grid>
             </Grid>
             <Grid
+                x:Name="GetStartedLockingGrid"
                 Width="720"
                 Height="400"
                 Margin="0,0,0,40"
@@ -49,15 +51,16 @@
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
-                    CornerRadius="4">
+                    CornerRadius="4" Padding="6,6,6,6">
                     <Image
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
-                        Stretch="Uniform" />
+                        Stretch="UniformToFill" />
                 </Grid>
             </Grid>
             <Grid
+                x:Name="APNewsGrid"
                 Width="720"
                 Height="400"
                 Margin="0,0,0,40"
@@ -67,6 +70,7 @@
                     VerticalAlignment="Stretch"
                     Elevation="8" />
                 <Grid
+                    Padding="6,6,6,6"
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
@@ -78,26 +82,40 @@
                         Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
                         Content="Test LockConfig"
                         RequestedTheme="Light" />
+                    <Image
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Source="/Assets/MirrorCacheImages/default-news-image.jpg"
+                        Stretch="UniformToFill" />
                 </Grid>
             </Grid>
-            <Grid>
+            <Grid x:Name="ServicesGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel
+                    x:Name="ServicesStackPanel"
                     Grid.Column="0"
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right">
                     <Grid
+                        x:Name="YelpGrid"
                         Width="340"
                         Height="400"
                         Margin="0,0,0,40"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
-                        CornerRadius="4" />
+                        CornerRadius="4">
+                        <Image
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Source="/Assets/MirrorCacheImages/card13.png" />
+                    </Grid>
                     <Grid
+                        x:Name="SpaGrid"
                         Width="340"
                         Height="245"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
@@ -105,6 +123,7 @@
                         BorderThickness="2,2,2,2"
                         CornerRadius="4">
                         <Image
+                            Margin="6,6,6,6"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Source="/Assets/MirrorCacheImages/Spa.png"
@@ -116,9 +135,11 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left">
                     <Grid
+                        x:Name="PlayMusicGrid"
                         Width="340"
                         Height="245"
                         Margin="0,0,0,40"
+                        Padding="6,6,6,6"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
@@ -129,6 +150,7 @@
                             Source="/Assets/MirrorCacheImages/PlayMusic.png" />
                     </Grid>
                     <Grid
+                        x:Name="OrderFoodGrid"
                         Width="340"
                         Height="400"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
