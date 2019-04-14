@@ -48,10 +48,11 @@
                     VerticalAlignment="Stretch"
                     Elevation="8" />
                 <Grid
+                    Padding="6,6,6,6"
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
-                    CornerRadius="4" Padding="6,6,6,6">
+                    CornerRadius="4">
                     <Image
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
@@ -75,6 +76,11 @@
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
                     CornerRadius="4">
+                    <Image
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Source="/Assets/MirrorCacheImages/default-news-image.jpg"
+                        Stretch="UniformToFill" />
                     <Button
                         Margin="8"
                         HorizontalAlignment="Left"
@@ -82,11 +88,6 @@
                         Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
                         Content="Test LockConfig"
                         RequestedTheme="Light" />
-                    <Image
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Source="/Assets/MirrorCacheImages/default-news-image.jpg"
-                        Stretch="UniformToFill" />
                 </Grid>
             </Grid>
             <Grid x:Name="ServicesGrid">
