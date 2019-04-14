@@ -12,7 +12,7 @@ namespace SAM.Header
 
         public void OnHomeClick(object sender, RoutedEventArgs e)
         {
-            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.HotelServices);
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.MirrorHome);
         }
     }
 }

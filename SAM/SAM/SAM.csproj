@@ -130,14 +130,16 @@
       <DependentUpon>HotelServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
-    <Compile Include="LockConfig\LockConfigView.xaml.cs">
-      <DependentUpon>LockConfigView.xaml</DependentUpon>
+    <Compile Include="MirrorHome\MirrorHomeView.xaml.cs">
+      <DependentUpon>MirrorHomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LockConfig\LockConfigViewModel.cs" />
+    <Compile Include="MirrorHome\MirrorHomeViewModel.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
-    <Compile Include="RoomService\RoomService.xaml.cs">
-      <DependentUpon>RoomService.xaml</DependentUpon>
+    <Compile Include="Model\LocationModel.cs" />
+    <Compile Include="RoomService\RoomServiceView.xaml.cs">
+      <DependentUpon>RoomServiceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RoomService\RoomServiceViewModel.cs" />
     <Compile Include="Shadow\Shadow.xaml.cs" />
     <Compile Include="Desktop\DesktopView.xaml.cs">
       <DependentUpon>DesktopView.xaml</DependentUpon>
@@ -233,11 +235,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LockConfig\LockConfigView.xaml">
+    <Page Include="MirrorHome\MirrorHomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RoomService\RoomService.xaml">
+    <Page Include="RoomService\RoomServiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -76,13 +76,6 @@
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
                     CornerRadius="4">
-                    <Button
-                        Margin="8"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
-                        Content="Test LockConfig"
-                        RequestedTheme="Light" />
                     <Image
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
@@ -168,7 +161,7 @@
                             Margin="0,0,2,2"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnLockConfigClick}"
+                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnRoomServiceClick}"
                             RequestedTheme="Light">
                             <Image
                                 HorizontalAlignment="Stretch"

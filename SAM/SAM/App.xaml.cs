@@ -10,8 +10,9 @@ using Windows.UI.Xaml;
 using SAM.HotelServices;
 using SAM.Model;
 using SAM.DependencyContainer;
-using SAM.LockConfig;
+using SAM.MirrorHome;
 using SAM.Yelp;
+using SAM.RoomService;
 
 namespace SAM
 {
@@ -91,22 +92,28 @@ namespace SAM
             // TODO
 
             var dc = new DependencyContainer.DependencyContainer();
+            var lm = new LocationModel(dc);
+
             lock (_initLock)
             {
                 _dependencyContainer = dc;
-                _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.HotelServices));
+                _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
+                _dependencyContainer.AddDependency(lm);
 
                 _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency(new LockConfigViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new MirrorHomeViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new HeaderViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MenuViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new TaskbarViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new DesktopViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new OuterNavViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();
+
+            _ = lm.Initialize();
         }
 
         private object _initLock = new object();

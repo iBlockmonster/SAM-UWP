@@ -15,25 +15,25 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace SAM.LockConfig
+namespace SAM.MirrorHome
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LockConfigView : Page
+    public sealed partial class MirrorHomeView : Page
     {
-        public LockConfigView()
+        public MirrorHomeView()
         {
             this.InitializeComponent();
         }
 
         #region ViewModelProperty
 
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(LockConfigViewModel), typeof(LockConfigView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(MirrorHomeViewModel), typeof(MirrorHomeView), new PropertyMetadata(null));
 
-        public LockConfigViewModel ViewModel
+        public MirrorHomeViewModel ViewModel
         {
-            get { return GetValue(ViewModelProperty) as LockConfigViewModel; }
+            get { return GetValue(ViewModelProperty) as MirrorHomeViewModel; }
             set { SetValue(ViewModelProperty, value); }
         }
 
@@ -43,7 +43,7 @@ namespace SAM.LockConfig
         {
             base.OnNavigatedTo(e);
 
-            ViewModel = e.Parameter as LockConfigViewModel;
+            ViewModel = e.Parameter as MirrorHomeViewModel;
         }
     }
 }

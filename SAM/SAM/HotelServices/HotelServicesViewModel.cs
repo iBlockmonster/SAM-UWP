@@ -9,14 +9,19 @@ namespace SAM.HotelServices
         public HotelServicesViewModel(IDependencyContainer depdendencyContainer) : base(depdendencyContainer)
         { }
 
-        public void OnLockConfigClick(object sender, RoutedEventArgs e)
+        public void OnMirrorHomeClick(object sender, RoutedEventArgs e)
         {
-            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.LockConfig);
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.MirrorHome);
         }
 
         public void OnYelpClick(object sender, RoutedEventArgs e)
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Yelp);
+        }
+
+        public void OnRoomServiceClick(object sender, RoutedEventArgs e)
+        {
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.RoomService);
         }
     }
 }

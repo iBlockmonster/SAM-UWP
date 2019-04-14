@@ -1,5 +1,6 @@
 ﻿using SAM.HotelServices;
-using SAM.LockConfig;
+using SAM.MirrorHome;
+using SAM.RoomService;
 using SAM.Yelp;
 using System;
 using System.Numerics;
@@ -99,11 +100,14 @@ namespace SAM.Desktop
                 case HotelServicesViewModel hotelServicesViewModel:
                     pageType = typeof(HotelServicesView);
                     break;
-                case LockConfigViewModel lockConfigViewModel:
-                    pageType = typeof(LockConfigView);
+                case MirrorHomeViewModel lockConfigViewModel:
+                    pageType = typeof(MirrorHomeView);
                     break;
                 case YelpViewModel yelpViewModel:
                     pageType = typeof(YelpView);
+                    break;
+                case RoomServiceViewModel roomServiceViewModel:
+                    pageType = typeof(RoomServiceView);
                     break;
             }
 

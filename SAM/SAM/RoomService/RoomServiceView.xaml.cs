@@ -20,11 +20,30 @@ namespace SAM.RoomService
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RoomService : Page
+    public sealed partial class RoomServiceView : Page
     {
-        public RoomService()
+        public RoomServiceView()
         {
             this.InitializeComponent();
+        }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(RoomServiceViewModel), typeof(RoomServiceView), new PropertyMetadata(null));
+
+        public RoomServiceViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as RoomServiceViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ViewModel = e.Parameter as RoomServiceViewModel;
         }
     }
 }

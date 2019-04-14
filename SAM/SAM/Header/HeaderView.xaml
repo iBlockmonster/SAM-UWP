@@ -64,9 +64,6 @@
                 Click="{x:Bind Mode=OneWay, Path=ViewModel.OnHomeClick}"
                 RequestedTheme="Light"
                 Style="{StaticResource ButtonRevealStyle}">
-                <Button.Background>
-                    <ImageBrush />
-                </Button.Background>
                 <Image
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
