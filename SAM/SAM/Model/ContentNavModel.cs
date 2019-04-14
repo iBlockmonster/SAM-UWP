@@ -2,6 +2,7 @@
 using SAM.HotelServices;
 using SAM.MirrorHome;
 using SAM.RoomService;
+using SAM.Spa;
 using SAM.Yelp;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SAM.Model
 {
-    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp };
+    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp, Spa };
 
     public class ContentNavModel
     {
@@ -47,6 +48,8 @@ namespace SAM.Model
                         return _dependencyContainer.GetDependency<YelpViewModel>();
                     case ContentNavMode.RoomService:
                         return _dependencyContainer.GetDependency<RoomServiceViewModel>();
+                    case ContentNavMode.Spa:
+                        return _dependencyContainer.GetDependency<SpaViewModel>();
                 }
                 return null;
             }

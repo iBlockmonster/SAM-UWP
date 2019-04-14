@@ -13,6 +13,7 @@ using SAM.DependencyContainer;
 using SAM.MirrorHome;
 using SAM.Yelp;
 using SAM.RoomService;
+using SAM.Spa;
 
 namespace SAM
 {
@@ -109,6 +110,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new OuterNavViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();

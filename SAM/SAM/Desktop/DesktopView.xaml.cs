@@ -1,6 +1,7 @@
 ﻿using SAM.HotelServices;
 using SAM.MirrorHome;
 using SAM.RoomService;
+using SAM.Spa;
 using SAM.Yelp;
 using System;
 using System.Numerics;
@@ -108,6 +109,9 @@ namespace SAM.Desktop
                     break;
                 case RoomServiceViewModel roomServiceViewModel:
                     pageType = typeof(RoomServiceView);
+                    break;
+                case SpaViewModel spaViewModel:
+                    pageType = typeof(SpaView);
                     break;
             }
 

@@ -155,9 +155,10 @@
     </Compile>
     <Compile Include="OuterNav\OuterNavViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Spa\Spa.xaml.cs">
-      <DependentUpon>Spa.xaml</DependentUpon>
+    <Compile Include="Spa\SpaView.xaml.cs">
+      <DependentUpon>SpaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Spa\SpaViewModel.cs" />
     <Compile Include="Taskbar\TaskbarView.xaml.cs">
       <DependentUpon>TaskbarView.xaml</DependentUpon>
     </Compile>
@@ -259,7 +260,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Spa\Spa.xaml">
+    <Page Include="Spa\SpaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

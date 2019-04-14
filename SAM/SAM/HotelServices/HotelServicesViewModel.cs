@@ -23,5 +23,10 @@ namespace SAM.HotelServices
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.RoomService);
         }
+
+        public void OnSpaClick(object sender, RoutedEventArgs e)
+        {
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Spa);
+        }
     }
 }

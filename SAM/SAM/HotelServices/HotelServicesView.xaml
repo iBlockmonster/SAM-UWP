@@ -122,12 +122,18 @@
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
                         CornerRadius="4">
-                        <Image
+                        <Button
                             Margin="6,6,6,6"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Source="/Assets/MirrorCacheImages/Spa.png"
-                            Stretch="Uniform" />
+                            Click="{x:Bind Path=ViewModel.OnSpaClick, Mode=OneWay}"
+                            Style="{StaticResource HitboxButton}">
+                            <Image
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Source="/Assets/MirrorCacheImages/Spa.png"
+                                Stretch="Uniform" />
+                        </Button>
                     </Grid>
                 </StackPanel>
                 <StackPanel

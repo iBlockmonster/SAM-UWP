@@ -20,11 +20,30 @@ namespace SAM.Spa
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Spa : Page
+    public sealed partial class SpaView : Page
     {
-        public Spa()
+        public SpaView()
         {
             this.InitializeComponent();
+        }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(SpaViewModel), typeof(SpaView), new PropertyMetadata(null));
+
+        public SpaViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as SpaViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ViewModel = e.Parameter as SpaViewModel;
         }
     }
 }
