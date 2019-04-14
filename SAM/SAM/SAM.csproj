@@ -136,6 +136,10 @@
     <Compile Include="MirrorHome\MirrorHomeViewModel.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
     <Compile Include="Model\LocationModel.cs" />
+    <Compile Include="Music\MusicView.xaml.cs">
+      <DependentUpon>MusicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\MusicViewModel.cs" />
     <Compile Include="RoomService\RoomServiceView.xaml.cs">
       <DependentUpon>RoomServiceView.xaml</DependentUpon>
     </Compile>
@@ -237,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MirrorHome\MirrorHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Music\MusicView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

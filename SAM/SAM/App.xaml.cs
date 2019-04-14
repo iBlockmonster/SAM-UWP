@@ -14,6 +14,7 @@ using SAM.MirrorHome;
 using SAM.Yelp;
 using SAM.RoomService;
 using SAM.Spa;
+using SAM.Music;
 
 namespace SAM
 {
@@ -111,6 +112,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();

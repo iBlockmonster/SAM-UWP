@@ -150,10 +150,16 @@
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
                         CornerRadius="4">
-                        <Image
+                        <Button
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Source="/Assets/MirrorCacheImages/PlayMusic.png" />
+                            Click="{x:Bind Path=ViewModel.OnMusicClick, Mode=OneWay}"
+                            Style="{StaticResource HitboxButton}">
+                            <Image
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Source="/Assets/MirrorCacheImages/PlayMusic.png" />
+                        </Button>
                     </Grid>
                     <Grid
                         x:Name="OrderFoodGrid"
