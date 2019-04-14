@@ -48,10 +48,11 @@
                     VerticalAlignment="Stretch"
                     Elevation="8" />
                 <Grid
+                    Padding="6,6,6,6"
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
-                    CornerRadius="4" Padding="6,6,6,6">
+                    CornerRadius="4">
                     <Image
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
@@ -108,11 +109,17 @@
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
                         CornerRadius="4">
-                        <Image
+                        <Button
                             Margin="0,10,0,0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Source="/Assets/MirrorCacheImages/card13.png" />
+                            Click="{x:Bind Path=ViewModel.OnYelpClick, Mode=OneWay}"
+                            Style="{StaticResource HitboxButton}">
+                            <Image
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Source="/Assets/MirrorCacheImages/card13.png" />
+                        </Button>
                     </Grid>
                     <Grid
                         x:Name="SpaGrid"

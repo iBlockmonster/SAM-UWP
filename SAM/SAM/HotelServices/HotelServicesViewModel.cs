@@ -13,5 +13,10 @@ namespace SAM.HotelServices
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.LockConfig);
         }
+
+        public void OnYelpClick(object sender, RoutedEventArgs e)
+        {
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Yelp);
+        }
     }
 }

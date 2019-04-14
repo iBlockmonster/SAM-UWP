@@ -11,6 +11,7 @@ using SAM.HotelServices;
 using SAM.Model;
 using SAM.DependencyContainer;
 using SAM.LockConfig;
+using SAM.Yelp;
 
 namespace SAM
 {
@@ -102,6 +103,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new TaskbarViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new DesktopViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new OuterNavViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();

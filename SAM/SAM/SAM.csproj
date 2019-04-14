@@ -164,6 +164,10 @@
       <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Yelp\YelpView.xaml.cs">
+      <DependentUpon>YelpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Yelp\YelpViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -258,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\HotelServicesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Yelp\YelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

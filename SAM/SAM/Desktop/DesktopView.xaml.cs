@@ -1,5 +1,6 @@
 ﻿using SAM.HotelServices;
 using SAM.LockConfig;
+using SAM.Yelp;
 using System;
 using System.Numerics;
 using Windows.UI.Xaml;
@@ -100,6 +101,9 @@ namespace SAM.Desktop
                     break;
                 case LockConfigViewModel lockConfigViewModel:
                     pageType = typeof(LockConfigView);
+                    break;
+                case YelpViewModel yelpViewModel:
+                    pageType = typeof(YelpView);
                     break;
             }
 

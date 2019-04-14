@@ -1,6 +1,7 @@
 ﻿using SAM.DependencyContainer;
 using SAM.HotelServices;
 using SAM.LockConfig;
+using SAM.Yelp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SAM.Model
 {
-    public enum ContentNavMode { HotelServices, LockConfig };
+    public enum ContentNavMode { HotelServices, LockConfig, Yelp };
 
     public class ContentNavModel
     {
@@ -41,6 +42,8 @@ namespace SAM.Model
                         return _dependencyContainer.GetDependency<HotelServicesViewModel>();
                     case ContentNavMode.LockConfig:
                         return _dependencyContainer.GetDependency<LockConfigViewModel>();
+                    case ContentNavMode.Yelp:
+                        return _dependencyContainer.GetDependency<YelpViewModel>();
                 }
                 return null;
             }
