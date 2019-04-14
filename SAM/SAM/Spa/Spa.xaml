@@ -8,5 +8,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid x:Name="LayoutRoot" />
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        HorizontalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Auto"
+        VerticalScrollMode="auto">
+        <Grid
+            Margin="0,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190" />
+                <RowDefinition Height="Auto" MinHeight="0" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="1"
+                MaxWidth="720">
+                <Image
+                    Margin="0,0,0,40"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/Assets/SpaImages/SpaTitle.png"
+                    Stretch="Uniform" />
+                <Image Margin="0,0,0,40" Source="/Assets/SpaImages/SpaItems.png" />
+                <Image Margin="0,0,0,0" Source="/Assets/SpaImages/MySpaOrder.png" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

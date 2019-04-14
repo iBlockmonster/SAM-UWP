@@ -195,6 +195,10 @@
     <Content Include="Assets\OrderFoodImages\MyOrder.png" />
     <Content Include="Assets\OrderFoodImages\OrderItems.png" />
     <Content Include="Assets\OrderFoodImages\OrderTitle.png" />
+    <Content Include="Assets\SpaImages\addButton.png" />
+    <Content Include="Assets\SpaImages\MySpaOrder.png" />
+    <Content Include="Assets\SpaImages\SpaItems.png" />
+    <Content Include="Assets\SpaImages\SpaTitle.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
