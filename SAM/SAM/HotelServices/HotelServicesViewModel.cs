@@ -11,7 +11,7 @@ namespace SAM.HotelServices
 
         public void OnLockConfigClick(object sender, RoutedEventArgs e)
         {
-            _dependencyContainer.GetDependency<ContentNavModel>("ContentNavModel").RequestContentNavigation(ContentNavMode.LockConfig);
+            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.LockConfig);
         }
     }
 }

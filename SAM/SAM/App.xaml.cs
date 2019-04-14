@@ -49,7 +49,7 @@ namespace SAM
 
             await SetupDependencies();
 
-            Window.Current.Content = new OuterNavPage(_dependencyContainer.GetDependency<OuterNavViewModel>("OuterNavViewModel"));
+            Window.Current.Content = new OuterNavPage(_dependencyContainer.GetDependency<OuterNavViewModel>());
 
             lock (_initLock)
             {
@@ -86,21 +86,25 @@ namespace SAM
 
         private async Task SetupDependencies()
         {
-            await Task.Delay(100);
+            await Task.Delay(10);
             // TODO
+
+            var dc = new DependencyContainer.DependencyContainer();
             lock (_initLock)
             {
-                _dependencyContainer = new DependencyContainer.DependencyContainer();
-                _dependencyContainer.AddDependency("ContentNavModel", new ContentNavModel(_dependencyContainer, ContentNavMode.HotelServices));
+                _dependencyContainer = dc;
+                _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.HotelServices));
 
-                _dependencyContainer.AddDependency("HotelServicesViewModel", new HotelServicesViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("LockConfigViewModel", new LockConfigViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("HeaderViewModel", new HeaderViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("MenuViewModel", new MenuViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("TaskbarViewModel", new TaskbarViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("DesktopViewModel", new DesktopViewModel(_dependencyContainer));
-                _dependencyContainer.AddDependency("OuterNavViewModel", new OuterNavViewModel(_dependencyContainer, _dependencyContainer.GetDependency<DesktopViewModel>("DesktopViewModel")));
+                _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new LockConfigViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new HeaderViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new MenuViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new TaskbarViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new DesktopViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new OuterNavViewModel(_dependencyContainer));
             }
+
+            dc.InitComplete();
         }
 
         private object _initLock = new object();

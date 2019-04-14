@@ -1,8 +1,14 @@
-﻿namespace SAM.DependencyContainer
+﻿using System;
+
+namespace SAM.DependencyContainer
 {
+    public enum DependencyContainerState { Initializing, Initialized }
+
     public interface IDependencyContainer
     {
-        void AddDependency<T>(string id, T dependency) where T : class;
-        T GetDependency<T>(string id) where T : class;
+        DependencyContainerState State { get; }
+        event Action<IDependencyContainer, DependencyContainerState> StateChanged;
+        void AddDependency<T>(T dependency, string id = null) where T : class;
+        T GetDependency<T>(string id = null) where T : class;
     }
 }

@@ -13,15 +13,15 @@ namespace SAM.Desktop
     {
         public DesktopViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         {
-            _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>("ContentNavModel");
+            _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>();
             _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
 
-            _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>("HeaderViewModel");
+            _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>();
 
-            _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>("TaskbarViewModel");
+            _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>();
             _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
 
-            _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>("MenuViewModel");
+            _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>();
         }
 
         private readonly ContentNavModel _contentNavModel;

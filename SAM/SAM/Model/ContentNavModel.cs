@@ -38,9 +38,9 @@ namespace SAM.Model
                 switch (_currentMode)
                 {
                     case ContentNavMode.HotelServices:
-                        return _dependencyContainer.GetDependency<HotelServicesViewModel>("HotelServicesViewModel");
+                        return _dependencyContainer.GetDependency<HotelServicesViewModel>();
                     case ContentNavMode.LockConfig:
-                        return _dependencyContainer.GetDependency<LockConfigViewModel>("LockConfigViewModel");
+                        return _dependencyContainer.GetDependency<LockConfigViewModel>();
                 }
                 return null;
             }
