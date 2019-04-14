@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Menu"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    d:DesignHeight="400"
+    d:DesignWidth="600"
     mc:Ignorable="d">
 
     <Grid
@@ -16,5 +16,118 @@
         Background="{ThemeResource SystemControlAcrylicElementBrush}"
         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
         BorderThickness="2,2,2,0.7"
-        CornerRadius="2,2,2,2" />
+        CornerRadius="2,2,2,2">
+        <VariableSizedWrapGrid
+            Margin="30,37,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Orientation="Horizontal">
+            <Button
+                Width="80"
+                Height="80"
+                Margin="12,12,12,12"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+            <Button
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Button"
+                CornerRadius="8" />
+        </VariableSizedWrapGrid>
+    </Grid>
 </UserControl>
