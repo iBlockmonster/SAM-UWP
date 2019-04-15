@@ -184,6 +184,20 @@
     <None Include="SAM_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\MenuButtonImages\Bebo.png" />
+    <Content Include="Assets\MenuButtonImages\Chat.png" />
+    <Content Include="Assets\MenuButtonImages\FaceBook.png" />
+    <Content Include="Assets\MenuButtonImages\GooglePlus.png" />
+    <Content Include="Assets\MenuButtonImages\Hotspot.png" />
+    <Content Include="Assets\MenuButtonImages\Images.png" />
+    <Content Include="Assets\MenuButtonImages\LinkedIn.png" />
+    <Content Include="Assets\MenuButtonImages\Mail.png" />
+    <Content Include="Assets\MenuButtonImages\Pintrest.png" />
+    <Content Include="Assets\MenuButtonImages\Skype.png" />
+    <Content Include="Assets\MenuButtonImages\Twitter.png" />
+    <Content Include="Assets\MenuButtonImages\VOIP.png" />
+    <Content Include="Assets\MenuButtonImages\WK.png" />
+    <Content Include="Assets\MenuButtonImages\YouiTube.png" />
     <Content Include="Assets\MirrorCacheImages\1200px-Las_Vegas_Paris_By_Night.jpg" />
     <Content Include="Assets\MirrorCacheImages\card13.png" />
     <Content Include="Assets\MirrorCacheImages\CustomizeSettings.png" />
