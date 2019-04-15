@@ -5,7 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.HotelServices"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:SAM.Model"
     xmlns:shadow="using:SAM.Shadow"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer
@@ -102,7 +104,31 @@
                         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                         BorderThickness="2,2,2,2"
                         CornerRadius="4">
-                        <Button
+                        <toolkit:RotatorTile
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Direction="Right"
+                            ItemsSource="{x:Bind Path=ViewModel.LocalBusinesses, Mode=OneWay}">
+                            <toolkit:RotatorTile.ItemTemplate>
+                                <DataTemplate x:DataType="model:BusinessData">
+                                    <Grid Margin="4,4,4,4">
+                                        <Image
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="{x:Bind Path=ImageUrl, Mode=OneWay}"
+                                            Stretch="UniformToFill" />
+                                        <TextBlock
+                                            Margin="8,8,8,8"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            FontSize="20"
+                                            Text="{x:Bind Path=Name, Mode=OneWay}"
+                                            TextWrapping="WrapWholeWords" />
+                                    </Grid>
+                                </DataTemplate>
+                            </toolkit:RotatorTile.ItemTemplate>
+                        </toolkit:RotatorTile>
+                        <!--<Button
                             Margin="0,10,0,0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
@@ -112,7 +138,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Source="/Assets/MirrorCacheImages/card13.png" />
-                        </Button>
+                        </Button>-->
                     </Grid>
                     <Grid
                         x:Name="SpaGrid"

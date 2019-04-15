@@ -134,6 +134,7 @@
       <DependentUpon>MirrorHomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MirrorHome\MirrorHomeViewModel.cs" />
+    <Compile Include="Model\BusinessData.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
     <Compile Include="Model\LocationModel.cs" />
     <Compile Include="Model\YelpModel.cs" />
@@ -303,6 +304,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>5.1.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

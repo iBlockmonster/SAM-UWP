@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Json;
 using Windows.Web.Http;
 
 namespace SAM.Model
@@ -79,13 +80,14 @@ namespace SAM.Model
             }
 
             HttpResponseMessage httpResponse = await httpClient.GetAsync(uri);
-            if(httpResponse.IsSuccessStatusCode)
-            {
-                string rawData = await httpResponse.Content.ReadAsStringAsync();
-            }
+            string rawData = await httpResponse.Content.ReadAsStringAsync();
 
             lock (_lock)
             {
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    ParseYelpData(JsonObject.Parse(rawData));
+                }
                 _state = YelpState.Ready;
             }
 
@@ -99,5 +101,20 @@ namespace SAM.Model
         // TODO put this in app config
         private readonly static string _apiKey = "JT__i462fvWquQJxKgDyetDsyPN7vByt0GX6JKFfeEpxOJ-qtkC2fGCWhwsj3a-GMSvn4O2OQRpi3FJ807ZyNwqmbaPDbn_opAL6hkMs_hRAS4qdm1JNTP0TFMLlW3Yx";
 
+        private void ParseYelpData(JsonObject root)
+        {
+            if (root == null)
+            {
+                return;
+            }
+            var businesses = root.GetNamedArray("businesses");
+            _localDelivery = BusinessData.ParseList(businesses);
+        }
+
+        private List<BusinessData> _localDelivery;
+        public List<BusinessData> LocalDelivery
+        {
+            get { return _localDelivery; }
+        }
     }
 }
