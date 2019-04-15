@@ -90,17 +90,17 @@ namespace SAM
 
         private async Task SetupDependencies()
         {
-            await Task.Delay(10);
-            // TODO
-
             var dc = new DependencyContainer.DependencyContainer();
             var lm = new LocationModel(dc);
+            var ym = new YelpModel(dc);
 
             lock (_initLock)
             {
                 _dependencyContainer = dc;
-                _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
                 _dependencyContainer.AddDependency(lm);
+                _dependencyContainer.AddDependency(ym);
+                _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
+                
 
                 _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MirrorHomeViewModel(_dependencyContainer));
@@ -117,7 +117,8 @@ namespace SAM
 
             dc.InitComplete();
 
-            _ = lm.Initialize();
+            await lm.Initialize();
+            await ym.Initialize();
         }
 
         private object _initLock = new object();

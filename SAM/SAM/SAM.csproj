@@ -136,6 +136,7 @@
     <Compile Include="MirrorHome\MirrorHomeViewModel.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
     <Compile Include="Model\LocationModel.cs" />
+    <Compile Include="Model\YelpModel.cs" />
     <Compile Include="Music\MusicView.xaml.cs">
       <DependentUpon>MusicView.xaml</DependentUpon>
     </Compile>

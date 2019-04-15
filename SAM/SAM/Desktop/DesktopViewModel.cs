@@ -13,18 +13,28 @@ namespace SAM.Desktop
     {
         public DesktopViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         {
-            _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>();
-            _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
-
-            _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>();
-
-            _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>();
-            _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
-
-            _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>();
+            _dependencyContainer.StateChanged += _dependencyContainer_StateChanged;
         }
 
-        private readonly ContentNavModel _contentNavModel;
+        private void _dependencyContainer_StateChanged(IDependencyContainer source, DependencyContainerState state)
+        {
+            if (state == DependencyContainerState.Initialized)
+            {
+                _dependencyContainer.StateChanged -= _dependencyContainer_StateChanged;
+
+                _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>();
+                _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
+
+                _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>();
+
+                _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>();
+                _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
+
+                _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>();
+            }
+        }
+
+        private ContentNavModel _contentNavModel;
 
         private void _contentNavModel_ContentChanged(ContentNavMode obj)
         {
@@ -38,13 +48,13 @@ namespace SAM.Desktop
 
         public event Action<object> ContentViewModelChanged;
 
-        private readonly HeaderViewModel _headerViewModel;
+        private HeaderViewModel _headerViewModel;
         public HeaderViewModel HeaderViewModel
         {
             get { return _headerViewModel; }
         }
 
-        private readonly TaskbarViewModel _taskbarViewModel;
+        private TaskbarViewModel _taskbarViewModel;
         public TaskbarViewModel TaskbarViewModel
         {
             get { return _taskbarViewModel; }
@@ -55,7 +65,7 @@ namespace SAM.Desktop
             ShowMenu = !_showMenu;
         }
 
-        private readonly MenuViewModel _menuViewModel;
+        private MenuViewModel _menuViewModel;
         public MenuViewModel MenuViewModel
         {
             get { return _menuViewModel; }
