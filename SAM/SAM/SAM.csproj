@@ -219,6 +219,7 @@
     <Content Include="Assets\MirrorCacheImages\temp.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCard.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCardCut.png" />
+    <Content Include="Assets\MusicImages\spotify.jpg" />
     <Content Include="Assets\OrderFoodImages\MyOrder.png" />
     <Content Include="Assets\OrderFoodImages\OrderItems.png" />
     <Content Include="Assets\OrderFoodImages\OrderTitle.png" />

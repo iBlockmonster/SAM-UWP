@@ -8,8 +8,36 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="blue" />
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        HorizontalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Auto"
+        VerticalScrollMode="auto">
+        <Grid
+            Margin="0,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190" />
+                <RowDefinition Height="Auto" MinHeight="0" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="1"
+                MaxWidth="720">
+                <Image
+                    Margin="0,0,0,40"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/Assets/MusicImages/spotify.jpg"
+                    Stretch="Uniform" />
+                <WebView
+                    Height="800"
+                    Margin="0,0,0,40"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="https://open.spotify.com/browse/featured" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>
