@@ -19,9 +19,20 @@ namespace SAM.Header
 {
     public sealed partial class HeaderView : UserControl
     {
+        DispatcherTimer Timer = new DispatcherTimer();
+
         public HeaderView()
         {
             this.InitializeComponent();
+            DataContext = this;
+            Timer.Tick += Timer_Tick;
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            Time.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
 
         #region ViewModelProperty

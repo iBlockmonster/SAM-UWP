@@ -7,12 +7,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <!--<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <WebView
             Width="720"
             Margin="0,195,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Stretch"
             Source="{x:Bind Path=ViewModel.BusinessUrl, Mode=OneWay}" />
-    </Grid>
+    </Grid>-->
+
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        HorizontalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Auto"
+        VerticalScrollMode="auto">
+        <Grid
+            Margin="0,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190" />
+                <RowDefinition Height="Auto" MinHeight="0" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="1"
+                MaxWidth="720">
+                <Image
+                    Margin="0,0,0,40"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/Assets/YelpImages/YelpTitle.png"
+                    Stretch="Uniform" />
+                <WebView
+                    Width="680"
+                    Height="800"
+                    Margin="0,0,0,40"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch"
+                    Source="{x:Bind Path=ViewModel.BusinessUrl, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+
 </Page>

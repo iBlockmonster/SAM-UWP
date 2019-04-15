@@ -36,6 +36,7 @@
             BorderThickness="2,2,2,2"
             CornerRadius="4">
             <TextBlock
+                x:Name="Time"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="20"
