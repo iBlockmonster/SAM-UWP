@@ -28,106 +28,151 @@
                 Margin="12,12,12,12"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Bebo.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Chat.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MirrorCacheImages/CustomizeSettings.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/FaceBook.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/GooglePlus.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MirrorCacheImages/HotelAmenities.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Images.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/LinkedIn.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Mail.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Pintrest.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Skype.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/Twitter.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/WK.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/VOIP.png"/>
+                </Button.Background>
+            </Button>
             <Button
                 Width="80"
                 Height="80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="Button"
-                CornerRadius="8" />
+                CornerRadius="8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/MenuButtonImages/YouiTube.png"/>
+                </Button.Background>
+            </Button>
         </VariableSizedWrapGrid>
     </Grid>
 </UserControl>
