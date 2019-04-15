@@ -1,9 +1,12 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
+using Windows.UI.Xaml;
 
 namespace SAM.Model
 {
@@ -55,5 +58,13 @@ namespace SAM.Model
         public string Name { get; }
         public string ImageUrl { get; }
         public string Url { get; }
+
+        public void OnActivate(object sender, RoutedEventArgs e)
+        {
+            // TODO think about a better way to do this
+            Activated?.Invoke(this);
+        }
+
+        public event Action<BusinessData> Activated;
     }
 }

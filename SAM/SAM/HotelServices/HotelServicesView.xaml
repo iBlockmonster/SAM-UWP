@@ -177,34 +177,28 @@
                             ItemsSource="{x:Bind Path=ViewModel.LocalBusinesses, Mode=OneWay}">
                             <toolkit:RotatorTile.ItemTemplate>
                                 <DataTemplate x:DataType="model:BusinessData">
-                                    <Grid Margin="4,4,4,4">
-                                        <Image
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch"
-                                            Source="{x:Bind Path=ImageUrl, Mode=OneWay}"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Margin="8,8,8,8"
-                                            HorizontalAlignment="Left"
-                                            VerticalAlignment="Top"
-                                            FontSize="20"
-                                            Text="{x:Bind Path=Name, Mode=OneWay}"
-                                            TextWrapping="WrapWholeWords" />
-                                    </Grid>
+                                    <Button
+                                        Margin="4,4,4,4"
+                                        Click="{x:Bind Path=OnActivate, Mode=OneWay}"
+                                        Style="{StaticResource HitboxButton}">
+                                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <Image
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Source="{x:Bind Path=ImageUrl, Mode=OneWay}"
+                                                Stretch="UniformToFill" />
+                                            <TextBlock
+                                                Margin="8,8,8,8"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                FontSize="20"
+                                                Text="{x:Bind Path=Name, Mode=OneWay}"
+                                                TextWrapping="WrapWholeWords" />
+                                        </Grid>
+                                    </Button>
                                 </DataTemplate>
                             </toolkit:RotatorTile.ItemTemplate>
                         </toolkit:RotatorTile>
-                        <!--<Button
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnYelpClick}"
-                            Style="{StaticResource HitboxButton}">
-                            <Image
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Source="/Assets/MirrorCacheImages/card13.png" />
-                        </Button>-->
                     </Grid>
                     <Grid
                         x:Name="SpaGrid"

@@ -1,4 +1,5 @@
 ﻿using SAM.DependencyContainer;
+using SAM.Yelp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,6 +110,19 @@ namespace SAM.Model
             }
             var businesses = root.GetNamedArray("businesses");
             _localDelivery = BusinessData.ParseList(businesses);
+            foreach(var b in _localDelivery)
+            {
+                b.Activated += Business_Activated;
+            }
+        }
+
+        private void Business_Activated(BusinessData source)
+        {
+            // TODO think of a better way to do this
+            var yelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
+            yelpViewModel.RequestDisplayBusinessData(source);
+            var navModel = _dependencyContainer.GetDependency<ContentNavModel>();
+            navModel.RequestContentNavigation(ContentNavMode.Yelp);
         }
 
         private List<BusinessData> _localDelivery;
