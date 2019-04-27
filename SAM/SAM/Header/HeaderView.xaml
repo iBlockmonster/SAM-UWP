@@ -40,6 +40,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="20"
+                Foreground="#CCFFFFFF"
                 Text="5:15 PM"
                 TextWrapping="Wrap" />
         </Grid>
@@ -92,7 +93,8 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="20"
-                Text="75"
+                Foreground="#CCFFFFFF"
+                Text="54&#186;"
                 TextWrapping="Wrap" />
         </Grid>
     </Grid>
