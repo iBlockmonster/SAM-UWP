@@ -7,15 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!--<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <WebView
-            Width="720"
-            Margin="0,195,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Stretch"
-            Source="{x:Bind Path=ViewModel.BusinessUrl, Mode=OneWay}" />
-    </Grid>-->
-
     <ScrollViewer
         HorizontalScrollBarVisibility="Disabled"
         HorizontalScrollMode="Disabled"
@@ -44,8 +35,7 @@
                     Height="800"
                     Margin="0,0,0,40"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Stretch"
-                    Source="{x:Bind Path=ViewModel.BusinessUrl, Mode=OneWay}" />
+                    VerticalAlignment="Stretch" />
             </StackPanel>
         </Grid>
     </ScrollViewer>

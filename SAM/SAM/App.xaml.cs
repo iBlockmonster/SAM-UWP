@@ -90,6 +90,9 @@ namespace SAM
 
         private async Task SetupDependencies()
         {
+            // TODO
+            await Task.Delay(10);
+
             var dc = new DependencyContainer.DependencyContainer();
             var lm = new LocationModel(dc);
             var ym = new YelpModel(dc);
@@ -117,8 +120,7 @@ namespace SAM
 
             dc.InitComplete();
 
-            await lm.Initialize();
-            await ym.Initialize();
+            _ = lm.Initialize();
         }
 
         private object _initLock = new object();

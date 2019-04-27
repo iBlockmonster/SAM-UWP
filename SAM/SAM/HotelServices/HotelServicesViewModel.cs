@@ -1,6 +1,7 @@
 ﻿using SAM.DependencyContainer;
 using SAM.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 namespace SAM.HotelServices
@@ -9,30 +10,20 @@ namespace SAM.HotelServices
     {
         public HotelServicesViewModel(IDependencyContainer depdendencyContainer) : base(depdendencyContainer)
         {
-            _dependencyContainer.StateChanged += _dependencyContainer_StateChanged;
+            _ = WaitForInit();
         }
 
-        private void _dependencyContainer_StateChanged(IDependencyContainer source, DependencyContainerState state)
+        private async Task WaitForInit()
         {
-            if (state == DependencyContainerState.Initialized)
-            {
-                _dependencyContainer.StateChanged -= _dependencyContainer_StateChanged;
-                var yelpModel = _dependencyContainer.GetDependency<YelpModel>();
-                LocalBusinesses = yelpModel.LocalDelivery;
-                yelpModel.StateChanged += YelpModel_StateChanged;
-            }
+            await _dependencyContainer.WaitForInitComplete();
+            _yelpModel = _dependencyContainer.GetDependency<YelpModel>();
+            LocalBusinesses = await _yelpModel.GetLocalDelivery();
         }
 
-        private void YelpModel_StateChanged(YelpModel source, YelpState state)
-        {
-            if (state == YelpState.Ready)
-            {
-                LocalBusinesses = source.LocalDelivery;
-            }
-        }
+        private YelpModel _yelpModel;
 
-        private List<BusinessData> _localBusinesses;
-        public List<BusinessData> LocalBusinesses
+        private IReadOnlyList<BusinessData> _localBusinesses;
+        public IReadOnlyList<BusinessData> LocalBusinesses
         {
             get { return _localBusinesses; }
             private set
@@ -41,8 +32,14 @@ namespace SAM.HotelServices
                 {
                     _localBusinesses = value;
                     RaisePropertyChangedFromSource();
+                    RaisePropertyChanged("IsYelpDataLoading");
                 }
             }
+        }
+
+        public bool IsYelpDataLoading
+        {
+            get { return _localBusinesses == null || _localBusinesses.Count == 0; }
         }
 
         public void OnMirrorHomeClick(object sender, RoutedEventArgs e)

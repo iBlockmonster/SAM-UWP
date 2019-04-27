@@ -8,7 +8,7 @@ using Windows.Devices.Geolocation;
 
 namespace SAM.Model
 {
-    public enum LocationState { Initializing, Ready, Error }
+    public enum LocationState { Initializing, Initialized, Error }
 
     public class LocationModel
     {
@@ -34,6 +34,32 @@ namespace SAM.Model
 
         public event Action<LocationModel, LocationState> StateChanged;
 
+        public Task<LocationState> WaitForInitComplete()
+        {
+            lock (_lock)
+            {
+                if (_state == LocationState.Initialized)
+                {
+                    return Task.FromResult(_state);
+                }
+            }
+
+            var completionSource = new TaskCompletionSource<LocationState>();
+
+            Action<LocationModel, LocationState> stateChangedHandler = null;
+            stateChangedHandler = (LocationModel source, LocationState state) =>
+            {
+                if (state != LocationState.Initializing)
+                {
+                    source.StateChanged -= stateChangedHandler;
+                    completionSource.SetResult(state);
+                }
+            };
+            this.StateChanged += stateChangedHandler;
+
+            return completionSource.Task;
+        }
+
         public async Task Initialize()
         {
             var accessStatus = await Geolocator.RequestAccessAsync();
@@ -50,7 +76,7 @@ namespace SAM.Model
                 if (accessStatus == GeolocationAccessStatus.Allowed)
                 {
                     _position = position;
-                    _state = LocationState.Ready;
+                    _state = LocationState.Initialized;
                 }
                 else
                 {
