@@ -144,11 +144,40 @@
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
                     CornerRadius="4">
-                    <Image
+                    <toolkit:RotatorTile
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        Source="/Assets/MirrorCacheImages/default-news-image.jpg"
-                        Stretch="UniformToFill" />
+                        Direction="Right"
+                        ItemsSource="{x:Bind Path=ViewModel.TopNewsHeadlines, Mode=OneWay}">
+                        <toolkit:RotatorTile.ItemTemplate>
+                            <DataTemplate x:DataType="model:NewsArticleData">
+                                <Grid
+                                    Margin="4,4,4,4"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                    <Image
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Source="{x:Bind Path=ImageUrl, Mode=OneTime}"
+                                        Stretch="UniformToFill" />
+                                    <TextBlock
+                                        Margin="8,8,8,8"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        FontSize="20"
+                                        Text="{x:Bind Path=Title, Mode=OneTime}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </DataTemplate>
+                        </toolkit:RotatorTile.ItemTemplate>
+                    </toolkit:RotatorTile>
+                    <ProgressRing
+                        Width="48"
+                        Height="48"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        IsActive="True"
+                        Visibility="{x:Bind Path=ViewModel.IsNewsDataLoading, Mode=OneWay}" />
                 </Grid>
             </Grid>
             <Grid x:Name="ServicesGrid">

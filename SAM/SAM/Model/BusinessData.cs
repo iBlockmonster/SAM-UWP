@@ -18,7 +18,7 @@ namespace SAM.Model
         {
             try
             {
-                return new BusinessData(data.GetNamedString("id"), data.GetNamedString("name"), data.GetNamedString("image_url"), data.GetNamedString("url"));
+                return new BusinessData(data.GetOptionalString("id"), data.GetOptionalString("name"), data.GetOptionalString("image_url"), data.GetOptionalString("url"));
             }
             catch
             {
