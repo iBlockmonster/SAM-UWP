@@ -12,31 +12,5 @@ namespace SAM.Yelp
     {
         public YelpViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         { }
-
-        public void RequestDisplayBusinessData(BusinessData data)
-        {
-            if(data == null)
-            {
-                BusinessUrl = null;
-            }
-            else
-            {
-                BusinessUrl = data.Url;
-            }
-        }
-
-        private string _businessUrl;
-        public string BusinessUrl
-        {
-            get { return _businessUrl; }
-            set
-            {
-                if(_businessUrl != value)
-                {
-                    _businessUrl = value;
-                    RaisePropertyChangedFromSource();
-                }
-            }
-        }
     }
 }

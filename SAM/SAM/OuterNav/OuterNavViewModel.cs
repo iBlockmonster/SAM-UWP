@@ -1,6 +1,7 @@
 ﻿using SAM.DependencyContainer;
 using SAM.Desktop;
 using System;
+using System.Threading.Tasks;
 
 namespace SAM.OuterNav
 {
@@ -8,16 +9,13 @@ namespace SAM.OuterNav
     {
         public OuterNavViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         {
-            _dependencyContainer.StateChanged += _dependencyContainer_StateChanged;
+            _ = WaitForInit();
         }
 
-        private void _dependencyContainer_StateChanged(IDependencyContainer source, DependencyContainerState state)
+        private async Task WaitForInit()
         {
-            if (state == DependencyContainerState.Initialized)
-            {
-                _dependencyContainer.StateChanged -= _dependencyContainer_StateChanged;
-                _contentViewModel = _dependencyContainer.GetDependency<DesktopViewModel>();
-            }
+            await _dependencyContainer.WaitForInitComplete();
+            ContentViewModel = _dependencyContainer.GetDependency<DesktopViewModel>();
         }
 
         private object _contentViewModel;

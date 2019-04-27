@@ -185,20 +185,25 @@
                                             <Image
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
-                                                Source="{x:Bind Path=ImageUrl, Mode=OneWay}"
+                                                Source="{x:Bind Path=ImageUrl, Mode=OneTime}"
                                                 Stretch="UniformToFill" />
                                             <TextBlock
                                                 Margin="8,8,8,8"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 FontSize="20"
-                                                Text="{x:Bind Path=Name, Mode=OneWay}"
+                                                Text="{x:Bind Path=Name, Mode=OneTime}"
                                                 TextWrapping="WrapWholeWords" />
                                         </Grid>
                                     </Button>
                                 </DataTemplate>
                             </toolkit:RotatorTile.ItemTemplate>
                         </toolkit:RotatorTile>
+                        <ProgressRing
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            IsActive="True"
+                            Visibility="{x:Bind Path=ViewModel.IsYelpDataLoading, Mode=OneWay}" />
                     </Grid>
                     <Grid
                         x:Name="SpaGrid"

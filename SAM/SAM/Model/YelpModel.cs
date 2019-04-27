@@ -10,8 +10,6 @@ using Windows.Web.Http;
 
 namespace SAM.Model
 {
-    public enum YelpState { Initializing, Ready, Error }
-
     public class YelpModel
     {
         public YelpModel(IDependencyContainer dependencyContainer)
@@ -26,52 +24,42 @@ namespace SAM.Model
         private object _lock = new object();
         private IDependencyContainer _dependencyContainer;
 
-        private YelpState _state = YelpState.Initializing;
-        public YelpState State
+        private readonly static string _hotelServicesContentUrl = "https://api.yelp.com/v3/transactions/delivery/search";
+        private readonly static string _hotelServicesLocationContentUrl = "https://api.yelp.com/v3/transactions/delivery/search?latitude={0}&longitude={1}";
+        private readonly static string _authHeaderKey = "Authorization";
+        private readonly static string _authHeaderValue = "Bearer {0}";
+        // TODO put this in app config
+        private readonly static string _apiKey = "JT__i462fvWquQJxKgDyetDsyPN7vByt0GX6JKFfeEpxOJ-qtkC2fGCWhwsj3a-GMSvn4O2OQRpi3FJ807ZyNwqmbaPDbn_opAL6hkMs_hRAS4qdm1JNTP0TFMLlW3Yx";
+
+        private List<BusinessData> ParseYelpBusinesses(JsonObject root)
         {
-            get
+            if (root == null)
             {
-                lock (_lock)
-                {
-                    return _state;
-                }
+                return new List<BusinessData>();
             }
+            var businesses = root.GetNamedArray("businesses");
+            return BusinessData.ParseList(businesses);
         }
 
-        public event Action<YelpModel, YelpState> StateChanged;
-
-        private Task<LocationState> WaitForLocation(LocationModel locationModel)
+        private List<BusinessData> _cachedLocalDelivery = null;
+        public async Task<IReadOnlyList<BusinessData>> GetLocalDelivery()
         {
-            if (locationModel.State != LocationState.Initializing)
+            lock (_lock)
             {
-                return Task.FromResult(locationModel.State);
-            }
-            var completionSource = new TaskCompletionSource<LocationState>();
-
-            Action<LocationModel, LocationState> stateChangedHandler = null;
-            stateChangedHandler = (LocationModel source, LocationState state) =>
-            {
-                if (state != LocationState.Initializing)
+                if (_cachedLocalDelivery != null)
                 {
-                    locationModel.StateChanged -= stateChangedHandler;
-                    completionSource.SetResult(state);
+                    return _cachedLocalDelivery;
                 }
-            };
-            locationModel.StateChanged += stateChangedHandler;
+            }
 
-            return completionSource.Task;
-        }
-
-        public async Task Initialize()
-        {
             LocationModel locationModel = _dependencyContainer.GetDependency<LocationModel>();
-            LocationState locationState = await WaitForLocation(locationModel);
+            LocationState locationState = await locationModel.WaitForInitComplete();
 
-            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
+            HttpClient httpClient = new HttpClient();
             var headers = httpClient.DefaultRequestHeaders;
             headers.Add(_authHeaderKey, string.Format(_authHeaderValue, _apiKey));
             Uri uri;
-            if (locationState == LocationState.Ready && locationModel.Position != null)
+            if (locationState == LocationState.Initialized && locationModel.Position != null)
             {
                 uri = new Uri(string.Format(_hotelServicesLocationContentUrl, locationModel.Position.Coordinate.Point.Position.Latitude.ToString(), locationModel.Position.Coordinate.Point.Position.Longitude.ToString()));
             }
@@ -83,52 +71,18 @@ namespace SAM.Model
             HttpResponseMessage httpResponse = await httpClient.GetAsync(uri);
             string rawData = await httpResponse.Content.ReadAsStringAsync();
 
-            lock (_lock)
+            if (httpResponse.IsSuccessStatusCode)
             {
-                if (httpResponse.IsSuccessStatusCode)
+                lock (_lock)
                 {
-                    ParseYelpData(JsonObject.Parse(rawData));
+                    _cachedLocalDelivery = ParseYelpBusinesses(JsonObject.Parse(rawData));
+                    return _cachedLocalDelivery;
                 }
-                _state = YelpState.Ready;
             }
-
-            StateChanged?.Invoke(this, _state);
-        }
-
-        private readonly static string _hotelServicesContentUrl = "https://api.yelp.com/v3/transactions/delivery/search";
-        private readonly static string _hotelServicesLocationContentUrl = "https://api.yelp.com/v3/transactions/delivery/search?latitude={0}&longitude={1}";
-        private readonly static string _authHeaderKey = "Authorization";
-        private readonly static string _authHeaderValue = "Bearer {0}";
-        // TODO put this in app config
-        private readonly static string _apiKey = "JT__i462fvWquQJxKgDyetDsyPN7vByt0GX6JKFfeEpxOJ-qtkC2fGCWhwsj3a-GMSvn4O2OQRpi3FJ807ZyNwqmbaPDbn_opAL6hkMs_hRAS4qdm1JNTP0TFMLlW3Yx";
-
-        private void ParseYelpData(JsonObject root)
-        {
-            if (root == null)
+            else
             {
-                return;
+                return new List<BusinessData>();
             }
-            var businesses = root.GetNamedArray("businesses");
-            _localDelivery = BusinessData.ParseList(businesses);
-            foreach(var b in _localDelivery)
-            {
-                b.Activated += Business_Activated;
-            }
-        }
-
-        private void Business_Activated(BusinessData source)
-        {
-            // TODO think of a better way to do this
-            var yelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
-            yelpViewModel.RequestDisplayBusinessData(source);
-            var navModel = _dependencyContainer.GetDependency<ContentNavModel>();
-            navModel.RequestContentNavigation(ContentNavMode.Yelp);
-        }
-
-        private List<BusinessData> _localDelivery;
-        public List<BusinessData> LocalDelivery
-        {
-            get { return _localDelivery; }
         }
     }
 }

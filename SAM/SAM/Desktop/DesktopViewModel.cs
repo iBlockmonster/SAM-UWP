@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SAM.Model;
 using SAM.DependencyContainer;
+using System.Threading.Tasks;
 
 namespace SAM.Desktop
 {
@@ -13,25 +14,22 @@ namespace SAM.Desktop
     {
         public DesktopViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         {
-            _dependencyContainer.StateChanged += _dependencyContainer_StateChanged;
+            _ = WaitForInit();
         }
 
-        private void _dependencyContainer_StateChanged(IDependencyContainer source, DependencyContainerState state)
+        private async Task WaitForInit()
         {
-            if (state == DependencyContainerState.Initialized)
-            {
-                _dependencyContainer.StateChanged -= _dependencyContainer_StateChanged;
+            await _dependencyContainer.WaitForInitComplete();
 
-                _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>();
-                _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
+            _contentNavModel = _dependencyContainer.GetDependency<ContentNavModel>();
+            _contentNavModel.ContentChanged += _contentNavModel_ContentChanged;
 
-                _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>();
+            _headerViewModel = _dependencyContainer.GetDependency<HeaderViewModel>();
 
-                _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>();
-                _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
+            _taskbarViewModel = _dependencyContainer.GetDependency<TaskbarViewModel>();
+            _taskbarViewModel.MenuRequested += _taskbarViewModel_MenuRequested;
 
-                _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>();
-            }
+            _menuViewModel = _dependencyContainer.GetDependency<MenuViewModel>();
         }
 
         private ContentNavModel _contentNavModel;
