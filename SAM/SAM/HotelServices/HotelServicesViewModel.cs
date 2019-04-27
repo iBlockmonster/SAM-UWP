@@ -1,5 +1,6 @@
 ﻿using SAM.DependencyContainer;
 using SAM.Model;
+using SAM.Yelp;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -17,7 +18,29 @@ namespace SAM.HotelServices
         {
             await _dependencyContainer.WaitForInitComplete();
             _yelpModel = _dependencyContainer.GetDependency<YelpModel>();
+
+            if (_localBusinesses != null)
+            {
+                foreach (var business in _localBusinesses)
+                {
+                    business.Activated -= Business_Activated;
+                }
+            }
+            var localBusinesses = await _yelpModel.GetLocalDelivery();
+            foreach (var business in localBusinesses)
+            {
+                business.Activated += Business_Activated;
+            }
+
             LocalBusinesses = await _yelpModel.GetLocalDelivery();
+        }
+
+        private void Business_Activated(BusinessData obj)
+        {
+            var yelpDetailsModel = _dependencyContainer.GetDependency<YelpViewModel>();
+            yelpDetailsModel.ActiveBusiness = obj;
+            var navModel = _dependencyContainer.GetDependency<ContentNavModel>();
+            navModel.RequestContentNavigation(ContentNavMode.Yelp);
         }
 
         private YelpModel _yelpModel;

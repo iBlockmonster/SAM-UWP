@@ -40,5 +40,17 @@ namespace SAM.Yelp
 
             ViewModel = e.Parameter as YelpViewModel;
         }
+
+        private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
+        {
+            Progress.Visibility = Visibility.Collapsed;
+            YelpContent.Visibility = Visibility.Visible;
+        }
+
+        private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
+        {
+            YelpContent.Visibility = Visibility.Collapsed;
+            Progress.Visibility = Visibility.Visible;
+        }
     }
 }

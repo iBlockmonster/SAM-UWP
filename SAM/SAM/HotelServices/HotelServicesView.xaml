@@ -200,6 +200,8 @@
                             </toolkit:RotatorTile.ItemTemplate>
                         </toolkit:RotatorTile>
                         <ProgressRing
+                            Width="48"
+                            Height="48"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             IsActive="True"

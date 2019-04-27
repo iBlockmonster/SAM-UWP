@@ -12,5 +12,19 @@ namespace SAM.Yelp
     {
         public YelpViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer)
         { }
+
+        private BusinessData _activeBusiness;
+        public BusinessData ActiveBusiness
+        {
+            get { return _activeBusiness; }
+            set
+            {
+                if (_activeBusiness != value)
+                {
+                    _activeBusiness = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
     }
 }
