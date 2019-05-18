@@ -130,6 +130,7 @@
       <DependentUpon>HotelServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
+    <Compile Include="JsonExtensionMethods.cs" />
     <Compile Include="Keypad\Keypad.xaml.cs">
       <DependentUpon>Keypad.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,8 @@
     <Compile Include="Model\BusinessData.cs" />
     <Compile Include="Model\ContentNavModel.cs" />
     <Compile Include="Model\LocationModel.cs" />
+    <Compile Include="Model\NewsArticleData.cs" />
+    <Compile Include="Model\NewsModel.cs" />
     <Compile Include="Model\YelpModel.cs" />
     <Compile Include="Music\MusicView.xaml.cs">
       <DependentUpon>MusicView.xaml</DependentUpon>
