@@ -96,12 +96,14 @@ namespace SAM
             var dc = new DependencyContainer.DependencyContainer();
             var lm = new LocationModel(dc);
             var ym = new YelpModel(dc);
+            var nm = new NewsModel(dc);
 
             lock (_initLock)
             {
                 _dependencyContainer = dc;
                 _dependencyContainer.AddDependency(lm);
                 _dependencyContainer.AddDependency(ym);
+                _dependencyContainer.AddDependency(nm);
                 _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
                 
 

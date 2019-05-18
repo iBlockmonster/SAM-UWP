@@ -30,12 +30,27 @@
                     VerticalAlignment="Stretch"
                     Source="/Assets/YelpImages/YelpTitle.png"
                     Stretch="Uniform" />
-                <WebView
+                <Grid
                     Width="680"
                     Height="800"
                     Margin="0,0,0,40"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Stretch" />
+                    HorizontalAlignment="Center">
+                    <WebView
+                        x:Name="YelpContent"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        ContentLoading="WebView_ContentLoading"
+                        NavigationStarting="WebView_NavigationStarting"
+                        Source="{x:Bind Path=ViewModel.ActiveBusiness.Url, Mode=OneWay}"
+                        Visibility="Collapsed" />
+                    <ProgressRing
+                        x:Name="Progress"
+                        Width="48"
+                        Height="48"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        IsActive="True" />
+                </Grid>
             </StackPanel>
         </Grid>
     </ScrollViewer>
