@@ -132,6 +132,9 @@
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
     <Compile Include="JsonExtensionMethods.cs" />
+    <Compile Include="Keypad\Keypad.xaml.cs">
+      <DependentUpon>Keypad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MirrorHome\MirrorHomeView.xaml.cs">
       <DependentUpon>MirrorHomeView.xaml</DependentUpon>
     </Compile>
@@ -270,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HotelServices\HotelServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Keypad\Keypad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
