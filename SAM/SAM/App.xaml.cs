@@ -15,6 +15,7 @@ using SAM.Yelp;
 using SAM.RoomService;
 using SAM.Spa;
 using SAM.Music;
+using SAM.News;
 
 namespace SAM
 {
@@ -105,7 +106,6 @@ namespace SAM
                 _dependencyContainer.AddDependency(ym);
                 _dependencyContainer.AddDependency(nm);
                 _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
-                
 
                 _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MirrorHomeViewModel(_dependencyContainer));
@@ -118,6 +118,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new NewsViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();

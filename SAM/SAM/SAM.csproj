@@ -11,8 +11,8 @@
     <AssemblyName>SAM</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,7 +95,7 @@
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
@@ -126,6 +126,7 @@
       <DependentUpon>HeaderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Header\HeaderViewModel.cs" />
+    <Compile Include="Common\ExpandableContentControl.cs" />
     <Compile Include="HotelServices\HotelServicesView.xaml.cs">
       <DependentUpon>HotelServicesView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +146,10 @@
       <DependentUpon>MusicView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Music\MusicViewModel.cs" />
+    <Compile Include="News\NewsModuleView.xaml.cs">
+      <DependentUpon>NewsModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="News\NewsViewModel.cs" />
     <Compile Include="RoomService\RoomServiceView.xaml.cs">
       <DependentUpon>RoomServiceView.xaml</DependentUpon>
     </Compile>
@@ -176,6 +181,9 @@
       <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Yelp\YelpModuleView.xaml.cs">
+      <DependentUpon>YelpModuleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Yelp\YelpView.xaml.cs">
       <DependentUpon>YelpView.xaml</DependentUpon>
     </Compile>
@@ -253,6 +261,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Common\Controls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Header\HeaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -266,6 +278,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Music\MusicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="News\NewsModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,6 +314,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\HotelServicesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Yelp\YelpModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

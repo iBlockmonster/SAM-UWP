@@ -1,0 +1,66 @@
+﻿<UserControl
+    x:Class="SAM.News.NewsModuleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:SAM.News"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:SAM.Model"
+    xmlns:shadow="using:SAM.Shadow"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid
+        x:Name="APNewsGrid"
+        Width="720"
+        Height="400"
+        HorizontalAlignment="Center">
+        <shadow:Shadow
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Elevation="8" />
+        <Grid
+            Padding="6,6,6,6"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
+            CornerRadius="4">
+            <toolkit:RotatorTile
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Direction="Right"
+                ItemsSource="{x:Bind Path=ViewModel.TopNewsHeadlines, Mode=OneWay}">
+                <toolkit:RotatorTile.ItemTemplate>
+                    <DataTemplate x:DataType="model:NewsArticleData">
+                        <Grid
+                            Margin="4,4,4,4"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                            <Image
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Source="{x:Bind Path=ImageUrl, Mode=OneTime}"
+                                Stretch="UniformToFill" />
+                            <TextBlock
+                                Margin="8,8,8,8"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="20"
+                                Text="{x:Bind Path=Title, Mode=OneTime}"
+                                TextWrapping="WrapWholeWords" />
+                        </Grid>
+                    </DataTemplate>
+                </toolkit:RotatorTile.ItemTemplate>
+            </toolkit:RotatorTile>
+            <ProgressRing
+                Width="48"
+                Height="48"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsActive="True"
+                Visibility="{x:Bind Path=ViewModel.IsNewsDataLoading, Mode=OneWay}" />
+        </Grid>
+    </Grid>
+</UserControl>

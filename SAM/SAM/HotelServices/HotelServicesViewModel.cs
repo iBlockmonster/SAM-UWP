@@ -1,5 +1,6 @@
 ﻿using SAM.DependencyContainer;
 using SAM.Model;
+using SAM.News;
 using SAM.Yelp;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,95 +18,58 @@ namespace SAM.HotelServices
         private async Task WaitForInit()
         {
             await _dependencyContainer.WaitForInitComplete();
-            _yelpModel = _dependencyContainer.GetDependency<YelpModel>();
-            _newsModel = _dependencyContainer.GetDependency<NewsModel>();
+            YelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
+            NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
 
-            _ = LoadYelpData();
-            _ = LoadNewsData();
+            _yelpViewModel.BusinessActivated += _yelpViewModel_BusinessActivated;
         }
 
-        #region Yelp
-
-        private async Task LoadYelpData()
+        private NewsViewModel _newsViewModel;
+        public NewsViewModel NewsViewModel
         {
-            if (_localBusinesses != null)
-            {
-                foreach (var business in _localBusinesses)
-                {
-                    business.Activated -= Business_Activated;
-                }
-            }
-            var localBusinesses = await _yelpModel.GetLocalDelivery();
-            foreach (var business in localBusinesses)
-            {
-                business.Activated += Business_Activated;
-            }
-
-            LocalBusinesses = await _yelpModel.GetLocalDelivery();
-        }
-
-        private void Business_Activated(BusinessData obj)
-        {
-            var yelpDetailsModel = _dependencyContainer.GetDependency<YelpViewModel>();
-            yelpDetailsModel.ActiveBusiness = obj;
-            var navModel = _dependencyContainer.GetDependency<ContentNavModel>();
-            navModel.RequestContentNavigation(ContentNavMode.Yelp);
-        }
-
-        private YelpModel _yelpModel;
-
-        private IReadOnlyList<BusinessData> _localBusinesses;
-        public IReadOnlyList<BusinessData> LocalBusinesses
-        {
-            get { return _localBusinesses; }
+            get { return _newsViewModel; }
             private set
             {
-                if (_localBusinesses != value)
+                if(_newsViewModel != value)
                 {
-                    _localBusinesses = value;
+                    _newsViewModel = value;
                     RaisePropertyChangedFromSource();
-                    RaisePropertyChanged("IsYelpDataLoading");
                 }
             }
         }
 
-        public bool IsYelpDataLoading
+        private YelpViewModel _yelpViewModel;
+        public YelpViewModel YelpViewModel
         {
-            get { return _localBusinesses == null || _localBusinesses.Count == 0; }
+            get { return _yelpViewModel; }
+            set
+            {
+                if(_yelpViewModel != value)
+                {
+                    _yelpViewModel = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
         }
 
-        #endregion
-
-        #region News
-
-        private NewsModel _newsModel;
-
-        private async Task LoadNewsData()
+        private void _yelpViewModel_BusinessActivated(YelpViewModel source, BusinessData business)
         {
-            TopNewsHeadlines = await _newsModel.GetTopHeadlines();
+            FocusedContentViewModel = _yelpViewModel;
         }
 
-        private IReadOnlyList<NewsArticleData> _topNewsHeadlines;
-        public IReadOnlyList<NewsArticleData> TopNewsHeadlines
+        private object _focusedContentViewModel;
+        public object FocusedContentViewModel
         {
-            get { return _topNewsHeadlines; }
+            get { return _focusedContentViewModel; }
             private set
             {
-                if (_topNewsHeadlines != value)
+                if(_focusedContentViewModel != value)
                 {
-                    _topNewsHeadlines = value;
+                    _focusedContentViewModel = value;
                     RaisePropertyChangedFromSource();
-                    RaisePropertyChanged("IsNewsDataLoading");
                 }
             }
         }
-
-        public bool IsNewsDataLoading
-        {
-            get { return _topNewsHeadlines == null || _topNewsHeadlines.Count == 0; }
-        }
-
-        #endregion
 
         public void OnMirrorHomeClick(object sender, RoutedEventArgs e)
         {

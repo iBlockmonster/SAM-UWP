@@ -1,0 +1,36 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="using:SAM.Common">
+
+    <Style TargetType="common:ExpandableContentControl">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="common:ExpandableContentControl">
+                        <Grid x:Name="OuterContainer">
+                            <ContentPresenter
+                                x:Name="ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                ContentTransitions="{TemplateBinding ContentTransitions}"
+                                Visibility="Collapsed" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ExpansionStates">
+                                    <VisualState x:Name="ExpansionCollapsed" />
+                                    <VisualState x:Name="ExpansionExpanded">
+                                        <VisualState.Setters>
+                                            <Setter Target="OuterContainer.Margin" Value="0,0,0,40" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+</ResourceDictionary>
