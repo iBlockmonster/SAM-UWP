@@ -24,9 +24,43 @@ namespace SAM.News
 
         private NewsModel _newsModel;
 
+        private NewsArticleData _activeNewsArticle;
+        public NewsArticleData ActiveNewsArticle
+        {
+            get { return _activeNewsArticle; }
+            set
+            {
+                if (_activeNewsArticle != value)
+                {
+                    _activeNewsArticle = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        public event Action<NewsViewModel, NewsArticleData> NewsArticleActivated;
+
         private async Task LoadNewsData()
         {
-            TopNewsHeadlines = await _newsModel.GetTopHeadlines();
+            if (_topNewsHeadlines != null)
+            {
+                foreach (var article in _topNewsHeadlines)
+                {
+                    article.Activated -= Article_Activated;
+                }
+            }
+            var topNews = await _newsModel.GetTopHeadlines();
+            foreach (var article in topNews)
+            {
+                article.Activated += Article_Activated;
+            }
+            TopNewsHeadlines = topNews;
+        }
+
+        private void Article_Activated(NewsArticleData obj)
+        {
+            ActiveNewsArticle = obj;
+            NewsArticleActivated?.Invoke(this, obj);
         }
 
         private IReadOnlyList<NewsArticleData> _topNewsHeadlines;

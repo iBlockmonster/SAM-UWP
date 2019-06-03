@@ -61,7 +61,6 @@ namespace SAM.Model
 
         public void OnActivate(object sender, RoutedEventArgs e)
         {
-            // TODO think about a better way to do this
             Activated?.Invoke(this);
         }
 

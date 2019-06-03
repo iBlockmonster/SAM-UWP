@@ -2,6 +2,7 @@
     x:Class="SAM.HotelServices.HotelServicesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:common="using:SAM.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.HotelServices"
@@ -25,6 +26,9 @@
                 Height="400"
                 Margin="0,0,0,40"
                 HorizontalAlignment="Center">
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
                 <shadow:Shadow
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -114,6 +118,9 @@
                 Margin="0,0,0,40"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Stretch">
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
                 <shadow:Shadow
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -131,13 +138,30 @@
                         Stretch="UniformToFill" />
                 </Grid>
             </Grid>
-            <news:NewsModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.NewsViewModel, Mode=OneWay}" />
-            <common:ExpandableContentControl Content="{x:Bind Path=ViewModel.FocusedContentViewModel}" />
+            <news:NewsModuleView
+                x:Name="NewsModule"
+                Margin="0,0,0,40"
+                ViewModel="{x:Bind Path=ViewModel.NewsViewModel, Mode=OneWay}">
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
+            </news:NewsModuleView>
+            <common:ExpandableContentControl
+                x:Name="ExpandableContentArea1"
+                Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}"
+                ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
+            </common:ExpandableContentControl>
             <Grid x:Name="ServicesGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
                 <StackPanel
                     x:Name="ServicesStackPanel"
                     Grid.Column="0"

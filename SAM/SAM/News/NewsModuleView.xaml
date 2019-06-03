@@ -34,23 +34,25 @@
                 ItemsSource="{x:Bind Path=ViewModel.TopNewsHeadlines, Mode=OneWay}">
                 <toolkit:RotatorTile.ItemTemplate>
                     <DataTemplate x:DataType="model:NewsArticleData">
-                        <Grid
+                        <Button
                             Margin="4,4,4,4"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch">
-                            <Image
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Source="{x:Bind Path=ImageUrl, Mode=OneTime}"
-                                Stretch="UniformToFill" />
-                            <TextBlock
-                                Margin="8,8,8,8"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                FontSize="20"
-                                Text="{x:Bind Path=Title, Mode=OneTime}"
-                                TextWrapping="WrapWholeWords" />
-                        </Grid>
+                            Click="{x:Bind Path=OnActivate, Mode=OneWay}"
+                            Style="{StaticResource HitboxButton}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Image
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Source="{x:Bind Path=ImageUrl, Mode=OneTime}"
+                                    Stretch="UniformToFill" />
+                                <TextBlock
+                                    Margin="8,8,8,8"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    FontSize="20"
+                                    Text="{x:Bind Path=Title, Mode=OneTime}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+                        </Button>
                     </DataTemplate>
                 </toolkit:RotatorTile.ItemTemplate>
             </toolkit:RotatorTile>

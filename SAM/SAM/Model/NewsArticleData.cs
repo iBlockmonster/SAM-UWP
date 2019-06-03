@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
+using Windows.UI.Xaml;
 
 namespace SAM.Model
 {
@@ -65,5 +66,12 @@ namespace SAM.Model
         public string ImageUrl { get; }
         public string Timestamp { get; }
         public string Content { get; }
+
+        public void OnActivate(object sender, RoutedEventArgs e)
+        {
+            Activated?.Invoke(this);
+        }
+
+        public event Action<NewsArticleData> Activated;
     }
 }

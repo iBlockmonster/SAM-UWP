@@ -22,6 +22,7 @@ namespace SAM.HotelServices
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
 
             _yelpViewModel.BusinessActivated += _yelpViewModel_BusinessActivated;
+            _newsViewModel.NewsArticleActivated += _newsViewModel_NewsArticleActivated;
         }
 
         private NewsViewModel _newsViewModel;
@@ -36,6 +37,11 @@ namespace SAM.HotelServices
                     RaisePropertyChangedFromSource();
                 }
             }
+        }
+
+        private void _newsViewModel_NewsArticleActivated(NewsViewModel arg1, NewsArticleData arg2)
+        {
+            FocusedContentViewModel = _newsViewModel;
         }
 
         private YelpViewModel _yelpViewModel;

@@ -55,7 +55,7 @@ namespace SAM.Yelp
                 business.Activated += Business_Activated;
             }
 
-            LocalBusinesses = await _yelpModel.GetLocalDelivery();
+            LocalBusinesses = localBusinesses;
         }
 
         private IReadOnlyList<BusinessData> _localBusinesses;
@@ -77,8 +77,6 @@ namespace SAM.Yelp
         {
             ActiveBusiness = obj;
             BusinessActivated?.Invoke(this, ActiveBusiness);
-            // var navModel = _dependencyContainer.GetDependency<ContentNavModel>();
-            // navModel.RequestContentNavigation(ContentNavMode.Yelp);
         }
 
         public bool IsYelpDataLoading
