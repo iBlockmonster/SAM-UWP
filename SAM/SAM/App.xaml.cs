@@ -16,6 +16,7 @@ using SAM.RoomService;
 using SAM.Spa;
 using SAM.Music;
 using SAM.News;
+using SAM.Keypad;
 
 namespace SAM
 {
@@ -119,6 +120,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new NewsViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new KeypadViewModel(_dependencyContainer));
             }
 
             dc.InitComplete();

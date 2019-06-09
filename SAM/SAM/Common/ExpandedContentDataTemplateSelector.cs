@@ -1,4 +1,5 @@
-﻿using SAM.News;
+﻿using SAM.Keypad;
+using SAM.News;
 using SAM.Yelp;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SAM.Common
     {
         public DataTemplate YelpTemplate { get; set; }
         public DataTemplate NewsTemplate { get; set; }
+        public DataTemplate KeypadTemplate { get; set; }
 
         protected override DataTemplate SelectTemplateCore(object item)
         {
@@ -28,6 +30,8 @@ namespace SAM.Common
                     return YelpTemplate;
                 case NewsViewModel newsViewModel:
                     return NewsTemplate;
+                case KeypadViewModel keypadViewModel:
+                    return KeypadTemplate;
                 default:
                     return null;
             }

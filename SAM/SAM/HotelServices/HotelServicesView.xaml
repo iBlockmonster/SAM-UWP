@@ -111,6 +111,11 @@
                     </Grid>
                 </Grid>
             </Grid>
+            <common:ExpandableContentControl Content="{x:Bind Path=ViewModel.FocusedKeypadViewModel, Mode=OneWay}" ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
+                <animations:Implicit.Animations>
+                    <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
+                </animations:Implicit.Animations>
+            </common:ExpandableContentControl>
             <Grid
                 x:Name="GetStartedLockingGrid"
                 Width="720"
@@ -146,10 +151,7 @@
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
             </news:NewsModuleView>
-            <common:ExpandableContentControl
-                x:Name="ExpandableContentArea1"
-                Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}"
-                ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
+            <common:ExpandableContentControl Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}" ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
