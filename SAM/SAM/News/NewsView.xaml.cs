@@ -13,22 +13,27 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace SAM.Yelp
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace SAM.News
 {
-    public sealed partial class YelpView : Page
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class NewsView : Page
     {
-        public YelpView()
+        public NewsView()
         {
             this.InitializeComponent();
         }
 
         #region ViewModelProperty
 
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(YelpViewModel), typeof(YelpView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(NewsViewModel), typeof(NewsView), new PropertyMetadata(null));
 
-        public YelpViewModel ViewModel
+        public NewsViewModel ViewModel
         {
-            get { return GetValue(ViewModelProperty) as YelpViewModel; }
+            get { return GetValue(ViewModelProperty) as NewsViewModel; }
             set { SetValue(ViewModelProperty, value); }
         }
 
@@ -38,18 +43,18 @@ namespace SAM.Yelp
         {
             base.OnNavigatedTo(e);
 
-            ViewModel = e.Parameter as YelpViewModel;
+            ViewModel = e.Parameter as NewsViewModel;
         }
 
         private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
         {
             Progress.Visibility = Visibility.Collapsed;
-            YelpContent.Visibility = Visibility.Visible;
+            NewsContent.Visibility = Visibility.Visible;
         }
 
         private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
-            YelpContent.Visibility = Visibility.Collapsed;
+            NewsContent.Visibility = Visibility.Collapsed;
             Progress.Visibility = Visibility.Visible;
         }
 
