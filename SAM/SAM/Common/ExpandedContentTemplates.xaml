@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:common="using:SAM.Common"
+    xmlns:keypad="using:SAM.Keypad"
     xmlns:news="using:SAM.News"
     xmlns:yelp="using:SAM.Yelp">
 
@@ -12,6 +13,13 @@
 
     <DataTemplate x:Key="ExpandedNewsTemplate" x:DataType="news:NewsViewModel">
         <news:NewsView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="KeypadTemplate" x:DataType="keypad:KeypadViewModel">
+        <Grid
+            Width="400"
+            Height="400"
+            Background="Blue" />
     </DataTemplate>
 
     <common:ExpandedContentDataTemplateSelector

@@ -139,6 +139,7 @@
     <Compile Include="Keypad\Keypad.xaml.cs">
       <DependentUpon>Keypad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Keypad\KeypadViewModel.cs" />
     <Compile Include="MirrorHome\MirrorHomeView.xaml.cs">
       <DependentUpon>MirrorHomeView.xaml</DependentUpon>
     </Compile>

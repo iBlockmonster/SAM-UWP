@@ -1,4 +1,5 @@
 ﻿using SAM.DependencyContainer;
+using SAM.Keypad;
 using SAM.Model;
 using SAM.News;
 using SAM.Yelp;
@@ -20,9 +21,7 @@ namespace SAM.HotelServices
             await _dependencyContainer.WaitForInitComplete();
             YelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
-
-            _yelpViewModel.BusinessActivated += _yelpViewModel_BusinessActivated;
-            _newsViewModel.NewsArticleActivated += _newsViewModel_NewsArticleActivated;
+            KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
         }
 
         private NewsViewModel _newsViewModel;
@@ -31,15 +30,23 @@ namespace SAM.HotelServices
             get { return _newsViewModel; }
             private set
             {
-                if(_newsViewModel != value)
+                if (_newsViewModel != value)
                 {
+                    if (_newsViewModel != null)
+                    {
+                        _newsViewModel.NewsArticleActivated -= _newsViewModel_NewsArticleActivated;
+                    }
                     _newsViewModel = value;
+                    if (_newsViewModel != null)
+                    {
+                        _newsViewModel.NewsArticleActivated += _newsViewModel_NewsArticleActivated;
+                    }
                     RaisePropertyChangedFromSource();
                 }
             }
         }
 
-        private void _newsViewModel_NewsArticleActivated(NewsViewModel arg1, NewsArticleData arg2)
+        private void _newsViewModel_NewsArticleActivated(NewsViewModel source, NewsArticleData article)
         {
             FocusedContentViewModel = _newsViewModel;
         }
@@ -50,9 +57,17 @@ namespace SAM.HotelServices
             get { return _yelpViewModel; }
             set
             {
-                if(_yelpViewModel != value)
+                if (_yelpViewModel != value)
                 {
+                    if (_yelpViewModel != null)
+                    {
+                        _yelpViewModel.BusinessActivated -= _yelpViewModel_BusinessActivated;
+                    }
                     _yelpViewModel = value;
+                    if (_yelpViewModel != null)
+                    {
+                        _yelpViewModel.BusinessActivated += _yelpViewModel_BusinessActivated;
+                    }
                     RaisePropertyChangedFromSource();
                 }
             }
@@ -63,15 +78,56 @@ namespace SAM.HotelServices
             FocusedContentViewModel = _yelpViewModel;
         }
 
-        private object _focusedContentViewModel;
-        public object FocusedContentViewModel
+        private KeypadViewModel _keypadViewModel;
+        public KeypadViewModel KeypadViewModel
+        {
+            get { return _keypadViewModel; }
+            private set
+            {
+                if (_keypadViewModel != value)
+                {
+                    if(_keypadViewModel != null)
+                    {
+                        _keypadViewModel.KeypadActivated -= _keypadViewModel_KeypadActivated;
+                    }
+                    _keypadViewModel = value;
+                    if(_keypadViewModel != null)
+                    {
+                        _keypadViewModel.KeypadActivated += _keypadViewModel_KeypadActivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private void _keypadViewModel_KeypadActivated(KeypadViewModel obj)
+        {
+            FocusedKeypadViewModel = _keypadViewModel;
+        }
+
+        private ViewModelBase _focusedContentViewModel;
+        public ViewModelBase FocusedContentViewModel
         {
             get { return _focusedContentViewModel; }
             private set
             {
-                if(_focusedContentViewModel != value)
+                if (_focusedContentViewModel != value)
                 {
                     _focusedContentViewModel = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private ViewModelBase _focusedKeypadViewModel;
+        public ViewModelBase FocusedKeypadViewModel
+        {
+            get { return _focusedKeypadViewModel; }
+            private set
+            {
+                if (_focusedKeypadViewModel != value)
+                {
+                    _focusedKeypadViewModel = value;
                     RaisePropertyChangedFromSource();
                 }
             }
