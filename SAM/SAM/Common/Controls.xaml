@@ -14,7 +14,6 @@
                                 x:Name="ContentPresenter"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
-                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                 ContentTransitions="{TemplateBinding ContentTransitions}"
                                 Opacity="0"
                                 Visibility="Collapsed">

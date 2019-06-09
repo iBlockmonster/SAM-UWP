@@ -44,12 +44,10 @@ namespace SAM.Common
             if (vm == null)
             {
                 VisualStateManager.GoToState(this, "ExpansionCollapsed", true);
-                // TODO
             }
             else
             {
                 VisualStateManager.GoToState(this, "ExpansionExpanded", true);
-                // TODO
             }
         }
     }

@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SAM.Common">
 
-    <x:String x:Key="GlobalOffsetDuration">00:00:00.2</x:String>
-    <x:String x:Key="GlobalOpacityDuration">00:00:00.3</x:String>
+    <x:String x:Key="GlobalOffsetDuration">00:00:00.5</x:String>
+    <x:String x:Key="GlobalOpacityDuration">00:00:00.5</x:String>
 
     <Style x:Key="HitboxButton" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Left" />
