@@ -23,5 +23,17 @@ namespace SAM.Keypad
         {
             this.InitializeComponent();
         }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(KeypadViewModel), typeof(Keypad), new PropertyMetadata(null));
+
+        public KeypadViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as KeypadViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
     }
 }
