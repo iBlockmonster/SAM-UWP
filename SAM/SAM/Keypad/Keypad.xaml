@@ -5,8 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Keypad"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    MaxWidth="720"
+    d:DesignHeight="500"
+    d:DesignWidth="500"
     mc:Ignorable="d">
 
     <Grid x:Name="LayoutRoot">
@@ -16,18 +17,129 @@
             <ColumnDefinition Width="100*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*" />
-            <RowDefinition Height="100*" />
-            <RowDefinition Height="100*" />
-            <RowDefinition Height="100*" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="75*" />
         </Grid.RowDefinitions>
         <Grid
-            x:Name="one"
-            Grid.RowSpan="1"
+            Grid.ColumnSpan="1"
+            Margin="0,0,4,0"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
+            CornerRadius="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Margin="0,0,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+        <Grid
+            Grid.Column="1"
+            Margin="0,0,4,0"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            VerticalAlignment="Stretch"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
+            CornerRadius="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Margin="0,0,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+        <Grid
+            Grid.Column="2"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
+            CornerRadius="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Margin="0,0,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="36"
+                    Text="0"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+
+        <Grid
+            x:Name="one"
+            Grid.Row="1"
+            Grid.RowSpan="1"
+            Grid.ColumnSpan="1">
             <Button
                 x:Name="oneButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -39,11 +151,15 @@
         </Grid>
         <Grid
             x:Name="two"
+            Grid.Row="1"
             Grid.RowSpan="1"
             Grid.Column="1"
-            Grid.ColumnSpan="1">
+            Grid.ColumnSpan="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
             <Button
                 x:Name="twoButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -55,13 +171,14 @@
         </Grid>
         <Grid
             x:Name="three"
+            Grid.Row="1"
             Grid.RowSpan="1"
             Grid.Column="2"
             Grid.ColumnSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Margin="0,0,0,0">
             <Button
                 x:Name="threeButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -73,13 +190,15 @@
         </Grid>
         <Grid
             x:Name="four"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.RowSpan="1"
             Grid.Column="0"
             Grid.ColumnSpan="1"
-            Margin="0,0,0,0">
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
             <Button
                 x:Name="fourButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -91,14 +210,13 @@
         </Grid>
         <Grid
             x:Name="five"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.RowSpan="1"
             Grid.Column="1"
-            Grid.ColumnSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Grid.ColumnSpan="1">
             <Button
                 x:Name="fiveButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -110,14 +228,14 @@
         </Grid>
         <Grid
             x:Name="six"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.RowSpan="1"
             Grid.Column="2"
             Grid.ColumnSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Margin="0,0,0,0">
             <Button
                 x:Name="sixButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -129,12 +247,12 @@
         </Grid>
         <Grid
             x:Name="seven"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.RowSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Grid.ColumnSpan="1">
             <Button
                 x:Name="sevenButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -146,14 +264,13 @@
         </Grid>
         <Grid
             x:Name="eight"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.RowSpan="1"
             Grid.Column="1"
-            Grid.ColumnSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Grid.ColumnSpan="1">
             <Button
                 x:Name="eightButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -165,12 +282,16 @@
         </Grid>
         <Grid
             x:Name="nine"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.RowSpan="1"
             Grid.Column="2"
-            Grid.ColumnSpan="1">
+            Grid.ColumnSpan="1"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
             <Button
                 x:Name="nineButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -182,12 +303,12 @@
         </Grid>
         <Grid
             x:Name="locked"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.RowSpan="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Grid.ColumnSpan="1">
             <Button
                 x:Name="lockedButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -199,12 +320,15 @@
         </Grid>
         <Grid
             x:Name="zero"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.RowSpan="1"
             Grid.Column="1"
-            Grid.ColumnSpan="1">
+            Grid.ColumnSpan="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
             <Button
                 x:Name="zeroButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -216,12 +340,16 @@
         </Grid>
         <Grid
             x:Name="unlocked"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.RowSpan="1"
             Grid.Column="2"
-            Grid.ColumnSpan="1">
+            Grid.ColumnSpan="1"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
             <Button
                 x:Name="UnlockedButton"
+                Height="70"
                 Margin="2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
