@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SAM.DependencyContainer;
 using SAM.Model;
+using Windows.UI.Xaml;
 
 namespace SAM.Yelp
 {
@@ -38,7 +39,7 @@ namespace SAM.Yelp
             }
         }
 
-        public event Action<YelpViewModel,BusinessData> BusinessActivated;
+        public event Action<YelpViewModel, BusinessData> BusinessActivated;
 
         private async Task LoadYelpData()
         {
@@ -82,6 +83,13 @@ namespace SAM.Yelp
         public bool IsYelpDataLoading
         {
             get { return _localBusinesses == null || _localBusinesses.Count == 0; }
+        }
+
+        public event Action<YelpViewModel> YelpDeactivated;
+
+        public void onDeactivate(object sender, RoutedEventArgs e)
+        {
+            YelpDeactivated?.Invoke(this);
         }
     }
 }

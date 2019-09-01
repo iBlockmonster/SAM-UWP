@@ -49,12 +49,12 @@ namespace SAM.News
         private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
         {
             Progress.Visibility = Visibility.Collapsed;
-            NewsContent.Visibility = Visibility.Visible;
+            Content.Visibility = Visibility.Visible;
         }
 
         private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
-            NewsContent.Visibility = Visibility.Collapsed;
+            Content.Visibility = Visibility.Collapsed;
             Progress.Visibility = Visibility.Visible;
         }
 

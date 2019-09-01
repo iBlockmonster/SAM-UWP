@@ -19,6 +19,13 @@ namespace SAM.Spa
             SpaActivated?.Invoke(this);
         }
 
+        public event Action<SpaViewModel> SpaDeactivated;
+
+        public void onDeactivate(object sender, RoutedEventArgs e)
+        {
+            SpaDeactivated?.Invoke(this);
+        }
+
         public string InfoUrl
         {
             get { return "https://www.marriott.com/hotel/vacation-packages/spa-getaways.mi"; }

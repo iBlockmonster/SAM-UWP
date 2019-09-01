@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace SAM.News
 {
@@ -81,6 +82,13 @@ namespace SAM.News
         public bool IsNewsDataLoading
         {
             get { return _topNewsHeadlines == null || _topNewsHeadlines.Count == 0; }
+        }
+
+        public event Action<NewsViewModel> NewsDeactivated;
+
+        public void onDeactivate(object sender, RoutedEventArgs e)
+        {
+            NewsDeactivated?.Invoke(this);
         }
     }
 }

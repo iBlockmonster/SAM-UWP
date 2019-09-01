@@ -11,27 +11,27 @@
     xmlns:yelp="using:SAM.Yelp">
 
     <DataTemplate x:Key="ExpandedYelpTemplate" x:DataType="yelp:YelpViewModel">
-        <yelp:YelpView ViewModel="{x:Bind Mode=OneWay}" />
+        <yelp:YelpView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedNewsTemplate" x:DataType="news:NewsViewModel">
-        <news:NewsView ViewModel="{x:Bind Mode=OneWay}" />
+        <news:NewsView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="KeypadTemplate" x:DataType="keypad:KeypadViewModel">
-        <keypad:Keypad ViewModel="{x:Bind Mode=OneWay}" />
+        <keypad:Keypad ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedSpaTemplate" x:DataType="spa:SpaViewModel">
-        <spa:SpaView ViewModel="{x:Bind Mode=OneWay}" />
+        <spa:SpaView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedMusicTemplate" x:DataType="music:MusicViewModel">
-        <music:MusicView ViewModel="{x:Bind Mode=OneWay}" />
+        <music:MusicView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedRoomServiceTemplate" x:DataType="roomService:RoomServiceViewModel">
-        <roomService:RoomServiceView ViewModel="{x:Bind Mode=OneWay}" />
+        <roomService:RoomServiceView ViewModel="{Binding}" />
     </DataTemplate>
 
     <common:ExpandedContentDataTemplateSelector

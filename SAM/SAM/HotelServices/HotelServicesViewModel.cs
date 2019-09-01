@@ -41,11 +41,13 @@ namespace SAM.HotelServices
                     if (_newsViewModel != null)
                     {
                         _newsViewModel.NewsArticleActivated -= _newsViewModel_NewsArticleActivated;
+                        _newsViewModel.NewsDeactivated -= _newsViewModel_NewsDeactivated;
                     }
                     _newsViewModel = value;
                     if (_newsViewModel != null)
                     {
                         _newsViewModel.NewsArticleActivated += _newsViewModel_NewsArticleActivated;
+                        _newsViewModel.NewsDeactivated += _newsViewModel_NewsDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -55,6 +57,12 @@ namespace SAM.HotelServices
         private void _newsViewModel_NewsArticleActivated(NewsViewModel source, NewsArticleData article)
         {
             FocusedContentViewModel = _newsViewModel;
+        }
+
+
+        private void _newsViewModel_NewsDeactivated(NewsViewModel obj)
+        {
+            FocusedContentViewModel = null;
         }
 
         private YelpViewModel _yelpViewModel;
@@ -68,11 +76,13 @@ namespace SAM.HotelServices
                     if (_yelpViewModel != null)
                     {
                         _yelpViewModel.BusinessActivated -= _yelpViewModel_BusinessActivated;
+                        _yelpViewModel.YelpDeactivated -= _yelpViewModel_YelpDeactivated;
                     }
                     _yelpViewModel = value;
                     if (_yelpViewModel != null)
                     {
                         _yelpViewModel.BusinessActivated += _yelpViewModel_BusinessActivated;
+                        _yelpViewModel.YelpDeactivated += _yelpViewModel_YelpDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -82,6 +92,11 @@ namespace SAM.HotelServices
         private void _yelpViewModel_BusinessActivated(YelpViewModel source, BusinessData business)
         {
             FocusedContentViewModel = _yelpViewModel;
+        }
+
+        private void _yelpViewModel_YelpDeactivated(YelpViewModel obj)
+        {
+            FocusedContentViewModel = null;
         }
 
         private SpaViewModel _spaViewModel;
@@ -95,11 +110,13 @@ namespace SAM.HotelServices
                     if (_spaViewModel != null)
                     {
                         _spaViewModel.SpaActivated -= _spaViewModel_SpaActivated;
+                        _spaViewModel.SpaDeactivated -= _spaViewModel_SpaDeactivated;
                     }
                     _spaViewModel = value;
                     if (_spaViewModel != null)
                     {
                         _spaViewModel.SpaActivated += _spaViewModel_SpaActivated;
+                        _spaViewModel.SpaDeactivated += _spaViewModel_SpaDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -109,6 +126,11 @@ namespace SAM.HotelServices
         private void _spaViewModel_SpaActivated(SpaViewModel source)
         {
             FocusedContentViewModel = _spaViewModel;
+        }
+
+        private void _spaViewModel_SpaDeactivated(SpaViewModel obj)
+        {
+            FocusedContentViewModel = null;
         }
 
         private MusicViewModel _musicViewModel;
@@ -122,11 +144,13 @@ namespace SAM.HotelServices
                     if (_musicViewModel != null)
                     {
                         _musicViewModel.MusicActivated -= _musicViewModel_SpaActivated;
+                        _musicViewModel.MusicDeactivated -= _musicViewModel_MusicDeactivated;
                     }
                     _musicViewModel = value;
                     if (_musicViewModel != null)
                     {
                         _musicViewModel.MusicActivated += _musicViewModel_SpaActivated;
+                        _musicViewModel.MusicDeactivated += _musicViewModel_MusicDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -136,6 +160,11 @@ namespace SAM.HotelServices
         private void _musicViewModel_SpaActivated(MusicViewModel source)
         {
             FocusedContentViewModel = _musicViewModel;
+        }
+
+        private void _musicViewModel_MusicDeactivated(MusicViewModel obj)
+        {
+            FocusedContentViewModel = null;
         }
 
         private RoomServiceViewModel _roomServiceViewModel;
@@ -149,11 +178,13 @@ namespace SAM.HotelServices
                     if (_roomServiceViewModel != null)
                     {
                         _roomServiceViewModel.RoomServiceActivated -= _roomServiceViewModel_SpaActivated;
+                        _roomServiceViewModel.RoomServiceDeactivated -= _roomServiceViewModel_RoomServiceDeactivated;
                     }
                     _roomServiceViewModel = value;
                     if (_roomServiceViewModel != null)
                     {
                         _roomServiceViewModel.RoomServiceActivated += _roomServiceViewModel_SpaActivated;
+                        _roomServiceViewModel.RoomServiceDeactivated += _roomServiceViewModel_RoomServiceDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -163,6 +194,11 @@ namespace SAM.HotelServices
         private void _roomServiceViewModel_SpaActivated(RoomServiceViewModel source)
         {
             FocusedContentViewModel = _roomServiceViewModel;
+        }
+
+        private void _roomServiceViewModel_RoomServiceDeactivated(RoomServiceViewModel obj)
+        {
+            FocusedContentViewModel = null;
         }
 
         private KeypadViewModel _keypadViewModel;
@@ -223,16 +259,6 @@ namespace SAM.HotelServices
         public void OnMirrorHomeClick(object sender, RoutedEventArgs e)
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.MirrorHome);
-        }
-
-        public void OnRoomServiceClick(object sender, RoutedEventArgs e)
-        {
-            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.RoomService);
-        }
-
-        public void OnMusicClick(object sender, RoutedEventArgs e)
-        {
-            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Music);
         }
 
         public void OnKeypadClick(object sender, RoutedEventArgs e)

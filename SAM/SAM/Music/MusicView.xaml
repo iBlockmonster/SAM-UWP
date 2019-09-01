@@ -7,36 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer
-        HorizontalScrollBarVisibility="Disabled"
-        HorizontalScrollMode="Disabled"
-        VerticalScrollBarVisibility="Auto"
-        VerticalScrollMode="auto">
-        <Grid
-            Margin="0,0,0,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
-            <Grid
-                Width="680"
-                Height="800"
-                HorizontalAlignment="Center">
-                <WebView
-                    x:Name="YelpContent"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    ContentLoading="WebView_ContentLoading"
-                    NavigationFailed="WebView_NavigationFailed"
-                    NavigationStarting="WebView_NavigationStarting"
-                    Source="{x:Bind Path=ViewModel.InfoUrl, Mode=OneWay}"
-                    Visibility="Collapsed" />
-                <ProgressRing
-                    x:Name="Progress"
-                    Width="48"
-                    Height="48"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    IsActive="True" />
-            </Grid>
+    <StackPanel Width="720" Orientation="Vertical">
+        <Button
+            Width="48"
+            Height="48"
+            Margin="0,0,0,4"
+            HorizontalAlignment="Right"
+            Click="{x:Bind Path=ViewModel.onDeactivate}"
+            Content="X" />
+        <Grid Height="800" HorizontalAlignment="Stretch">
+            <WebView
+                x:Name="Content"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                ContentLoading="WebView_ContentLoading"
+                NavigationFailed="WebView_NavigationFailed"
+                NavigationStarting="WebView_NavigationStarting"
+                Source="{x:Bind Path=ViewModel.InfoUrl, Mode=OneWay}"
+                Visibility="Collapsed" />
+            <ProgressRing
+                x:Name="Progress"
+                Width="48"
+                Height="48"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                IsActive="True" />
         </Grid>
-    </ScrollViewer>
+    </StackPanel>
 </Page>

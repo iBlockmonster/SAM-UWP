@@ -7,32 +7,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer
-        HorizontalScrollBarVisibility="Disabled"
-        HorizontalScrollMode="Disabled"
-        VerticalScrollBarVisibility="Auto"
-        VerticalScrollMode="auto">
-        <Grid
-            Margin="0,0,0,0"
+    <StackPanel Width="720">
+        <Button
+            Width="48"
+            Height="48"
+            Margin="0,0,0,4"
+            HorizontalAlignment="Right"
+            Click="{x:Bind Path=ViewModel.onDeactivate}"
+            Content="X" />
+        <Image
+            Margin="0,0,0,20"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="190" />
-                <RowDefinition Height="Auto" MinHeight="0" />
-            </Grid.RowDefinitions>
-            <StackPanel
-                Grid.Row="1"
-                Grid.RowSpan="1"
-                MaxWidth="720">
-                <Image
-                    Margin="0,0,0,40"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Source="/Assets/OrderFoodImages/OrderTitle.png"
-                    Stretch="Uniform" />
-                <Image Margin="0,0,0,40" Source="/Assets/OrderFoodImages/OrderItems.png" />
-                <Image Margin="0,0,0,40" Source="/Assets/OrderFoodImages/MyOrder.png" />
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+            VerticalAlignment="Stretch"
+            Source="/Assets/OrderFoodImages/OrderTitle.png"
+            Stretch="Uniform" />
+        <Image Margin="0,0,0,20" Source="/Assets/OrderFoodImages/OrderItems.png" />
+        <Image Source="/Assets/OrderFoodImages/MyOrder.png" />
+    </StackPanel>
 </Page>

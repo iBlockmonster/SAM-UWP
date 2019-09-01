@@ -18,5 +18,12 @@ namespace SAM.RoomService
         {
             RoomServiceActivated?.Invoke(this);
         }
+
+        public event Action<RoomServiceViewModel> RoomServiceDeactivated;
+
+        public void onDeactivate(object sender, RoutedEventArgs e)
+        {
+            RoomServiceDeactivated?.Invoke(this);
+        }
     }
 }

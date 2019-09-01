@@ -19,9 +19,16 @@ namespace SAM.Music
             MusicActivated?.Invoke(this);
         }
 
+        public event Action<MusicViewModel> MusicDeactivated;
+
+        public void onDeactivate(object sender, RoutedEventArgs e)
+        {
+            MusicDeactivated?.Invoke(this);
+        }
+
         public string InfoUrl
         {
-            get { return "https://open.spotify.com/browse/featured"; }
+            get { return "http://open.spotify.com/browse/featured"; }
         }
     }
 }
