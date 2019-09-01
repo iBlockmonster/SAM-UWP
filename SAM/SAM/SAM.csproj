@@ -180,6 +180,9 @@
     </Compile>
     <Compile Include="OuterNav\OuterNavViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spa\SpaModuleView.xaml.cs">
+      <DependentUpon>SpaModuleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Spa\SpaView.xaml.cs">
       <DependentUpon>SpaView.xaml</DependentUpon>
     </Compile>
@@ -325,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OuterNav\OuterNavPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spa\SpaModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

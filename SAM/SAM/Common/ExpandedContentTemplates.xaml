@@ -5,6 +5,7 @@
     xmlns:common="using:SAM.Common"
     xmlns:keypad="using:SAM.Keypad"
     xmlns:news="using:SAM.News"
+    xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp">
 
     <DataTemplate x:Key="ExpandedYelpTemplate" x:DataType="yelp:YelpViewModel">
@@ -16,13 +17,18 @@
     </DataTemplate>
 
     <DataTemplate x:Key="KeypadTemplate" x:DataType="keypad:KeypadViewModel">
-        <keypad:Keypad ViewModel="{x:Bind Mode=OneWay}"/>
+        <keypad:Keypad ViewModel="{x:Bind Mode=OneWay}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedSpaTemplate" x:DataType="spa:SpaViewModel">
+        <spa:SpaView ViewModel="{x:Bind Mode=OneWay}" />
     </DataTemplate>
 
     <common:ExpandedContentDataTemplateSelector
         x:Key="ExpandedContentDataTemplateSelector"
         KeypadTemplate="{StaticResource KeypadTemplate}"
         NewsTemplate="{StaticResource ExpandedNewsTemplate}"
+        SpaTemplate="{StaticResource ExpandedSpaTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />
 
 </ResourceDictionary>

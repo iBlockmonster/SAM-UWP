@@ -3,6 +3,7 @@ using SAM.Keypad;
 using SAM.Model;
 using SAM.News;
 using SAM.Yelp;
+using SAM.Spa;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -22,6 +23,7 @@ namespace SAM.HotelServices
             YelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
+            SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
         }
 
         private NewsViewModel _newsViewModel;
@@ -78,6 +80,33 @@ namespace SAM.HotelServices
             FocusedContentViewModel = _yelpViewModel;
         }
 
+        private SpaViewModel _spaViewModel;
+        public SpaViewModel SpaViewModel
+        {
+            get { return _spaViewModel; }
+            set
+            {
+                if (_spaViewModel != value)
+                {
+                    if (_spaViewModel != null)
+                    {
+                        _spaViewModel.SpaActivated -= _spaViewModel_SpaActivated;
+                    }
+                    _spaViewModel = value;
+                    if (_spaViewModel != null)
+                    {
+                        _spaViewModel.SpaActivated += _spaViewModel_SpaActivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private void _spaViewModel_SpaActivated(SpaViewModel source)
+        {
+            FocusedContentViewModel = _spaViewModel;
+        }
+
         private KeypadViewModel _keypadViewModel;
         public KeypadViewModel KeypadViewModel
         {
@@ -86,12 +115,12 @@ namespace SAM.HotelServices
             {
                 if (_keypadViewModel != value)
                 {
-                    if(_keypadViewModel != null)
+                    if (_keypadViewModel != null)
                     {
                         _keypadViewModel.KeypadActivated -= _keypadViewModel_KeypadActivated;
                     }
                     _keypadViewModel = value;
-                    if(_keypadViewModel != null)
+                    if (_keypadViewModel != null)
                     {
                         _keypadViewModel.KeypadActivated += _keypadViewModel_KeypadActivated;
                     }
@@ -141,11 +170,6 @@ namespace SAM.HotelServices
         public void OnRoomServiceClick(object sender, RoutedEventArgs e)
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.RoomService);
-        }
-
-        public void OnSpaClick(object sender, RoutedEventArgs e)
-        {
-            _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Spa);
         }
 
         public void OnMusicClick(object sender, RoutedEventArgs e)

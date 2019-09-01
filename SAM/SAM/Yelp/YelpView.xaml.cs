@@ -55,7 +55,7 @@ namespace SAM.Yelp
 
         private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
-
+            // TODO
         }
     }
 }

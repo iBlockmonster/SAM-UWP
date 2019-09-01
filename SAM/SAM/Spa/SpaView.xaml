@@ -4,8 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Spa"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <ScrollViewer
@@ -17,27 +16,28 @@
             Margin="0,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="190" />
-                <RowDefinition Height="Auto" MinHeight="0" />
-            </Grid.RowDefinitions>
-            <StackPanel
-                Grid.Row="1"
-                Grid.RowSpan="1"
-                MaxWidth="720">
-                <Image
-                    Margin="0,0,0,40"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Source="/Assets/SpaImages/SpaTitle.png"
-                    Stretch="Uniform" />
-                <WebView
+            <Grid
+                    Width="680"
                     Height="800"
-                    Margin="0,0,0,40"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Source="https://www.marriott.com/hotel/vacation-packages/spa-getaways.mi" />
-            </StackPanel>
+                    HorizontalAlignment="Center">
+                <WebView
+                        x:Name="YelpContent"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        ContentLoading="WebView_ContentLoading"
+                        NavigationFailed="WebView_NavigationFailed"
+                        NavigationStarting="WebView_NavigationStarting"
+                        Source="{x:Bind Path=ViewModel.InfoUrl, Mode=OneWay}"
+                        Visibility="Collapsed" />
+                <ProgressRing
+                        x:Name="Progress"
+                        Width="48"
+                        Height="48"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        IsActive="True" />
+            </Grid>
         </Grid>
     </ScrollViewer>
+
 </Page>
