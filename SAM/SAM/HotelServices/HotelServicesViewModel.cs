@@ -152,5 +152,10 @@ namespace SAM.HotelServices
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.Music);
         }
+
+        public void OnKeypadClick(object sender, RoutedEventArgs e)
+        {
+            FocusedKeypadViewModel = _keypadViewModel;
+        }
     }
 }

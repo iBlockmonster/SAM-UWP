@@ -136,11 +136,17 @@
                     BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                     BorderThickness="2,2,2,2"
                     CornerRadius="4">
-                    <Image
+                    <Button
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
-                        Stretch="UniformToFill" />
+                        Click="{x:Bind Mode=OneWay, Path=ViewModel.OnKeypadClick}"
+                        Style="{StaticResource HitboxButton}">
+                        <Image
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
+                            Stretch="UniformToFill" />
+                    </Button>
                 </Grid>
             </Grid>
             <news:NewsModuleView
