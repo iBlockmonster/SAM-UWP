@@ -38,7 +38,7 @@
                 Margin="0,0,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="FirstDigit"
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
@@ -50,7 +50,7 @@
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="SecondDigit"
                     Margin="10,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
@@ -76,7 +76,7 @@
                 Margin="0,0,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="ThirdDigit"
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
@@ -88,7 +88,7 @@
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="FourthDigit"
                     Margin="10,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
@@ -111,7 +111,7 @@
                 Margin="0,0,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="FifthDigit"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     FontSize="36"
@@ -122,7 +122,7 @@
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <TextBlock
+                <TextBlock x:Name="SixthDigit"
                     Margin="10,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
@@ -147,7 +147,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="1"
-                CornerRadius="4" />
+                CornerRadius="4" Click="OneButton_Click" />
         </Grid>
         <Grid
             x:Name="two"
@@ -167,7 +167,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="2"
-                CornerRadius="4" />
+                CornerRadius="4" Click="TwoButton_Click" />
         </Grid>
         <Grid
             x:Name="three"
@@ -186,7 +186,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="3"
-                CornerRadius="4" />
+                CornerRadius="4" Click="ThreeButton_Click" />
         </Grid>
         <Grid
             x:Name="four"
@@ -206,7 +206,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="4"
-                CornerRadius="4" />
+                CornerRadius="4" Click="FourButton_Click" />
         </Grid>
         <Grid
             x:Name="five"
@@ -224,7 +224,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="5"
-                CornerRadius="4" />
+                CornerRadius="4" Click="FiveButton_Click" />
         </Grid>
         <Grid
             x:Name="six"
@@ -243,7 +243,7 @@
                 BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
                 BorderThickness="2,2,2,2"
                 Content="6"
-                CornerRadius="4" />
+                CornerRadius="4" Click="SixButton_Click" />
         </Grid>
         <Grid
             x:Name="seven"
