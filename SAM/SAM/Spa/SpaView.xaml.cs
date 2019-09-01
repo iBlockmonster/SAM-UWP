@@ -13,14 +13,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace SAM.Spa
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class SpaView : Page
+    public sealed partial class SpaView : UserControl
     {
         public SpaView()
         {
@@ -38,29 +33,5 @@ namespace SAM.Spa
         }
 
         #endregion
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            ViewModel = e.Parameter as SpaViewModel;
-        }
-
-        private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
-        {
-            Progress.Visibility = Visibility.Collapsed;
-            Content.Visibility = Visibility.Visible;
-        }
-
-        private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
-        {
-            Content.Visibility = Visibility.Collapsed;
-            Progress.Visibility = Visibility.Visible;
-        }
-
-        private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
-        {
-            // TODO
-        }
     }
 }

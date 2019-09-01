@@ -13,14 +13,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace SAM.Music
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MusicView : Page
+    public sealed partial class MusicView : UserControl
     {
         public MusicView()
         {
@@ -39,28 +34,36 @@ namespace SAM.Music
 
         #endregion
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
+        //private WebView _webView = null;
 
-            ViewModel = e.Parameter as MusicViewModel;
-        }
+        //private void ControlLoaded(object sender, RoutedEventArgs e)
+        //{
+        //    _webView = new WebView(WebViewExecutionMode.SeparateThread);
+        //    _webView.Visibility = Visibility.Collapsed;
+        //    _webView.HorizontalAlignment = HorizontalAlignment.Stretch;
+        //    _webView.VerticalAlignment = VerticalAlignment.Stretch;
+        //    _webView.ContentLoading += WebView_ContentLoading;
+        //    _webView.NavigationStarting += WebView_NavigationStarting;
+        //    _webView.Source = new Uri(ViewModel.InfoUrl);
 
-        private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
-        {
-            Progress.Visibility = Visibility.Collapsed;
-            Content.Visibility = Visibility.Visible;
-        }
+        //    ContentContainer.Children.Add(_webView);
+        //}
 
-        private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
-        {
-            Content.Visibility = Visibility.Collapsed;
-            Progress.Visibility = Visibility.Visible;
-        }
+        //private void ControlUnloaded(object sender, RoutedEventArgs e)
+        //{
 
-        private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
-        {
-            // TODO
-        }
+        //}
+
+        //private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
+        //{
+        //    Progress.Visibility = Visibility.Collapsed;
+        //    _webView.Visibility = Visibility.Visible;
+        //}
+
+        //private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
+        //{
+        //    _webView.Visibility = Visibility.Collapsed;
+        //    Progress.Visibility = Visibility.Visible;
+        //}
     }
 }

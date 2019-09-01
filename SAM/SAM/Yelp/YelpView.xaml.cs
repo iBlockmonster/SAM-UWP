@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SAM.Yelp
 {
-    public sealed partial class YelpView : Page
+    public sealed partial class YelpView : UserControl
     {
         public YelpView()
         {
@@ -33,29 +33,5 @@ namespace SAM.Yelp
         }
 
         #endregion
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            ViewModel = e.Parameter as YelpViewModel;
-        }
-
-        private void WebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
-        {
-            Progress.Visibility = Visibility.Collapsed;
-            Content.Visibility = Visibility.Visible;
-        }
-
-        private void WebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
-        {
-            Content.Visibility = Visibility.Collapsed;
-            Progress.Visibility = Visibility.Visible;
-        }
-
-        private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
-        {
-            // TODO
-        }
     }
 }

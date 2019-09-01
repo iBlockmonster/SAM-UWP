@@ -124,6 +124,7 @@
     <Compile Include="Common\ExpandedContentTemplates.xaml.cs">
       <DependentUpon>ExpandedContentTemplates.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\ThreadedWebView.cs" />
     <Compile Include="DependencyContainer\DependencyContainer.cs" />
     <Compile Include="DependencyContainer\IDependencyContainer.cs" />
     <Compile Include="Header\HeaderView.xaml.cs">

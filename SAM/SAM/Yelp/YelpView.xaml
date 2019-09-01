@@ -1,7 +1,8 @@
-﻿<Page
+﻿<UserControl
     x:Class="SAM.Yelp.YelpView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="using:SAM.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:SAM.Yelp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,24 +16,7 @@
             HorizontalAlignment="Right"
             Click="{x:Bind Path=ViewModel.onDeactivate}"
             Content="X" />
-        <Grid Height="800" HorizontalAlignment="Stretch">
-            <WebView
-                x:Name="Content"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                ContentLoading="WebView_ContentLoading"
-                NavigationFailed="WebView_NavigationFailed"
-                NavigationStarting="WebView_NavigationStarting"
-                Source="{x:Bind Path=ViewModel.ActiveBusiness.Url, Mode=OneWay}"
-                Visibility="Collapsed" />
-            <ProgressRing
-                x:Name="Progress"
-                Width="48"
-                Height="48"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                IsActive="True" />
-        </Grid>
+        <common:ThreadedWebView Height="800" Source="{x:Bind Path=ViewModel.ActiveBusiness.Url, Mode=OneWay}" />
     </StackPanel>
 
-</Page>
+</UserControl>

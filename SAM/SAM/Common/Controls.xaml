@@ -4,6 +4,38 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:common="using:SAM.Common">
 
+    <Style TargetType="common:ThreadedWebView">
+        <Style.Setters>
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="common:ThreadedWebView">
+                        <Grid
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <Border
+                                x:Name="WebViewContainer"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <ProgressRing
+                                x:Name="Progress"
+                                Width="48"
+                                Height="48"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsActive="True" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
     <Style TargetType="common:ExpandableContentControl">
         <Style.Setters>
             <Setter Property="Template">
