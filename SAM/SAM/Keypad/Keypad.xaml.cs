@@ -35,5 +35,35 @@ namespace SAM.Keypad
         }
 
         #endregion
+
+        private void OneButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.FirstDigit.Text = "1";
+        }
+
+        private void TwoButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.SecondDigit.Text = "2";
+        }
+
+        private void ThreeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ThirdDigit.Text = "3";
+        }
+
+        private void FourButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.FourthDigit.Text = "4";
+        }
+
+        private void FiveButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.FifthDigit.Text = "5";
+        }
+
+        private void SixButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.SixthDigit.Text = "6";
+        }
     }
 }
