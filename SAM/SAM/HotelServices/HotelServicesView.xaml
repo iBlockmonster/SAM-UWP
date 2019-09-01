@@ -5,12 +5,10 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:common="using:SAM.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:SAM.HotelServices"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:model="using:SAM.Model"
     xmlns:news="using:SAM.News"
     xmlns:shadow="using:SAM.Shadow"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp"
     mc:Ignorable="d">
 
@@ -176,27 +174,7 @@
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right">
                     <yelp:YelpModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.YelpViewModel, Mode=OneWay}" />
-                    <Grid
-                        x:Name="SpaGrid"
-                        Width="340"
-                        Height="245"
-                        Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                        BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                        BorderThickness="2,2,2,2"
-                        CornerRadius="4">
-                        <Button
-                            Margin="6,6,6,6"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnSpaClick}"
-                            Style="{StaticResource HitboxButton}">
-                            <Image
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Source="/Assets/MirrorCacheImages/Spa.png"
-                                Stretch="Uniform" />
-                        </Button>
-                    </Grid>
+                    <spa:SpaModuleView ViewModel="{x:Bind Path=ViewModel.SpaViewModel, Mode=OneWay}" />
                 </StackPanel>
                 <StackPanel
                     Grid.Column="1"

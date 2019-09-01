@@ -55,22 +55,26 @@
             Grid.Column="1"
             Margin="40,0,40,0"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Background="{ThemeResource SystemControlAcrylicElementBrush}"
-            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-            BorderThickness="2,2,2,2"
-            CornerRadius="4">
+            VerticalAlignment="Stretch">
+            <Grid
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+                BorderThickness="2"
+                CornerRadius="4" />
             <Button
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Click="{x:Bind Mode=OneWay, Path=ViewModel.OnHomeClick}"
+                CornerRadius="4"
                 RequestedTheme="Light"
-                Style="{StaticResource ButtonRevealStyle}">
+                Style="{ThemeResource ButtonRevealStyle}">
                 <Image
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Source="/Assets/MirrorCacheImages/marriott logo.png" />
             </Button>
+
         </Grid>
         <shadow:Shadow
             Grid.Column="2"
