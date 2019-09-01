@@ -4,6 +4,7 @@ using SAM.Model;
 using SAM.News;
 using SAM.Yelp;
 using SAM.Spa;
+using SAM.Music;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -24,6 +25,7 @@ namespace SAM.HotelServices
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
             SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
+            MusicViewModel = _dependencyContainer.GetDependency<MusicViewModel>();
         }
 
         private NewsViewModel _newsViewModel;
@@ -105,6 +107,33 @@ namespace SAM.HotelServices
         private void _spaViewModel_SpaActivated(SpaViewModel source)
         {
             FocusedContentViewModel = _spaViewModel;
+        }
+
+        private MusicViewModel _musicViewModel;
+        public MusicViewModel MusicViewModel
+        {
+            get { return _musicViewModel; }
+            set
+            {
+                if (_musicViewModel != value)
+                {
+                    if (_musicViewModel != null)
+                    {
+                        _musicViewModel.MusicActivated -= _musicViewModel_SpaActivated;
+                    }
+                    _musicViewModel = value;
+                    if (_musicViewModel != null)
+                    {
+                        _musicViewModel.MusicActivated += _musicViewModel_SpaActivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private void _musicViewModel_SpaActivated(MusicViewModel source)
+        {
+            FocusedContentViewModel = _musicViewModel;
         }
 
         private KeypadViewModel _keypadViewModel;

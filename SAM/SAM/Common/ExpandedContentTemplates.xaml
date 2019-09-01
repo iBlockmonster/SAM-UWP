@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:common="using:SAM.Common"
     xmlns:keypad="using:SAM.Keypad"
+    xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
     xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp">
@@ -24,9 +25,14 @@
         <spa:SpaView ViewModel="{x:Bind Mode=OneWay}" />
     </DataTemplate>
 
+    <DataTemplate x:Key="ExpandedMusicTemplate" x:DataType="music:MusicViewModel">
+        <music:MusicView ViewModel="{x:Bind Mode=OneWay}" />
+    </DataTemplate>
+
     <common:ExpandedContentDataTemplateSelector
         x:Key="ExpandedContentDataTemplateSelector"
         KeypadTemplate="{StaticResource KeypadTemplate}"
+        MusicTemplate="{StaticResource ExpandedMusicTemplate}"
         NewsTemplate="{StaticResource ExpandedNewsTemplate}"
         SpaTemplate="{StaticResource ExpandedSpaTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />

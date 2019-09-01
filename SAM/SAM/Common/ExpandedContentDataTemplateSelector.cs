@@ -2,6 +2,7 @@
 using SAM.News;
 using SAM.Spa;
 using SAM.Yelp;
+using SAM.Music;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SAM.Common
         public DataTemplate NewsTemplate { get; set; }
         public DataTemplate KeypadTemplate { get; set; }
         public DataTemplate SpaTemplate { get; set; }
+        public DataTemplate MusicTemplate { get; set; }
 
         protected override DataTemplate SelectTemplateCore(object item)
         {
@@ -36,6 +38,8 @@ namespace SAM.Common
                     return KeypadTemplate;
                 case SpaViewModel spaViewModel:
                     return SpaTemplate;
+                case MusicViewModel musicViewModel:
+                    return MusicTemplate;
                 default:
                     return null;
             }

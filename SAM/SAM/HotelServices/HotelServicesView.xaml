@@ -6,6 +6,7 @@
     xmlns:common="using:SAM.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
     xmlns:shadow="using:SAM.Shadow"
     xmlns:spa="using:SAM.Spa"
@@ -180,27 +181,7 @@
                     Grid.Column="1"
                     Margin="20,0,0,0"
                     HorizontalAlignment="left">
-                    <Grid
-                        x:Name="PlayMusicGrid"
-                        Width="340"
-                        Height="245"
-                        Margin="0,0,0,40"
-                        Padding="6,6,6,6"
-                        Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                        BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                        BorderThickness="2,2,2,2"
-                        CornerRadius="4">
-                        <Button
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnMusicClick}"
-                            Style="{StaticResource HitboxButton}">
-                            <Image
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Source="/Assets/MirrorCacheImages/PlayMusic.png" />
-                        </Button>
-                    </Grid>
+                    <music:MusicModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.MusicViewModel, Mode=OneWay}" />
                     <Grid
                         x:Name="OrderFoodGrid"
                         Width="340"

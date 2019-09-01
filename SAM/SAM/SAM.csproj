@@ -150,6 +150,9 @@
     <Compile Include="Model\NewsArticleData.cs" />
     <Compile Include="Model\NewsModel.cs" />
     <Compile Include="Model\YelpModel.cs" />
+    <Compile Include="Music\MusicModuleView.xaml.cs">
+      <DependentUpon>MusicModuleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music\MusicView.xaml.cs">
       <DependentUpon>MusicView.xaml</DependentUpon>
     </Compile>
@@ -296,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MirrorHome\MirrorHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Music\MusicModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
