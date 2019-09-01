@@ -164,6 +164,9 @@
       <DependentUpon>NewsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="News\NewsViewModel.cs" />
+    <Compile Include="RoomService\RoomServiceModuleView.xaml.cs">
+      <DependentUpon>RoomServiceModuleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomService\RoomServiceView.xaml.cs">
       <DependentUpon>RoomServiceView.xaml</DependentUpon>
     </Compile>
@@ -315,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="News\NewsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RoomService\RoomServiceModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

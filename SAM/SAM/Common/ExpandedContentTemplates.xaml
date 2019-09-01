@@ -6,6 +6,7 @@
     xmlns:keypad="using:SAM.Keypad"
     xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
+    xmlns:roomService="using:SAM.RoomService"
     xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp">
 
@@ -29,11 +30,16 @@
         <music:MusicView ViewModel="{x:Bind Mode=OneWay}" />
     </DataTemplate>
 
+    <DataTemplate x:Key="ExpandedRoomServiceTemplate" x:DataType="roomService:RoomServiceViewModel">
+        <roomService:RoomServiceView ViewModel="{x:Bind Mode=OneWay}" />
+    </DataTemplate>
+
     <common:ExpandedContentDataTemplateSelector
         x:Key="ExpandedContentDataTemplateSelector"
         KeypadTemplate="{StaticResource KeypadTemplate}"
         MusicTemplate="{StaticResource ExpandedMusicTemplate}"
         NewsTemplate="{StaticResource ExpandedNewsTemplate}"
+        RoomServiceTemplate="{StaticResource ExpandedRoomServiceTemplate}"
         SpaTemplate="{StaticResource ExpandedSpaTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />
 

@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
+    xmlns:roomService="using:SAM.RoomService"
     xmlns:shadow="using:SAM.Shadow"
     xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp"
@@ -170,7 +171,7 @@
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
                 <StackPanel
-                    x:Name="ServicesStackPanel"
+                    x:Name="ServicesStackPanelLeft"
                     Grid.Column="0"
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right">
@@ -178,30 +179,12 @@
                     <spa:SpaModuleView ViewModel="{x:Bind Path=ViewModel.SpaViewModel, Mode=OneWay}" />
                 </StackPanel>
                 <StackPanel
+                    x:Name="ServicesStackPanelRight"
                     Grid.Column="1"
                     Margin="20,0,0,0"
                     HorizontalAlignment="left">
                     <music:MusicModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.MusicViewModel, Mode=OneWay}" />
-                    <Grid
-                        x:Name="OrderFoodGrid"
-                        Width="340"
-                        Height="400"
-                        Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                        BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                        BorderThickness="2,2,2,2"
-                        CornerRadius="4">
-                        <Button
-                            Margin="0,0,2,2"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnRoomServiceClick}"
-                            RequestedTheme="Light">
-                            <Image
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Source="/Assets/MirrorCacheImages/OrderCoffee.png" />
-                        </Button>
-                    </Grid>
+                    <roomService:RoomServiceModuleView ViewModel="{x:Bind Path=ViewModel.RoomServiceViewModel, Mode=OneWay}" />
                 </StackPanel>
             </Grid>
         </StackPanel>

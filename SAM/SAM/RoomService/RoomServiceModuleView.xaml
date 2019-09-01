@@ -1,0 +1,31 @@
+﻿<UserControl
+    x:Class="SAM.RoomService.RoomServiceModuleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:SAM.RoomService"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Grid
+        x:Name="OrderFoodGrid"
+        Width="340"
+        Height="400"
+        Background="{ThemeResource SystemControlAcrylicElementBrush}"
+        BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+        BorderThickness="2,2,2,2"
+        CornerRadius="4">
+        <Button
+            Margin="0,0,2,2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Click="{x:Bind Mode=OneWay, Path=ViewModel.OnActivate}"
+            RequestedTheme="Light">
+            <Image
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Source="/Assets/MirrorCacheImages/OrderCoffee.png" />
+        </Button>
+    </Grid>
+</UserControl>
