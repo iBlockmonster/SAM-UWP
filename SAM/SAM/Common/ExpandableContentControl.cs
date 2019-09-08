@@ -41,7 +41,7 @@ namespace SAM.Common
                 return;
             }
             var vm = Content;
-            if (vm == null)
+            if (vm == null || vm is NullViewModel)
             {
                 VisualStateManager.GoToState(this, "ExpansionCollapsed", true);
             }

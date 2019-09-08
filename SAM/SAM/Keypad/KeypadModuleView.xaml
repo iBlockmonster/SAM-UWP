@@ -1,0 +1,41 @@
+﻿<UserControl
+    x:Class="SAM.Keypad.KeypadModuleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:SAM.Keypad"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadow="using:SAM.Shadow"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid
+        x:Name="GetStartedLockingGrid"
+        Height="400"
+        Margin="0,0,0,40"
+        HorizontalAlignment="Stretch">
+        <shadow:Shadow
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Elevation="8" />
+        <Grid
+            Padding="6,6,6,6"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+            BorderThickness="2,2,2,2"
+            CornerRadius="4">
+            <Button
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="{x:Bind Mode=OneWay, Path=ViewModel.OnActivate}"
+                Style="{StaticResource HitboxButton}">
+                <Image
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
+                    Stretch="UniformToFill" />
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

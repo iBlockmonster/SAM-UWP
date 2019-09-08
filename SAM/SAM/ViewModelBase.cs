@@ -38,4 +38,10 @@ namespace SAM
 
         #endregion
     }
+
+    // This is to work around the bug in ContentControl where a data bound value that gets set to null will not call SelectTemplateCore after the iniital load
+    public class NullViewModel : ViewModelBase
+    {
+        public NullViewModel(IDependencyContainer dependencyContainer) : base(dependencyContainer) { }
+    }
 }

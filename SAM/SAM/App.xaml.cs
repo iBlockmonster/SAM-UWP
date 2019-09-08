@@ -17,6 +17,7 @@ using SAM.Spa;
 using SAM.Music;
 using SAM.News;
 using SAM.Keypad;
+using SAM.Welcome;
 
 namespace SAM
 {
@@ -109,6 +110,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
 
                 _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new WelcomeViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MirrorHomeViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new HeaderViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MenuViewModel(_dependencyContainer));

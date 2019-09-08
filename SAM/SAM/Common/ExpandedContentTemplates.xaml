@@ -7,8 +7,13 @@
     xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
     xmlns:roomService="using:SAM.RoomService"
+    xmlns:sam="using:SAM"
     xmlns:spa="using:SAM.Spa"
     xmlns:yelp="using:SAM.Yelp">
+
+    <DataTemplate x:Key="ExpandedNullTemplate" x:DataType="sam:NullViewModel">
+        <Border Width="0" Height="0" />
+    </DataTemplate>
 
     <DataTemplate x:Key="ExpandedYelpTemplate" x:DataType="yelp:YelpViewModel">
         <yelp:YelpView ViewModel="{Binding}" />
@@ -19,7 +24,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="KeypadTemplate" x:DataType="keypad:KeypadViewModel">
-        <keypad:Keypad ViewModel="{Binding}" />
+        <keypad:KeypadView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedSpaTemplate" x:DataType="spa:SpaViewModel">
@@ -39,6 +44,7 @@
         KeypadTemplate="{StaticResource KeypadTemplate}"
         MusicTemplate="{StaticResource ExpandedMusicTemplate}"
         NewsTemplate="{StaticResource ExpandedNewsTemplate}"
+        NullTemplate="{StaticResource ExpandedNullTemplate}"
         RoomServiceTemplate="{StaticResource ExpandedRoomServiceTemplate}"
         SpaTemplate="{StaticResource ExpandedSpaTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />

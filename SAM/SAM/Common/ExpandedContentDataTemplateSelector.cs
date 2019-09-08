@@ -11,11 +11,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using SAM.Welcome;
 
 namespace SAM.Common
 {
     public class ExpandedContentDataTemplateSelector : DataTemplateSelector
     {
+        public DataTemplate NullTemplate { get; set; }
+        public DataTemplate WelcomeTemplate { get; set; }
         public DataTemplate YelpTemplate { get; set; }
         public DataTemplate NewsTemplate { get; set; }
         public DataTemplate KeypadTemplate { get; set; }
@@ -32,6 +35,10 @@ namespace SAM.Common
         {
             switch (item)
             {
+                case NullViewModel nullViewModel:
+                    return NullTemplate;
+                case WelcomeViewModel welcomeViewModel:
+                    return WelcomeTemplate;
                 case YelpViewModel yelpViewModel:
                     return YelpTemplate;
                 case NewsViewModel newsViewModel:

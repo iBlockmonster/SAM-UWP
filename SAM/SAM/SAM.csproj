@@ -137,8 +137,11 @@
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
     <Compile Include="JsonExtensionMethods.cs" />
-    <Compile Include="Keypad\Keypad.xaml.cs">
-      <DependentUpon>Keypad.xaml</DependentUpon>
+    <Compile Include="Keypad\KeypadModuleView.xaml.cs">
+      <DependentUpon>KeypadModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Keypad\KeypadView.xaml.cs">
+      <DependentUpon>KeypadView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Keypad\KeypadViewModel.cs" />
     <Compile Include="MirrorHome\MirrorHomeView.xaml.cs">
@@ -202,6 +205,10 @@
       <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Welcome\WelcomeModuleView.xaml.cs">
+      <DependentUpon>WelcomeModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome\WelcomeViewModel.cs" />
     <Compile Include="Yelp\YelpModuleView.xaml.cs">
       <DependentUpon>YelpModuleView.xaml</DependentUpon>
     </Compile>
@@ -298,7 +305,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Keypad\Keypad.xaml">
+    <Page Include="Keypad\KeypadModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Keypad\KeypadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -362,6 +373,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Welcome\WelcomeModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Yelp\YelpModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -379,9 +394,7 @@
       <Version>5.1.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataTemplates\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using SAM.RoomService;
+using System;
+using SAM.Welcome;
 
 namespace SAM.HotelServices
 {
@@ -16,18 +18,39 @@ namespace SAM.HotelServices
     {
         public HotelServicesViewModel(IDependencyContainer depdendencyContainer) : base(depdendencyContainer)
         {
+            _nullViewModel = new NullViewModel(depdendencyContainer);
+            _focusedContentViewModel = _nullViewModel;
+            _focusedKeypadViewModel = _nullViewModel;
             _ = WaitForInit();
         }
+
+        // This is to work around the bug in ContentControl where a data bound value that gets set to null will not call SelectTemplateCore after the iniital load
+        private NullViewModel _nullViewModel;
 
         private async Task WaitForInit()
         {
             await _dependencyContainer.WaitForInitComplete();
+            WelcomeViewModel = _dependencyContainer.GetDependency<WelcomeViewModel>();
             YelpViewModel = _dependencyContainer.GetDependency<YelpViewModel>();
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
             SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
             MusicViewModel = _dependencyContainer.GetDependency<MusicViewModel>();
             RoomServiceViewModel = _dependencyContainer.GetDependency<RoomServiceViewModel>();
+        }
+
+        private WelcomeViewModel _welcomeViewModel;
+        public WelcomeViewModel WelcomeViewModel
+        {
+            get { return _welcomeViewModel; }
+            set
+            {
+                if(_welcomeViewModel != value)
+                {
+                    _welcomeViewModel = value;
+                    RaisePropertyChangedFromSource();
+                }
+            }
         }
 
         private NewsViewModel _newsViewModel;
@@ -62,7 +85,7 @@ namespace SAM.HotelServices
 
         private void _newsViewModel_NewsDeactivated(NewsViewModel obj)
         {
-            FocusedContentViewModel = null;
+            FocusedContentViewModel = _nullViewModel;
         }
 
         private YelpViewModel _yelpViewModel;
@@ -96,7 +119,7 @@ namespace SAM.HotelServices
 
         private void _yelpViewModel_YelpDeactivated(YelpViewModel obj)
         {
-            FocusedContentViewModel = null;
+            FocusedContentViewModel = _nullViewModel;
         }
 
         private SpaViewModel _spaViewModel;
@@ -130,7 +153,7 @@ namespace SAM.HotelServices
 
         private void _spaViewModel_SpaDeactivated(SpaViewModel obj)
         {
-            FocusedContentViewModel = null;
+            FocusedContentViewModel = _nullViewModel;
         }
 
         private MusicViewModel _musicViewModel;
@@ -164,7 +187,7 @@ namespace SAM.HotelServices
 
         private void _musicViewModel_MusicDeactivated(MusicViewModel obj)
         {
-            FocusedContentViewModel = null;
+            FocusedContentViewModel = _nullViewModel;
         }
 
         private RoomServiceViewModel _roomServiceViewModel;
@@ -198,7 +221,7 @@ namespace SAM.HotelServices
 
         private void _roomServiceViewModel_RoomServiceDeactivated(RoomServiceViewModel obj)
         {
-            FocusedContentViewModel = null;
+            FocusedContentViewModel = _nullViewModel;
         }
 
         private KeypadViewModel _keypadViewModel;
@@ -212,11 +235,13 @@ namespace SAM.HotelServices
                     if (_keypadViewModel != null)
                     {
                         _keypadViewModel.KeypadActivated -= _keypadViewModel_KeypadActivated;
+                        _keypadViewModel.KeypadDeactivated -= _keypadViewModel_KeypadDeactivated;
                     }
                     _keypadViewModel = value;
                     if (_keypadViewModel != null)
                     {
                         _keypadViewModel.KeypadActivated += _keypadViewModel_KeypadActivated;
+                        _keypadViewModel.KeypadDeactivated += _keypadViewModel_KeypadDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -226,6 +251,11 @@ namespace SAM.HotelServices
         private void _keypadViewModel_KeypadActivated(KeypadViewModel obj)
         {
             FocusedKeypadViewModel = _keypadViewModel;
+        }
+
+        private void _keypadViewModel_KeypadDeactivated(KeypadViewModel obj)
+        {
+            FocusedKeypadViewModel = _nullViewModel;
         }
 
         private ViewModelBase _focusedContentViewModel;
@@ -259,11 +289,6 @@ namespace SAM.HotelServices
         public void OnMirrorHomeClick(object sender, RoutedEventArgs e)
         {
             _dependencyContainer.GetDependency<ContentNavModel>().RequestContentNavigation(ContentNavMode.MirrorHome);
-        }
-
-        public void OnKeypadClick(object sender, RoutedEventArgs e)
-        {
-            FocusedKeypadViewModel = _keypadViewModel;
         }
     }
 }

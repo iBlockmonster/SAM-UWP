@@ -5,12 +5,13 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:common="using:SAM.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:keypad="using:SAM.Keypad"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
     xmlns:roomService="using:SAM.RoomService"
-    xmlns:shadow="using:SAM.Shadow"
     xmlns:spa="using:SAM.Spa"
+    xmlns:welcome="using:SAM.Welcome"
     xmlns:yelp="using:SAM.Yelp"
     mc:Ignorable="d">
 
@@ -19,150 +20,43 @@
         HorizontalScrollMode="Disabled"
         VerticalScrollBarVisibility="Auto"
         VerticalScrollMode="auto">
-        <StackPanel Margin="0,195,0,80">
-            <Grid
-                x:Name="WelcomeGrid"
-                Width="720"
-                Height="400"
-                Margin="0,0,0,40"
-                HorizontalAlignment="Center">
+        <StackPanel Width="720" Margin="0,195,0,80">
+            <welcome:WelcomeModuleView ViewModel="{x:Bind Path=ViewModel.WelcomeViewModel, Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
-                <shadow:Shadow
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Elevation="8" />
-                <Grid
-                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                    BorderThickness="2,2,2,2"
-                    CornerRadius="4">
-                    <Image
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Source="/Assets/MirrorCacheImages/WelcomeCardCut.png"
-                        Stretch="Fill" />
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="350*" />
-                            <ColumnDefinition Width="350*" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel
-                            Grid.ColumnSpan="1"
-                            Margin="6,6,6,6"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Top"
-                            BorderBrush="#FF8180B7"
-                            BorderThickness="1,1,1,1"
-                            CornerRadius="6,6,6,6">
-                            <StackPanel.Background>
-                                <AcrylicBrush TintColor="{ThemeResource SystemColorDisabledTextColor}" TintOpacity="0.2" />
-                            </StackPanel.Background>
-                            <TextBlock
-                                Margin="6,0,6,0"
-                                HorizontalAlignment="Left"
-                                Foreground="#FF979DF1"
-                                Text="Welcome To Las Vegas Scott"
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                Margin="6,0,6,0"
-                                FontSize="20"
-                                Foreground="#CCFFFFFF"
-                                Text="It's Monday"
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                Margin="6,0,6,0"
-                                FontSize="20"
-                                Foreground="#CCFFFFFF"
-                                Text="April 15th, 2019"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                        <StackPanel
-                            Grid.Column="1"
-                            Grid.ColumnSpan="1"
-                            Margin="0,0,6,6"
-                            VerticalAlignment="Bottom"
-                            BorderBrush="#FF8180B7"
-                            BorderThickness="1,1,1,1"
-                            CornerRadius="6,6,6,6">
-                            <StackPanel.Background>
-                                <AcrylicBrush TintColor="{ThemeResource SystemColorDisabledTextColor}" TintOpacity="0.2" />
-                            </StackPanel.Background>
-                            <TextBlock
-                                Margin="6,0,6,0"
-                                FontSize="20"
-                                Foreground="#FFC5C3FF"
-                                Text="Your Rewards"
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                Margin="6,0,6,0"
-                                FontSize="20"
-                                Foreground="#CCFFFFFF"
-                                Text="POINTS: 100,548"
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                Margin="6,0,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Stretch"
-                                Foreground="#FF979DF1"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <common:ExpandableContentControl Content="{x:Bind Path=ViewModel.FocusedKeypadViewModel, Mode=OneWay}" ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
+            </welcome:WelcomeModuleView>
+            <common:ExpandableContentControl
+                HorizontalAlignment="Stretch"
+                Content="{x:Bind Path=ViewModel.FocusedKeypadViewModel, Mode=OneWay}"
+                ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
             </common:ExpandableContentControl>
-            <Grid
-                x:Name="GetStartedLockingGrid"
-                Width="720"
-                Height="400"
-                Margin="0,0,0,40"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Stretch">
+            <keypad:KeypadModuleView ViewModel="{x:Bind Path=ViewModel.KeypadViewModel, Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
-                <shadow:Shadow
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Elevation="8" />
-                <Grid
-                    Padding="6,6,6,6"
-                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
-                    BorderThickness="2,2,2,2"
-                    CornerRadius="4">
-                    <Button
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Click="{x:Bind Mode=OneWay, Path=ViewModel.OnKeypadClick}"
-                        Style="{StaticResource HitboxButton}">
-                        <Image
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Source="/Assets/MirrorCacheImages/GetStartedLocking.png"
-                            Stretch="UniformToFill" />
-                    </Button>
-                </Grid>
-            </Grid>
+            </keypad:KeypadModuleView>
             <news:NewsModuleView
                 x:Name="NewsModule"
                 Margin="0,0,0,40"
+                HorizontalAlignment="Stretch"
                 ViewModel="{x:Bind Path=ViewModel.NewsViewModel, Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
             </news:NewsModuleView>
-            <common:ExpandableContentControl Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}" ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
+            <common:ExpandableContentControl
+                HorizontalAlignment="Stretch"
+                Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}"
+                ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
             </common:ExpandableContentControl>
-            <Grid x:Name="ServicesGrid">
+            <Grid x:Name="ServicesGrid" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
