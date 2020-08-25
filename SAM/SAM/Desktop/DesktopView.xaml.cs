@@ -1,4 +1,5 @@
 ﻿using SAM.HotelServices;
+using SAM.Instagram;
 using SAM.MirrorHome;
 using SAM.Music;
 using SAM.RoomService;
@@ -113,6 +114,9 @@ namespace SAM.Desktop
                     break;
                 case SpaViewModel spaViewModel:
                     pageType = typeof(SpaView);
+                    break;
+                case InstagramViewModel instagramViewModel:
+                    pageType = typeof(InstgramView);
                     break;
                 case MusicViewModel musicViewModel:
                     pageType = typeof(MusicView);

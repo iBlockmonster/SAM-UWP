@@ -11,6 +11,7 @@ using Windows.UI.Xaml;
 using SAM.RoomService;
 using System;
 using SAM.Welcome;
+using SAM.Instagram;
 
 namespace SAM.HotelServices
 {
@@ -35,6 +36,7 @@ namespace SAM.HotelServices
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
             SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
+            InstagramViewModel = _dependencyContainer.GetDependency<InstagramViewModel>();
             MusicViewModel = _dependencyContainer.GetDependency<MusicViewModel>();
             RoomServiceViewModel = _dependencyContainer.GetDependency<RoomServiceViewModel>();
         }
@@ -146,12 +148,46 @@ namespace SAM.HotelServices
             }
         }
 
+        private InstagramViewModel _instagramViewModel;
+        public InstagramViewModel InstagramViewModel
+        {
+            get { return _instagramViewModel; }
+            set
+            {
+                if (_instagramViewModel != value)
+                {
+                    if (_instagramViewModel != null)
+                    {
+                        _instagramViewModel.InstagramDeactivated -= _instagramViewModel_InstagramDeactivated;
+                        _instagramViewModel.InstagramActivated -= _instagramViewModel_InstagramDeactivated;
+                    }
+                    _instagramViewModel = value;
+                    if (_instagramViewModel != null)
+                    {
+                        _instagramViewModel.InstagramActivated += _instagramViewModel_InstagramDeactivated;
+                        _instagramViewModel.InstagramDeactivated += _instagramViewModel_InstagramDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
         private void _spaViewModel_SpaActivated(SpaViewModel source)
         {
             FocusedContentViewModel = _spaViewModel;
         }
 
         private void _spaViewModel_SpaDeactivated(SpaViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _instagramViewModel_InstagramActivated(SpaViewModel source)
+        {
+            FocusedContentViewModel = _spaViewModel;
+        }
+
+        private void _instagramViewModel_InstagramDeactivated(InstagramViewModel obj)
         {
             FocusedContentViewModel = _nullViewModel;
         }

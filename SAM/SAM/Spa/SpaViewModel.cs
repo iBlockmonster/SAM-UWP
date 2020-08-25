@@ -28,7 +28,7 @@ namespace SAM.Spa
 
         public string InfoUrl
         {
-            get { return "https://www.marriott.com/hotel/vacation-packages/spa-getaways.mi"; }
+            get { return "https://www.facebook.com"; }
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using SAM.Welcome;
+using SAM.Instagram;
 
 namespace SAM.Common
 {
@@ -23,6 +24,7 @@ namespace SAM.Common
         public DataTemplate NewsTemplate { get; set; }
         public DataTemplate KeypadTemplate { get; set; }
         public DataTemplate SpaTemplate { get; set; }
+        public DataTemplate InstagramTemplate { get; set; }
         public DataTemplate MusicTemplate { get; set; }
         public DataTemplate RoomServiceTemplate { get; set; }
 
@@ -47,6 +49,8 @@ namespace SAM.Common
                     return KeypadTemplate;
                 case SpaViewModel spaViewModel:
                     return SpaTemplate;
+                case InstagramViewModel instagramViewModel:
+                    return InstagramTemplate;
                 case MusicViewModel musicViewModel:
                     return MusicTemplate;
                 case RoomServiceViewModel roomServiceViewModel:

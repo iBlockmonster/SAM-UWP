@@ -136,6 +136,13 @@
       <DependentUpon>HotelServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HotelServices\HotelServicesViewModel.cs" />
+    <Compile Include="Instagram\InstagramModuleView.xaml.cs">
+      <DependentUpon>InstagramModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Instagram\InstagramViewModel.cs" />
+    <Compile Include="Instagram\InstagramView.xaml.cs">
+      <DependentUpon>InstagramView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="JsonExtensionMethods.cs" />
     <Compile Include="Keypad\KeypadModuleView.xaml.cs">
       <DependentUpon>KeypadModuleView.xaml</DependentUpon>
@@ -201,6 +208,13 @@
       <DependentUpon>TaskbarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Taskbar\TaskbarViewModel.cs" />
+    <Compile Include="Twitter\TwitterModuleView.xaml.cs">
+      <DependentUpon>TwitterModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Twitter\TwitterView.xaml.cs">
+      <DependentUpon>TwitterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Twitter\TwitterViewModel.cs" />
     <Compile Include="UserControls\HotelServicesUserControl.xaml.cs">
       <DependentUpon>HotelServicesUserControl.xaml</DependentUpon>
     </Compile>
@@ -224,6 +238,9 @@
     <None Include="SAM_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Facebook\facebook-landing.jpg" />
+    <Content Include="Assets\Facebook\faceBookCard.jpg" />
+    <Content Include="Assets\Instagram\instagramCard.jpg" />
     <Content Include="Assets\MenuButtonImages\Bebo.png" />
     <Content Include="Assets\MenuButtonImages\Chat.png" />
     <Content Include="Assets\MenuButtonImages\FaceBook.png" />
@@ -305,6 +322,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Instagram\InstagramModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Instagram\InstagramView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Keypad\KeypadModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +391,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Taskbar\TaskbarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Twitter\TwitterModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Twitter\TwitterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,6 +18,7 @@ using SAM.Music;
 using SAM.News;
 using SAM.Keypad;
 using SAM.Welcome;
+using SAM.Instagram;
 
 namespace SAM
 {
@@ -120,6 +121,7 @@ namespace SAM
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new InstagramViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new NewsViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new KeypadViewModel(_dependencyContainer));
