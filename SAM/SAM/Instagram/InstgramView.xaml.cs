@@ -15,22 +15,22 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SAM.Twitter
+namespace SAM.Instagram
 {
-    public sealed partial class TwitterView : UserControl
+    public sealed partial class InstgramView : UserControl
     {
-        public TwitterView()
+        public InstgramView()
         {
             this.InitializeComponent();
         }
 
         #region ViewModelProperty
 
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(TwitterViewModel), typeof(TwitterView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(InstagramViewModel), typeof(InstgramView), new PropertyMetadata(null));
 
-        public TwitterViewModel ViewModel
+        public InstagramViewModel ViewModel
         {
-            get { return GetValue(ViewModelProperty) as TwitterViewModel; }
+            get { return GetValue(ViewModelProperty) as InstagramViewModel; }
             set { SetValue(ViewModelProperty, value); }
         }
 

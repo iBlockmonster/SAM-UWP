@@ -5,6 +5,7 @@ using SAM.News;
 using SAM.Yelp;
 using SAM.Spa;
 using SAM.Music;
+using SAM.O365;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -12,6 +13,9 @@ using SAM.RoomService;
 using System;
 using SAM.Welcome;
 using SAM.Instagram;
+using SAM.Twitter;
+using SAM.LinkedIn;
+using SAM.MSNBC;
 
 namespace SAM.HotelServices
 {
@@ -36,7 +40,11 @@ namespace SAM.HotelServices
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
             SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
+            TwitterViewModel = _dependencyContainer.GetDependency<TwitterViewModel>();
+            MsNbcViewModel = _dependencyContainer.GetDependency<MsNbcViewModel>();
             InstagramViewModel = _dependencyContainer.GetDependency<InstagramViewModel>();
+            O365ViewModel = _dependencyContainer.GetDependency<O365ViewModel>();
+            LinkedInViewModel = _dependencyContainer.GetDependency<LinkedInViewModel>();
             MusicViewModel = _dependencyContainer.GetDependency<MusicViewModel>();
             RoomServiceViewModel = _dependencyContainer.GetDependency<RoomServiceViewModel>();
         }
@@ -83,8 +91,6 @@ namespace SAM.HotelServices
         {
             FocusedContentViewModel = _newsViewModel;
         }
-
-
         private void _newsViewModel_NewsDeactivated(NewsViewModel obj)
         {
             FocusedContentViewModel = _nullViewModel;
@@ -118,7 +124,6 @@ namespace SAM.HotelServices
         {
             FocusedContentViewModel = _yelpViewModel;
         }
-
         private void _yelpViewModel_YelpDeactivated(YelpViewModel obj)
         {
             FocusedContentViewModel = _nullViewModel;
@@ -148,6 +153,30 @@ namespace SAM.HotelServices
             }
         }
 
+        private MsNbcViewModel _msNbcViewModel;
+        public MsNbcViewModel MsNbcViewModel
+        {
+            get { return _msNbcViewModel; }
+            set
+            {
+                if (_msNbcViewModel != value)
+                {
+                    if (_msNbcViewModel != null)
+                    {
+                        _msNbcViewModel.MsNbcActivated -= _msNbcViewModel_MsNbcActivated;
+                        _msNbcViewModel.MsNbcDeactivated -= _msNbcViewModel_MsNbcDeactivated;
+                    }
+                    _msNbcViewModel = value;
+                    if (_msNbcViewModel != null)
+                    {
+                        _msNbcViewModel.MsNbcActivated += _msNbcViewModel_MsNbcActivated;
+                        _msNbcViewModel.MsNbcDeactivated += _msNbcViewModel_MsNbcDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
         private InstagramViewModel _instagramViewModel;
         public InstagramViewModel InstagramViewModel
         {
@@ -158,14 +187,86 @@ namespace SAM.HotelServices
                 {
                     if (_instagramViewModel != null)
                     {
+                        _instagramViewModel.InstagramActivated -= _instagramViewModel_InstagramActivated;
                         _instagramViewModel.InstagramDeactivated -= _instagramViewModel_InstagramDeactivated;
-                        _instagramViewModel.InstagramActivated -= _instagramViewModel_InstagramDeactivated;
                     }
                     _instagramViewModel = value;
                     if (_instagramViewModel != null)
                     {
-                        _instagramViewModel.InstagramActivated += _instagramViewModel_InstagramDeactivated;
+                        _instagramViewModel.InstagramActivated += _instagramViewModel_InstagramActivated;
                         _instagramViewModel.InstagramDeactivated += _instagramViewModel_InstagramDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private O365ViewModel _o365ViewModel;
+        public O365ViewModel O365ViewModel
+        {
+            get { return _o365ViewModel; }
+            set
+            {
+                if (_o365ViewModel != value)
+                {
+                    if (_o365ViewModel != null)
+                    {
+                        _o365ViewModel.O365Activated -= _o365ViewModel_O365Activated;
+                        _o365ViewModel.O365Deactivated -= _o365ViewModel_O365Deactivated;
+                    }
+                    _o365ViewModel = value;
+                    if (_o365ViewModel != null)
+                    {
+                        _o365ViewModel.O365Activated += _o365ViewModel_O365Activated;
+                        _o365ViewModel.O365Deactivated += _o365ViewModel_O365Deactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private TwitterViewModel _twitterViewModel;
+        public TwitterViewModel TwitterViewModel
+        {
+            get { return _twitterViewModel; }
+            set
+            {
+                if (_twitterViewModel != value)
+                {
+                    if (_twitterViewModel != null)
+                    {
+                        _twitterViewModel.TwitterActivated -= _twitterViewModel_TwitterActivated;
+                        _twitterViewModel.TwitterDeactivated -= _twitterViewModel_TwitterDeactivated;
+                    }
+                    _twitterViewModel = value;
+                    if (_twitterViewModel != null)
+                    {
+                        _twitterViewModel.TwitterActivated += _twitterViewModel_TwitterActivated;
+                        _twitterViewModel.TwitterDeactivated += _twitterViewModel_TwitterDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private LinkedInViewModel _linkedInViewModel;
+        public LinkedInViewModel LinkedInViewModel
+        {
+            get { return _linkedInViewModel; }
+            set
+            {
+                if (_linkedInViewModel != value)
+                {
+                    if (_linkedInViewModel != null)
+                    {
+                        _linkedInViewModel.LinkedInActivated -= _linkedInViewModel_LinkedInActivated;
+                        _linkedInViewModel.LinkedInDeactivated -= _linkedInViewModel_LinkedInDeactivated;
+                    }
+                    _linkedInViewModel = value;
+                    if (_linkedInViewModel != null)
+                    {
+                        _linkedInViewModel.LinkedInActivated += _linkedInViewModel_LinkedInActivated;
+                        _linkedInViewModel.LinkedInDeactivated += _linkedInViewModel_LinkedInDeactivated;
                     }
                     RaisePropertyChangedFromSource();
                 }
@@ -182,15 +283,57 @@ namespace SAM.HotelServices
             FocusedContentViewModel = _nullViewModel;
         }
 
-        private void _instagramViewModel_InstagramActivated(SpaViewModel source)
+        private void _linkedInViewModel_LinkedInActivated(LinkedInViewModel source)
         {
-            FocusedContentViewModel = _spaViewModel;
+            FocusedContentViewModel = _linkedInViewModel;
+        }
+
+        private void _linkedInViewModel_LinkedInDeactivated(LinkedInViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _msNbcViewModel_MsNbcActivated(MsNbcViewModel source)
+        {
+            FocusedContentViewModel = _msNbcViewModel;
+        }
+
+        private void _msNbcViewModel_MsNbcDeactivated(MsNbcViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _instagramViewModel_InstagramActivated(InstagramViewModel source)
+        {
+            FocusedContentViewModel = _instagramViewModel;
         }
 
         private void _instagramViewModel_InstagramDeactivated(InstagramViewModel obj)
         {
             FocusedContentViewModel = _nullViewModel;
         }
+
+        private void _o365ViewModel_O365Activated(O365ViewModel source)
+        {
+            FocusedContentViewModel = _o365ViewModel;
+        }
+
+        private void _o365ViewModel_O365Deactivated(O365ViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _twitterViewModel_TwitterActivated(TwitterViewModel source)
+        {
+            FocusedContentViewModel = _twitterViewModel;
+        }
+
+        private void _twitterViewModel_TwitterDeactivated(TwitterViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+     
 
         private MusicViewModel _musicViewModel;
         public MusicViewModel MusicViewModel
@@ -202,13 +345,13 @@ namespace SAM.HotelServices
                 {
                     if (_musicViewModel != null)
                     {
-                        _musicViewModel.MusicActivated -= _musicViewModel_SpaActivated;
+                        _musicViewModel.MusicActivated -= _musicViewModel_MusicActivated;
                         _musicViewModel.MusicDeactivated -= _musicViewModel_MusicDeactivated;
                     }
                     _musicViewModel = value;
                     if (_musicViewModel != null)
                     {
-                        _musicViewModel.MusicActivated += _musicViewModel_SpaActivated;
+                        _musicViewModel.MusicActivated += _musicViewModel_MusicActivated;
                         _musicViewModel.MusicDeactivated += _musicViewModel_MusicDeactivated;
                     }
                     RaisePropertyChangedFromSource();
@@ -216,7 +359,7 @@ namespace SAM.HotelServices
             }
         }
 
-        private void _musicViewModel_SpaActivated(MusicViewModel source)
+        private void _musicViewModel_MusicActivated(MusicViewModel source)
         {
             FocusedContentViewModel = _musicViewModel;
         }

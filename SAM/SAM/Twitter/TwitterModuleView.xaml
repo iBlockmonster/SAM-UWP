@@ -6,13 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="400"
+    d:DesignWidth="340">
 
     <Grid
         x:Name="TwitterGrid"
         Width="340"
-        Height="245"
+        Height="400"
         Background="{ThemeResource SystemControlAcrylicElementBrush}"
         BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
         BorderThickness="2,2,2,2"
@@ -26,8 +26,8 @@
             <Image
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Source="/Assets/Facebook/facebook-landing.jpg"
-                Stretch="Uniform" />
+                Source="/Assets/Twitter/Twitter-Card.jpg"
+                Stretch="Fill" />
         </Button>
     </Grid>
 </UserControl>

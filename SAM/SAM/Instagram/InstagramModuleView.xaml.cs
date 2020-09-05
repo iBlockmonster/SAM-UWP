@@ -23,5 +23,17 @@ namespace SAM.Instagram
         {
             this.InitializeComponent();
         }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(InstagramViewModel), typeof(InstagramModuleView), new PropertyMetadata(null));
+
+        public InstagramViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as InstagramViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
     }
 }

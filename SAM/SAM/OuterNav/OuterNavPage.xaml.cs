@@ -1,5 +1,6 @@
 ﻿using SAM.Desktop;
 using System;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml.Controls;
 
 namespace SAM.OuterNav
@@ -16,6 +17,9 @@ namespace SAM.OuterNav
             _viewModel.ContentViewModelChanged += _viewModel_ContentViewModelChanged;
 
             this.InitializeComponent();
+
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
 
             NavigateToViewModel(_viewModel.ContentViewModel);
         }

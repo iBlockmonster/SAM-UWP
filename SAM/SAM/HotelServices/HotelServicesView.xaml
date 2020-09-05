@@ -11,17 +11,23 @@
     xmlns:news="using:SAM.News"
     xmlns:roomService="using:SAM.RoomService"
     xmlns:spa="using:SAM.Spa"
+    xmlns:instagram="using:SAM.Instagram"
+    xmlns:o365="using:SAM.O365"
+    xmlns:twitter="using:SAM.Twitter"
+    xmlns:linkedIn="using:SAM.LinkedIn"
     xmlns:welcome="using:SAM.Welcome"
     xmlns:yelp="using:SAM.Yelp"
+    xmlns:msNbc="using:SAM.MSNBC"
     mc:Ignorable="d">
 
     <ScrollViewer
+        x:Name="OuterScrollView"
         HorizontalScrollBarVisibility="Disabled"
         HorizontalScrollMode="Disabled"
         VerticalScrollBarVisibility="Auto"
         VerticalScrollMode="auto">
         <StackPanel Width="720" Margin="0,195,0,80">
-            <welcome:WelcomeModuleView ViewModel="{x:Bind Path=ViewModel.WelcomeViewModel, Mode=OneWay}">
+            <welcome:WelcomeModuleView ViewModel="{x:Bind Path=ViewModel.WelcomeViewModel, Mode=OneWay}" Visibility="Collapsed">
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
@@ -34,7 +40,7 @@
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
             </common:ExpandableContentControl>
-            <keypad:KeypadModuleView ViewModel="{x:Bind Path=ViewModel.KeypadViewModel, Mode=OneWay}">
+            <keypad:KeypadModuleView ViewModel="{x:Bind Path=ViewModel.KeypadViewModel, Mode=OneWay}" Visibility="Collapsed" >
                 <animations:Implicit.Animations>
                     <animations:Vector3Animation Target="Offset" Duration="{StaticResource GlobalOffsetDuration}" />
                 </animations:Implicit.Animations>
@@ -49,6 +55,7 @@
                 </animations:Implicit.Animations>
             </news:NewsModuleView>
             <common:ExpandableContentControl
+                x:Name="FocusedContentElement"
                 HorizontalAlignment="Stretch"
                 Content="{x:Bind Path=ViewModel.FocusedContentViewModel, Mode=OneWay}"
                 ContentTemplateSelector="{StaticResource ExpandedContentDataTemplateSelector}">
@@ -71,6 +78,9 @@
                     HorizontalAlignment="Right">
                     <yelp:YelpModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.YelpViewModel, Mode=OneWay}" />
                     <spa:SpaModuleView ViewModel="{x:Bind Path=ViewModel.SpaViewModel, Mode=OneWay}" />
+                    <o365:O365ModuleView ViewModel="{x:Bind Path=ViewModel.O365ViewModel, Mode=OneWay}" Height="400" Margin="0,40,0,0" />
+                    <linkedIn:LinkedInModuleView ViewModel="{x:Bind Path=ViewModel.LinkedInViewModel, Mode=OneWay}" Margin="0,40,0,0"/>
+                    <msNbc:MsNbcModuleView ViewModel="{x:Bind Path=ViewModel.MsNbcViewModel, Mode=OneWay}" Margin="0,40,0,0"/>
                 </StackPanel>
                 <StackPanel
                     x:Name="ServicesStackPanelRight"
@@ -79,6 +89,8 @@
                     HorizontalAlignment="left">
                     <music:MusicModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.MusicViewModel, Mode=OneWay}" />
                     <roomService:RoomServiceModuleView ViewModel="{x:Bind Path=ViewModel.RoomServiceViewModel, Mode=OneWay}" />
+                    <instagram:InstagramModuleView ViewModel="{x:Bind Path=ViewModel.InstagramViewModel, Mode=OneWay}" Margin="0,40,0,0" />
+                    <twitter:TwitterModuleView ViewModel="{x:Bind Path=ViewModel.TwitterViewModel, Mode=OneWay}" Height="400" Margin="0,40,0,0"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

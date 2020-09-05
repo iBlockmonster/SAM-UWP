@@ -15,26 +15,25 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SAM.Twitter
+namespace SAM.LinkedIn
 {
-    public sealed partial class TwitterView : UserControl
+    public sealed partial class LinkedInModuleView : UserControl
     {
-        public TwitterView()
+        public LinkedInModuleView()
         {
             this.InitializeComponent();
         }
 
         #region ViewModelProperty
 
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(TwitterViewModel), typeof(TwitterView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(LinkedInViewModel), typeof(LinkedInModuleView), new PropertyMetadata(null));
 
-        public TwitterViewModel ViewModel
+        public LinkedInViewModel ViewModel
         {
-            get { return GetValue(ViewModelProperty) as TwitterViewModel; }
+            get { return GetValue(ViewModelProperty) as LinkedInViewModel; }
             set { SetValue(ViewModelProperty, value); }
         }
 
         #endregion
-
     }
 }

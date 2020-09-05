@@ -3,6 +3,11 @@ using SAM.HotelServices;
 using SAM.MirrorHome;
 using SAM.Music;
 using SAM.RoomService;
+using SAM.Instagram;
+using SAM.O365;
+using SAM.Twitter;
+using SAM.MSNBC;
+using SAM.LinkedIn;
 using SAM.Spa;
 using SAM.Yelp;
 using System;
@@ -13,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace SAM.Model
 {
-    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp, Spa, Music };
+    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp, Spa, Music, Instagram, O365, Twitter, MsNbc, LinkedIn };
 
     public class ContentNavModel
     {
@@ -51,6 +56,16 @@ namespace SAM.Model
                         return _dependencyContainer.GetDependency<RoomServiceViewModel>();
                     case ContentNavMode.Spa:
                         return _dependencyContainer.GetDependency<SpaViewModel>();
+                    case ContentNavMode.LinkedIn:
+                        return _dependencyContainer.GetDependency<LinkedInViewModel>();
+                    case ContentNavMode.MsNbc:
+                        return _dependencyContainer.GetDependency<MsNbcViewModel>();
+                    case ContentNavMode.O365:
+                        return _dependencyContainer.GetDependency<O365ViewModel>();
+                    case ContentNavMode.Instagram:
+                        return _dependencyContainer.GetDependency<InstagramViewModel>();
+                    case ContentNavMode.Twitter:
+                        return _dependencyContainer.GetDependency<TwitterViewModel>();
                     case ContentNavMode.Music:
                         return _dependencyContainer.GetDependency<MusicViewModel>();
                 }

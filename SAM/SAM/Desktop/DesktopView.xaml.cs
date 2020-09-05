@@ -3,6 +3,10 @@ using SAM.Instagram;
 using SAM.MirrorHome;
 using SAM.Music;
 using SAM.RoomService;
+using SAM.LinkedIn;
+using SAM.O365;
+using SAM.Twitter;
+using SAM.MSNBC;
 using SAM.Spa;
 using SAM.Yelp;
 using System;
@@ -114,6 +118,18 @@ namespace SAM.Desktop
                     break;
                 case SpaViewModel spaViewModel:
                     pageType = typeof(SpaView);
+                    break;
+                case TwitterViewModel twitterViewModel:
+                    pageType = typeof(TwitterView);
+                    break;
+                case MsNbcViewModel msNbcViewModel:
+                    pageType = typeof(MsNbcView);
+                    break;
+                case O365ViewModel o365ViewModel:
+                    pageType = typeof(O365View);
+                    break;
+                case LinkedInViewModel linkedInViewModel:
+                    pageType = typeof(LinkedInView);
                     break;
                 case InstagramViewModel instagramViewModel:
                     pageType = typeof(InstgramView);

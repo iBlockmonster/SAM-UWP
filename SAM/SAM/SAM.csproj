@@ -140,8 +140,8 @@
       <DependentUpon>InstagramModuleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instagram\InstagramViewModel.cs" />
-    <Compile Include="Instagram\InstagramView.xaml.cs">
-      <DependentUpon>InstagramView.xaml</DependentUpon>
+    <Compile Include="Instagram\InstgramView.xaml.cs">
+      <DependentUpon>InstgramView.xaml</DependentUpon>
     </Compile>
     <Compile Include="JsonExtensionMethods.cs" />
     <Compile Include="Keypad\KeypadModuleView.xaml.cs">
@@ -151,6 +151,13 @@
       <DependentUpon>KeypadView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Keypad\KeypadViewModel.cs" />
+    <Compile Include="LinkedIn\LinkedInModuleView.xaml.cs">
+      <DependentUpon>LinkedInModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedIn\LinkedInView.xaml.cs">
+      <DependentUpon>LinkedInView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedIn\LinkedInViewModel.cs" />
     <Compile Include="MirrorHome\MirrorHomeView.xaml.cs">
       <DependentUpon>MirrorHomeView.xaml</DependentUpon>
     </Compile>
@@ -161,6 +168,13 @@
     <Compile Include="Model\NewsArticleData.cs" />
     <Compile Include="Model\NewsModel.cs" />
     <Compile Include="Model\YelpModel.cs" />
+    <Compile Include="MSNBC\MsNbcModuleView.xaml.cs">
+      <DependentUpon>MsNbcModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MSNBC\MsNbcView.xaml.cs">
+      <DependentUpon>MsNbcView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MSNBC\MsNbcViewModel.cs" />
     <Compile Include="Music\MusicModuleView.xaml.cs">
       <DependentUpon>MusicModuleView.xaml</DependentUpon>
     </Compile>
@@ -175,6 +189,13 @@
       <DependentUpon>NewsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="News\NewsViewModel.cs" />
+    <Compile Include="O365\O365ModuleView.xaml.cs">
+      <DependentUpon>O365ModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O365\O365View.xaml.cs">
+      <DependentUpon>O365View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="O365\O365ViewModel.cs" />
     <Compile Include="RoomService\RoomServiceModuleView.xaml.cs">
       <DependentUpon>RoomServiceModuleView.xaml</DependentUpon>
     </Compile>
@@ -241,6 +262,7 @@
     <Content Include="Assets\Facebook\facebook-landing.jpg" />
     <Content Include="Assets\Facebook\faceBookCard.jpg" />
     <Content Include="Assets\Instagram\instagramCard.jpg" />
+    <Content Include="Assets\LinkedIn\Linkedin-Card.jpg" />
     <Content Include="Assets\MenuButtonImages\Bebo.png" />
     <Content Include="Assets\MenuButtonImages\Chat.png" />
     <Content Include="Assets\MenuButtonImages\FaceBook.png" />
@@ -275,15 +297,21 @@
     <Content Include="Assets\MirrorCacheImages\temp.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCard.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCardCut.png" />
+    <Content Include="Assets\MSNBC\MsNbc-Card.jpg" />
     <Content Include="Assets\MusicImages\spotify.jpg" />
+    <Content Include="Assets\O365\Office365-Card.jpg" />
     <Content Include="Assets\OrderFoodImages\MyOrder.png" />
     <Content Include="Assets\OrderFoodImages\OrderItems.png" />
     <Content Include="Assets\OrderFoodImages\OrderTitle.png" />
+    <Content Include="Assets\Redit\Redit-Card.jpg" />
     <Content Include="Assets\SpaImages\addButton.png" />
     <Content Include="Assets\SpaImages\MySpaOrder.png" />
     <Content Include="Assets\SpaImages\SpaItems.png" />
     <Content Include="Assets\SpaImages\SpaTitle.png" />
+    <Content Include="Assets\TikTok\TikTok-Card.jpg" />
+    <Content Include="Assets\Twitter\Twitter-Card.jpg" />
     <Content Include="Assets\YelpImages\YelpTitle.png" />
+    <Content Include="Desktop\SeattleSkyLine.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -326,7 +354,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Instagram\InstagramView.xaml">
+    <Page Include="Instagram\InstgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,7 +366,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LinkedIn\LinkedInModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LinkedIn\LinkedInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MirrorHome\MirrorHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MSNBC\MsNbcModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MSNBC\MsNbcView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,6 +399,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="News\NewsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O365\O365ModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="O365\O365View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,6 +6,11 @@
     xmlns:keypad="using:SAM.Keypad"
     xmlns:music="using:SAM.Music"
     xmlns:news="using:SAM.News"
+    xmlns:o365="using:SAM.O365"
+    xmlns:twitter="using:SAM.Twitter"
+    xmlns:msNbc="using:SAM.MSNBC"
+    xmlns:instagram="using:SAM.Instagram"
+    xmlns:linkedIn="using:SAM.LinkedIn"
     xmlns:roomService="using:SAM.RoomService"
     xmlns:sam="using:SAM"
     xmlns:spa="using:SAM.Spa"
@@ -31,6 +36,26 @@
         <spa:SpaView ViewModel="{Binding}" />
     </DataTemplate>
 
+    <DataTemplate x:Key="ExpandedInstagramTemplate" x:DataType="instagram:InstagramViewModel">
+        <instagram:InstgramView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedO365Template" x:DataType="o365:O365ViewModel">
+        <o365:O365View ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedTwitterTemplate" x:DataType="twitter:TwitterViewModel">
+        <twitter:TwitterView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedMsNbcTemplate" x:DataType="msNbc:MsNbcViewModel">
+        <msNbc:MsNbcView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedLinkedInTemplate" x:DataType="linkedIn:LinkedInViewModel">
+        <linkedIn:LinkedInView ViewModel="{Binding}" />
+    </DataTemplate>
+
     <DataTemplate x:Key="ExpandedMusicTemplate" x:DataType="music:MusicViewModel">
         <music:MusicView ViewModel="{Binding}" />
     </DataTemplate>
@@ -47,6 +72,11 @@
         NullTemplate="{StaticResource ExpandedNullTemplate}"
         RoomServiceTemplate="{StaticResource ExpandedRoomServiceTemplate}"
         SpaTemplate="{StaticResource ExpandedSpaTemplate}"
+        MsNbcTemplate="{StaticResource ExpandedMsNbcTemplate}"
+        LinkedInTemplate="{StaticResource ExpandedLinkedInTemplate}"
+        TwitterTemplate="{StaticResource ExpandedTwitterTemplate}"
+        O365Template="{StaticResource ExpandedO365Template}"
+        InstagramTemplate="{StaticResource ExpandedInstagramTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />
 
 </ResourceDictionary>

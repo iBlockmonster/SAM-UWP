@@ -130,6 +130,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 CornerRadius="8"
+                Click="{x:Bind Mode=OneWay, Path=ViewModel.OnTwitterClick}"
                 Style="{StaticResource ButtonRevealStyle}">
                     <Image Source="/Assets/MenuButtonImages/Twitter.png" />
             </Button>

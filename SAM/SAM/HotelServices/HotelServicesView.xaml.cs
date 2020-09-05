@@ -41,6 +41,23 @@ namespace SAM.HotelServices
             base.OnNavigatedTo(e);
 
             ViewModel = e.Parameter as HotelServicesViewModel;
+
+            ViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+            ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+        }
+
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "FocusedContentViewModel")
+            {
+                if(ViewModel != null && ViewModel.FocusedContentViewModel != null)
+                {
+                    var transform = FocusedContentElement.TransformToVisual(OuterScrollView.Content as UIElement);
+                    var focusedContentElementPosition = transform.TransformPoint(new Point(0, 0));
+                    System.Diagnostics.Debug.WriteLine(focusedContentElementPosition.Y);
+                    OuterScrollView.ChangeView(null, focusedContentElementPosition.Y, null);
+                }
+            }
         }
     }
 }

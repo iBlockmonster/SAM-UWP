@@ -19,6 +19,10 @@ using SAM.News;
 using SAM.Keypad;
 using SAM.Welcome;
 using SAM.Instagram;
+using SAM.O365;
+using SAM.Twitter;
+using SAM.MSNBC;
+using SAM.LinkedIn;
 
 namespace SAM
 {
@@ -121,6 +125,10 @@ namespace SAM
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new LinkedInViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new MsNbcViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new TwitterViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new O365ViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new InstagramViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new NewsViewModel(_dependencyContainer));

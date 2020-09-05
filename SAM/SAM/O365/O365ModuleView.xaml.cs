@@ -15,13 +15,24 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SAM.Instagram
+namespace SAM.O365
 {
-    public sealed partial class InstgramView : UserControl
+    public sealed partial class O365ModuleView : UserControl
     {
-        public InstgramView()
+        public O365ModuleView()
         {
             this.InitializeComponent();
         }
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(O365ViewModel), typeof(O365ModuleView), new PropertyMetadata(null));
+
+        public O365ViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as O365ViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
     }
 }

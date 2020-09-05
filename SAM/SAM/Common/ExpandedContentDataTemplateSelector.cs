@@ -13,6 +13,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using SAM.Welcome;
 using SAM.Instagram;
+using SAM.LinkedIn;
+using SAM.O365;
+using SAM.MSNBC;
+using SAM.Twitter;
 
 namespace SAM.Common
 {
@@ -24,6 +28,10 @@ namespace SAM.Common
         public DataTemplate NewsTemplate { get; set; }
         public DataTemplate KeypadTemplate { get; set; }
         public DataTemplate SpaTemplate { get; set; }
+        public DataTemplate TwitterTemplate { get; set; }
+        public DataTemplate MsNbcTemplate { get; set; }
+        public DataTemplate LinkedInTemplate { get; set; }
+        public DataTemplate O365Template { get; set; }
         public DataTemplate InstagramTemplate { get; set; }
         public DataTemplate MusicTemplate { get; set; }
         public DataTemplate RoomServiceTemplate { get; set; }
@@ -49,6 +57,14 @@ namespace SAM.Common
                     return KeypadTemplate;
                 case SpaViewModel spaViewModel:
                     return SpaTemplate;
+                case MsNbcViewModel msNbcViewModel:
+                    return MsNbcTemplate;
+                case TwitterViewModel twitterViewModel:
+                    return TwitterTemplate;
+                case LinkedInViewModel linkedInViewModel:
+                    return LinkedInTemplate;
+                case O365ViewModel o365ViewModel:
+                    return O365Template;
                 case InstagramViewModel instagramViewModel:
                     return InstagramTemplate;
                 case MusicViewModel musicViewModel:

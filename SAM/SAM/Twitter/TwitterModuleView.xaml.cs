@@ -23,5 +23,17 @@ namespace SAM.Twitter
         {
             this.InitializeComponent();
         }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(TwitterViewModel), typeof(TwitterModuleView), new PropertyMetadata(null));
+
+        public TwitterViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as TwitterViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
     }
 }

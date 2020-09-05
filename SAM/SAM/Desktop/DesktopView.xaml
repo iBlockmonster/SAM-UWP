@@ -14,7 +14,7 @@
 
     <Grid x:Name="LayoutRoot">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/MirrorCacheImages/1200px-Las_Vegas_Paris_By_Night.jpg" />
+            <ImageBrush ImageSource="/Desktop/SeattleSkyLine.jpg" />
         </Grid.Background>
         <Frame
             x:Name="ContentFrame"

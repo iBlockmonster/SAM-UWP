@@ -28,7 +28,7 @@ namespace SAM.Instagram
 
         public string InfoUrl
         {
-            get { return "https://www.instagram.com"; }
+            get { return "https://www.instagram.com/"; }
         }
     }
 }
