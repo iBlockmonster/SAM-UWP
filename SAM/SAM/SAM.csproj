@@ -117,6 +117,13 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Amazon\AmazonModuleView.xaml.cs">
+      <DependentUpon>AmazonModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Amazon\AmazonView.xaml.cs">
+      <DependentUpon>AmazonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Amazon\AmazonViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -196,6 +203,13 @@
       <DependentUpon>O365View.xaml</DependentUpon>
     </Compile>
     <Compile Include="O365\O365ViewModel.cs" />
+    <Compile Include="Redit\ReditView.xaml.cs">
+      <DependentUpon>ReditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Redit\ReditViewModel.cs" />
+    <Compile Include="Redit\ReditViewModule.xaml.cs">
+      <DependentUpon>ReditViewModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomService\RoomServiceModuleView.xaml.cs">
       <DependentUpon>RoomServiceModuleView.xaml</DependentUpon>
     </Compile>
@@ -229,6 +243,13 @@
       <DependentUpon>TaskbarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Taskbar\TaskbarViewModel.cs" />
+    <Compile Include="TikTok\TikTokModuleView.xaml.cs">
+      <DependentUpon>TikTokModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TikTok\TikTokView.xaml.cs">
+      <DependentUpon>TikTokView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TikTok\TikTokViewModel.cs" />
     <Compile Include="Twitter\TwitterModuleView.xaml.cs">
       <DependentUpon>TwitterModuleView.xaml</DependentUpon>
     </Compile>
@@ -251,6 +272,13 @@
       <DependentUpon>YelpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Yelp\YelpViewModel.cs" />
+    <Compile Include="YouTube\YoutubeModuleView.xaml.cs">
+      <DependentUpon>YoutubeModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YouTube\YoutubeView.xaml.cs">
+      <DependentUpon>YoutubeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YouTube\YoutubeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -259,6 +287,7 @@
     <None Include="SAM_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Amazon\Amazon-Card.jpg" />
     <Content Include="Assets\Facebook\facebook-landing.jpg" />
     <Content Include="Assets\Facebook\faceBookCard.jpg" />
     <Content Include="Assets\Instagram\instagramCard.jpg" />
@@ -286,6 +315,7 @@
     <Content Include="Assets\MirrorCacheImages\GetStartedLocking.png" />
     <Content Include="Assets\MirrorCacheImages\HotelAmenities.png" />
     <Content Include="Assets\MirrorCacheImages\marriott logo.png" />
+    <Content Include="Assets\MirrorCacheImages\MirrorCacheHeader-Card.jpg" />
     <Content Include="Assets\MirrorCacheImages\OrderCoffee.png" />
     <Content Include="Assets\MirrorCacheImages\ParisNight.png" />
     <Content Include="Assets\MirrorCacheImages\PlayMusic.png" />
@@ -298,6 +328,7 @@
     <Content Include="Assets\MirrorCacheImages\WelcomeCard.png" />
     <Content Include="Assets\MirrorCacheImages\WelcomeCardCut.png" />
     <Content Include="Assets\MSNBC\MsNbc-Card.jpg" />
+    <Content Include="Assets\MSNBC\MsNbc-LargeCard.jpg" />
     <Content Include="Assets\MusicImages\spotify.jpg" />
     <Content Include="Assets\O365\Office365-Card.jpg" />
     <Content Include="Assets\OrderFoodImages\MyOrder.png" />
@@ -311,6 +342,7 @@
     <Content Include="Assets\TikTok\TikTok-Card.jpg" />
     <Content Include="Assets\Twitter\Twitter-Card.jpg" />
     <Content Include="Assets\YelpImages\YelpTitle.png" />
+    <Content Include="Assets\YouTube\Youtube-Card.jpg" />
     <Content Include="Desktop\SeattleSkyLine.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -326,6 +358,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Amazon\AmazonModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Amazon\AmazonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -410,6 +450,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Redit\ReditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Redit\ReditViewModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RoomService\RoomServiceModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -446,6 +494,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TikTok\TikTokModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TikTok\TikTokView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Twitter\TwitterModuleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -467,6 +523,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Yelp\YelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="YouTube\YoutubeModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="YouTube\YoutubeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

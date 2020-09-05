@@ -16,6 +16,10 @@ using SAM.Instagram;
 using SAM.Twitter;
 using SAM.LinkedIn;
 using SAM.MSNBC;
+using SAM.Redit;
+using SAM.TikTok;
+using SAM.Amazon;
+using SAM.YouTube;
 
 namespace SAM.HotelServices
 {
@@ -40,7 +44,11 @@ namespace SAM.HotelServices
             NewsViewModel = _dependencyContainer.GetDependency<NewsViewModel>();
             KeypadViewModel = _dependencyContainer.GetDependency<KeypadViewModel>();
             SpaViewModel = _dependencyContainer.GetDependency<SpaViewModel>();
+            AmazonViewModel = _dependencyContainer.GetDependency<AmazonViewModel>();
+            YoutubeViewModel = _dependencyContainer.GetDependency<YoutubeViewModel>();
+            TikTokViewModel = _dependencyContainer.GetDependency<TikTokViewModel>();
             TwitterViewModel = _dependencyContainer.GetDependency<TwitterViewModel>();
+            ReditViewModel = _dependencyContainer.GetDependency<ReditViewModel>();
             MsNbcViewModel = _dependencyContainer.GetDependency<MsNbcViewModel>();
             InstagramViewModel = _dependencyContainer.GetDependency<InstagramViewModel>();
             O365ViewModel = _dependencyContainer.GetDependency<O365ViewModel>();
@@ -153,6 +161,78 @@ namespace SAM.HotelServices
             }
         }
 
+        private AmazonViewModel _amazonViewModel;
+        public AmazonViewModel AmazonViewModel
+        {
+            get { return _amazonViewModel; }
+            set
+            {
+                if (_amazonViewModel != value)
+                {
+                    if (_amazonViewModel != null)
+                    {
+                        _amazonViewModel.AmazonActivated -= _amazonViewModel_AmazonActivated;
+                        _amazonViewModel.AmazonDeactivated -= _amazonViewModel_AmazonDeactivated;
+                    }
+                    _amazonViewModel = value;
+                    if (_amazonViewModel != null)
+                    {
+                        _amazonViewModel.AmazonActivated += _amazonViewModel_AmazonActivated;
+                        _amazonViewModel.AmazonDeactivated += _amazonViewModel_AmazonDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private YoutubeViewModel _youtubeViewModel;
+        public YoutubeViewModel YoutubeViewModel
+        {
+            get { return _youtubeViewModel; }
+            set
+            {
+                if (_youtubeViewModel != value)
+                {
+                    if (_youtubeViewModel != null)
+                    {
+                        _youtubeViewModel.YoutubeActivated -= _youtubeViewModel_YoutubeActivated;
+                        _youtubeViewModel.YoutubeDeactivated -= _youtubeViewModel_YoutubeDeactivated;
+                    }
+                    _youtubeViewModel = value;
+                    if (_youtubeViewModel != null)
+                    {
+                        _youtubeViewModel.YoutubeActivated += _youtubeViewModel_YoutubeActivated;
+                        _youtubeViewModel.YoutubeDeactivated += _youtubeViewModel_YoutubeDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        private TikTokViewModel _tiktokViewModel;
+        public TikTokViewModel TikTokViewModel
+        {
+            get { return _tiktokViewModel; }
+            set
+            {
+                if (_tiktokViewModel != value)
+                {
+                    if (_tiktokViewModel != null)
+                    {
+                        _tiktokViewModel.TikTokActivated -= _tiktokViewModel_TikTokActivated;
+                        _tiktokViewModel.TikTokDeactivated -= _tiktokViewModel_TikTokDeactivated;
+                    }
+                    _tiktokViewModel = value;
+                    if (_tiktokViewModel != null)
+                    {
+                        _tiktokViewModel.TikTokActivated += _tiktokViewModel_TikTokActivated;
+                        _tiktokViewModel.TikTokDeactivated += _tiktokViewModel_TikTokDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
         private MsNbcViewModel _msNbcViewModel;
         public MsNbcViewModel MsNbcViewModel
         {
@@ -249,6 +329,30 @@ namespace SAM.HotelServices
             }
         }
 
+        private ReditViewModel _reditViewModel;
+        public ReditViewModel ReditViewModel
+        {
+            get { return _reditViewModel; }
+            set
+            {
+                if (_reditViewModel != value)
+                {
+                    if (_reditViewModel != null)
+                    {
+                        _reditViewModel.ReditActivated -= _reditViewModel_ReditActivated;
+                        _reditViewModel.ReditDeactivated -= _reditViewModel_ReditDeactivated;
+                    }
+                     _reditViewModel = value;
+                    if (_reditViewModel != null)
+                    {
+                        _reditViewModel.ReditActivated += _reditViewModel_ReditActivated;
+                        _reditViewModel.ReditDeactivated += _reditViewModel_ReditDeactivated;
+                    }
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
         private LinkedInViewModel _linkedInViewModel;
         public LinkedInViewModel LinkedInViewModel
         {
@@ -279,6 +383,36 @@ namespace SAM.HotelServices
         }
 
         private void _spaViewModel_SpaDeactivated(SpaViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _amazonViewModel_AmazonActivated(AmazonViewModel source)
+        {
+            FocusedContentViewModel = _amazonViewModel;
+        }
+
+        private void _amazonViewModel_AmazonDeactivated(AmazonViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _youtubeViewModel_YoutubeActivated(YoutubeViewModel source)
+        {
+            FocusedContentViewModel = _youtubeViewModel;
+        }
+
+        private void _youtubeViewModel_YoutubeDeactivated(YoutubeViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+        private void _tiktokViewModel_TikTokActivated(TikTokViewModel source)
+        {
+            FocusedContentViewModel = _tiktokViewModel;
+        }
+
+        private void _tiktokViewModel_TikTokDeactivated(TikTokViewModel obj)
         {
             FocusedContentViewModel = _nullViewModel;
         }
@@ -333,7 +467,17 @@ namespace SAM.HotelServices
             FocusedContentViewModel = _nullViewModel;
         }
 
-     
+        private void _reditViewModel_ReditActivated(ReditViewModel souce)
+        {
+            FocusedContentViewModel = _reditViewModel;
+        }
+
+        private void _reditViewModel_ReditDeactivated(ReditViewModel obj)
+        {
+            FocusedContentViewModel = _nullViewModel;
+        }
+
+
 
         private MusicViewModel _musicViewModel;
         public MusicViewModel MusicViewModel

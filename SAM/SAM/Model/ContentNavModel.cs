@@ -6,9 +6,13 @@ using SAM.RoomService;
 using SAM.Instagram;
 using SAM.O365;
 using SAM.Twitter;
+using SAM.Redit;
 using SAM.MSNBC;
 using SAM.LinkedIn;
 using SAM.Spa;
+using SAM.YouTube;
+using SAM.TikTok;
+using SAM.Amazon;
 using SAM.Yelp;
 using System;
 using System.Collections.Generic;
@@ -18,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace SAM.Model
 {
-    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp, Spa, Music, Instagram, O365, Twitter, MsNbc, LinkedIn };
+    public enum ContentNavMode { HotelServices, MirrorHome, RoomService, Yelp, Spa, Music, Instagram, O365, Twitter, MsNbc, LinkedIn, Redit, TikTok, Youtube, Amazon };
 
     public class ContentNavModel
     {
@@ -54,8 +58,14 @@ namespace SAM.Model
                         return _dependencyContainer.GetDependency<YelpViewModel>();
                     case ContentNavMode.RoomService:
                         return _dependencyContainer.GetDependency<RoomServiceViewModel>();
+                    case ContentNavMode.Youtube:
+                        return _dependencyContainer.GetDependency<YoutubeViewModel>();
                     case ContentNavMode.Spa:
                         return _dependencyContainer.GetDependency<SpaViewModel>();
+                    case ContentNavMode.Amazon:
+                        return _dependencyContainer.GetDependency<AmazonViewModel>();
+                    case ContentNavMode.TikTok:
+                        return _dependencyContainer.GetDependency<TikTokViewModel>();
                     case ContentNavMode.LinkedIn:
                         return _dependencyContainer.GetDependency<LinkedInViewModel>();
                     case ContentNavMode.MsNbc:
@@ -66,6 +76,8 @@ namespace SAM.Model
                         return _dependencyContainer.GetDependency<InstagramViewModel>();
                     case ContentNavMode.Twitter:
                         return _dependencyContainer.GetDependency<TwitterViewModel>();
+                    case ContentNavMode.Redit:
+                        return _dependencyContainer.GetDependency<ReditViewModel>();
                     case ContentNavMode.Music:
                         return _dependencyContainer.GetDependency<MusicViewModel>();
                 }

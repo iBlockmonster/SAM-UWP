@@ -17,6 +17,10 @@ using SAM.LinkedIn;
 using SAM.O365;
 using SAM.MSNBC;
 using SAM.Twitter;
+using SAM.TikTok;
+using SAM.Redit;
+using SAM.YouTube;
+using SAM.Amazon;
 
 namespace SAM.Common
 {
@@ -28,7 +32,11 @@ namespace SAM.Common
         public DataTemplate NewsTemplate { get; set; }
         public DataTemplate KeypadTemplate { get; set; }
         public DataTemplate SpaTemplate { get; set; }
+        public DataTemplate AmazonTemplate { get; set; }
+        public DataTemplate YoutubeTemplate { get; set; }
+        public DataTemplate TikTokTemplate { get; set; }
         public DataTemplate TwitterTemplate { get; set; }
+        public DataTemplate ReditTemplate { get; set; }
         public DataTemplate MsNbcTemplate { get; set; }
         public DataTemplate LinkedInTemplate { get; set; }
         public DataTemplate O365Template { get; set; }
@@ -57,10 +65,18 @@ namespace SAM.Common
                     return KeypadTemplate;
                 case SpaViewModel spaViewModel:
                     return SpaTemplate;
+                case AmazonViewModel amazonViewModel:
+                    return AmazonTemplate;
+                case YoutubeViewModel youtubeViewModel:
+                    return YoutubeTemplate;
+                case TikTokViewModel tiktokViewModel:
+                    return TikTokTemplate;
                 case MsNbcViewModel msNbcViewModel:
                     return MsNbcTemplate;
                 case TwitterViewModel twitterViewModel:
                     return TwitterTemplate;
+                case ReditViewModel reditViewModel:
+                    return ReditTemplate;
                 case LinkedInViewModel linkedInViewModel:
                     return LinkedInTemplate;
                 case O365ViewModel o365ViewModel:

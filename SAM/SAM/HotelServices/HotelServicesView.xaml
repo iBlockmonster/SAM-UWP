@@ -18,6 +18,10 @@
     xmlns:welcome="using:SAM.Welcome"
     xmlns:yelp="using:SAM.Yelp"
     xmlns:msNbc="using:SAM.MSNBC"
+    xmlns:redit="using:SAM.Redit"
+    xmlns:tiktok="using:SAM.TikTok"
+    xmlns:youtube="using:SAM.YouTube"
+    xmlns:amazon="using:SAM.Amazon"
     mc:Ignorable="d">
 
     <ScrollViewer
@@ -81,6 +85,7 @@
                     <o365:O365ModuleView ViewModel="{x:Bind Path=ViewModel.O365ViewModel, Mode=OneWay}" Height="400" Margin="0,40,0,0" />
                     <linkedIn:LinkedInModuleView ViewModel="{x:Bind Path=ViewModel.LinkedInViewModel, Mode=OneWay}" Margin="0,40,0,0"/>
                     <msNbc:MsNbcModuleView ViewModel="{x:Bind Path=ViewModel.MsNbcViewModel, Mode=OneWay}" Margin="0,40,0,0"/>
+                    <tiktok:TikTokModuleView ViewModel="{x:Bind Path=ViewModel.TikTokViewModel, Mode=OneWay}" Margin="0,40,0,0"/>
                 </StackPanel>
                 <StackPanel
                     x:Name="ServicesStackPanelRight"
@@ -88,11 +93,17 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left">
                     <music:MusicModuleView Margin="0,0,0,40" ViewModel="{x:Bind Path=ViewModel.MusicViewModel, Mode=OneWay}" />
-                    <roomService:RoomServiceModuleView ViewModel="{x:Bind Path=ViewModel.RoomServiceViewModel, Mode=OneWay}" />
-                    <instagram:InstagramModuleView ViewModel="{x:Bind Path=ViewModel.InstagramViewModel, Mode=OneWay}" Margin="0,40,0,0" />
-                    <twitter:TwitterModuleView ViewModel="{x:Bind Path=ViewModel.TwitterViewModel, Mode=OneWay}" Height="400" Margin="0,40,0,0"/>
+                    <roomService:RoomServiceModuleView ViewModel="{x:Bind Path=ViewModel.RoomServiceViewModel, Mode=OneWay}" Margin="0,0,0,40" />
+                    <instagram:InstagramModuleView ViewModel="{x:Bind Path=ViewModel.InstagramViewModel, Mode=OneWay}" Margin="0,0,0,40" />
+                    <twitter:TwitterModuleView ViewModel="{x:Bind Path=ViewModel.TwitterViewModel, Mode=OneWay}" Height="400" Margin="0,0,0,40"/>
+                    <redit:ReditViewModule ViewModel="{x:Bind Path=ViewModel.ReditViewModel, Mode=OneWay}" Height="245" Margin="0,0,0,40"/>
+                    <youtube:YoutubeModuleView ViewModel="{x:Bind Path=ViewModel.YoutubeViewModel, Mode=OneWay}" Height="400" Margin="0,0,0,40"/>
                 </StackPanel>
+
             </Grid>
+            <StackPanel x:Name="AmazonServicesStackPanel">
+                <amazon:AmazonModuleView ViewModel="{x:Bind Mode=OneWay, Path=ViewModel.AmazonViewModel}" Height="400"/>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Page>

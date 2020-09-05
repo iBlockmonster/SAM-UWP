@@ -6,6 +6,7 @@ using SAM.RoomService;
 using SAM.LinkedIn;
 using SAM.O365;
 using SAM.Twitter;
+using SAM.Redit;
 using SAM.MSNBC;
 using SAM.Spa;
 using SAM.Yelp;
@@ -121,6 +122,9 @@ namespace SAM.Desktop
                     break;
                 case TwitterViewModel twitterViewModel:
                     pageType = typeof(TwitterView);
+                    break;
+                case ReditViewModel reditViewModel:
+                    pageType = typeof(ReditView);
                     break;
                 case MsNbcViewModel msNbcViewModel:
                     pageType = typeof(MsNbcView);

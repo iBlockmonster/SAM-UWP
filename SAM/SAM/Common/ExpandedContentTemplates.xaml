@@ -14,6 +14,10 @@
     xmlns:roomService="using:SAM.RoomService"
     xmlns:sam="using:SAM"
     xmlns:spa="using:SAM.Spa"
+    xmlns:redit="using:SAM.Redit"
+    xmlns:youtube="using:SAM.YouTube"
+    xmlns:tiktok="using:SAM.TikTok"
+    xmlns:amazon="using:SAM.Amazon"
     xmlns:yelp="using:SAM.Yelp">
 
     <DataTemplate x:Key="ExpandedNullTemplate" x:DataType="sam:NullViewModel">
@@ -36,6 +40,18 @@
         <spa:SpaView ViewModel="{Binding}" />
     </DataTemplate>
 
+    <DataTemplate x:Key="ExpandedAmazonTemplate" x:DataType="amazon:AmazonViewModel">
+        <amazon:AmazonView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedYoutubeTemplate" x:DataType="youtube:YoutubeViewModel">
+        <youtube:YoutubeView ViewModel="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExpandedTikTokTemplate" x:DataType="tiktok:TikTokViewModel">
+        <tiktok:TikTokView ViewModel="{Binding}" />
+    </DataTemplate>
+
     <DataTemplate x:Key="ExpandedInstagramTemplate" x:DataType="instagram:InstagramViewModel">
         <instagram:InstgramView ViewModel="{Binding}" />
     </DataTemplate>
@@ -46,6 +62,10 @@
 
     <DataTemplate x:Key="ExpandedTwitterTemplate" x:DataType="twitter:TwitterViewModel">
         <twitter:TwitterView ViewModel="{Binding}" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="ExpandedReditTemplate" x:DataType="redit:ReditViewModel">
+        <redit:ReditView ViewModel="{Binding}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ExpandedMsNbcTemplate" x:DataType="msNbc:MsNbcViewModel">
@@ -72,9 +92,13 @@
         NullTemplate="{StaticResource ExpandedNullTemplate}"
         RoomServiceTemplate="{StaticResource ExpandedRoomServiceTemplate}"
         SpaTemplate="{StaticResource ExpandedSpaTemplate}"
+        AmazonTemplate="{StaticResource ExpandedAmazonTemplate}"
+        YoutubeTemplate="{StaticResource ExpandedYoutubeTemplate}"
+        TikTokTemplate="{StaticResource ExpandedTikTokTemplate}"
         MsNbcTemplate="{StaticResource ExpandedMsNbcTemplate}"
         LinkedInTemplate="{StaticResource ExpandedLinkedInTemplate}"
         TwitterTemplate="{StaticResource ExpandedTwitterTemplate}"
+        ReditTemplate="{StaticResource ExpandedReditTemplate}"
         O365Template="{StaticResource ExpandedO365Template}"
         InstagramTemplate="{StaticResource ExpandedInstagramTemplate}"
         YelpTemplate="{StaticResource ExpandedYelpTemplate}" />

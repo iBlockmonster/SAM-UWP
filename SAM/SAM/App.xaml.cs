@@ -23,6 +23,10 @@ using SAM.O365;
 using SAM.Twitter;
 using SAM.MSNBC;
 using SAM.LinkedIn;
+using SAM.Redit;
+using SAM.TikTok;
+using SAM.YouTube;
+using SAM.Amazon;
 
 namespace SAM
 {
@@ -113,7 +117,6 @@ namespace SAM
                 _dependencyContainer.AddDependency(ym);
                 _dependencyContainer.AddDependency(nm);
                 _dependencyContainer.AddDependency(new ContentNavModel(_dependencyContainer, ContentNavMode.MirrorHome));
-
                 _dependencyContainer.AddDependency(new HotelServicesViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new WelcomeViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MirrorHomeViewModel(_dependencyContainer));
@@ -125,9 +128,13 @@ namespace SAM
                 _dependencyContainer.AddDependency(new YelpViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new RoomServiceViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new SpaViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new AmazonViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new YoutubeViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new TikTokViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new LinkedInViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MsNbcViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new TwitterViewModel(_dependencyContainer));
+                _dependencyContainer.AddDependency(new ReditViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new O365ViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new InstagramViewModel(_dependencyContainer));
                 _dependencyContainer.AddDependency(new MusicViewModel(_dependencyContainer));

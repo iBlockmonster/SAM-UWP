@@ -72,7 +72,7 @@
                 <Image
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Source="/Assets/Square150x150Logo.scale-200.png" />
+                    Source="/Assets/MirrorCacheImages/MirrorCacheHeader-Card.jpg" Stretch="Fill" />
             </Button>
 
         </Grid>
